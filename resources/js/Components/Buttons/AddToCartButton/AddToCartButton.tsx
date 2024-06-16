@@ -5,14 +5,13 @@ import { FC } from "react";
 interface IAddToCartButton {
   onClick: () => void
   disabled: boolean
-  onDisabledClick: () => void
 }
 
-const AddToCartButton: FC<IAddToCartButton> = ({ onClick, disabled, onDisabledClick }) => {
+const AddToCartButton: FC<IAddToCartButton> = ({ onClick, disabled}) => {
 
   return (
     <button 
-      onClick={!disabled ? onClick : onDisabledClick} 
+      onClick={!disabled ? onClick : undefined} 
       className={`${styles.button} ${disabled ? styles.button_disabled : ''}`}
     >
       <IoCartOutline className={styles.button__icon}/>
