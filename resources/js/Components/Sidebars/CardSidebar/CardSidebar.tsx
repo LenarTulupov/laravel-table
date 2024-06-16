@@ -46,9 +46,7 @@ const CardSidebar: FC<ICardSidebar> = ({
                         </div>
                         <div className={`${styles['size-color__color']}
                             ${styles2[`color-${colorName}`]}`}
-                        >
-                            {/* Пустой див */}
-                        </div>
+                        />
                     </div>
                     <div className={styles['row-2__quantity']}>
                         <span className={styles['row-2__quantity-text']}>QTY:</span>{quantity}

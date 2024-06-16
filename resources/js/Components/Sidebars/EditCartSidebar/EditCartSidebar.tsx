@@ -17,15 +17,19 @@ const EditCartSidebar: FC<IEditCartSidebar> = ({
   selectedSize 
 }) => {
   const [productDetails, setProductDetails] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
 
   useEffect(() => {
     if (product) {
       axios.get(`http://127.0.0.1:8000/api/products/${product.id}`)
         .then(response => {
           setProductDetails(response.data);
+          setLoading(false);
         })
         .catch(error => {
           console.error('Ошибка при загрузке продукта: ', error);
+          setLoading(false);
         });
     }
   }, [product]);
@@ -39,7 +43,10 @@ const EditCartSidebar: FC<IEditCartSidebar> = ({
           <CloseButton onClick={toggleEditSidebar} />
       </div>
       <div className={styles['edit-sidebar__content']}>
-        {productDetails && (
+
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
           <>
             <img
               src={productDetails.product_colors[0].product_color_images[0].image_path}
@@ -95,6 +102,8 @@ const EditCartSidebar: FC<IEditCartSidebar> = ({
             </div>
           </>
         )}
+
+
       </div>
     </div>
   );
