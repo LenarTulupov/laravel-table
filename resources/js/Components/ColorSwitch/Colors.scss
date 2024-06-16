@@ -1,0 +1,35 @@
+$blue: #0000FF;
+$beige: #F5F5DC;
+$black: #000000;
+$brown: #A52A2A;
+$ruby: #E0115F;
+$darkbrown: #654321;
+$pink: #FFC0CB;
+$brightpink: #FF69B4;
+$middlebrown: #8B4513;
+$brightbrown: #D2691E;
+$sand: #C2B280;
+$camel: #C19A6B;
+$lightblue: #ADD8E6;
+
+$color-map: (
+  1: $blue,
+  2: $beige,
+  3: $black,
+  4: $brown,
+  5: $ruby,
+  6: $darkbrown,
+  7: $pink,
+  8: $brightpink,
+  9: $middlebrown,
+  10: $brightbrown,
+  11: $sand,
+  12: $camel,
+  13: $lightblue
+);
+
+@each $name, $color in $color-map {
+  .color-#{$name} {
+    background-color: $color;
+  }
+}

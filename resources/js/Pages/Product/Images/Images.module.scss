@@ -1,0 +1,39 @@
+.images {
+    display: flex;
+    // display: grid;
+    // grid-template-columns: 1fr 4fr;
+    // grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+
+    &__main {
+        width: 350px;
+       
+
+        &-img {
+            transition: opacity 0.3s ease, transform 0.3s ease; // Плавный переход для изменения прозрачности и масштаба
+            opacity: 0;
+            &_active {
+                opacity: 1; // Видимое состояние
+                transform: scale(1); // О
+            }
+        }
+
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        // height: 437.09px;
+
+
+        &_active {
+            border: 1px solid var(--gray);
+        }
+
+        & * {
+            width: 80px;
+            padding: 3px;
+        }
+    }
+}

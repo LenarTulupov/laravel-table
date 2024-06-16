@@ -1,0 +1,17 @@
+.sales-top-header {
+    background-color: #f88d59;
+    text-align: center;
+    padding: 5px 0;
+
+    &__list {
+        font-size: 13px;
+        text-transform: uppercase;
+    }
+
+    &__link {
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,117 @@
+.content {
+    display: grid;
+    grid-template-columns: auto 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    background-color: #fff;
+
+    & > :not(:first-child) {
+        padding: 20px 20px;
+    }
+
+    &__img {
+        grid-row: 1 / span 3;
+        grid-column: 1; 
+        width: 120px;
+        height: 186px;
+        // object-fit: cover;
+        border-right: 1px solid var(--gray);
+    }
+
+    .row-1, .row-2, .row-3 {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .row-1 {
+        grid-column: 2;
+        grid-row: 1;
+        justify-content: space-between;
+
+        &__title {
+            font-size: 14px;
+        }
+    }
+
+    .row-2 {
+        grid-column: 2;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+
+        .size-color {
+            // width: 52px;
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr auto;
+            border: 1px solid var(--gray);
+
+            &__size {
+                font-size: 14px;
+                // padding: 0 5px;
+                justify-self: center;
+                align-self: center;
+            }
+
+            &__color {
+                width: 26px;
+                height: 26px;
+                justify-self: end;
+                border-left: 1px solid var(--gray);
+            }
+        }
+
+        &__quantity, &__available {
+            font-size: 14px;
+        }
+
+        &__quantity {
+            justify-self: center;
+
+            &-text {
+                margin-right: 5px;
+                font-weight: 700;
+            }
+        }
+
+        &__available {
+            color: #1c825b;
+            font-weight: bold;
+            justify-self: end;
+        }
+    }
+
+    .row-3 {
+        grid-column: 2;
+        grid-row: 3;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        text-align: center;
+
+        &__edit {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 14px;
+            justify-self: start;
+        }
+
+        .price {
+            font-size: 14px;
+            grid-column: 3 / span 2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            &__new {
+                color: red;
+                font-weight: bold;
+                justify-self: end;
+            }
+
+            &__prev {
+                text-decoration: line-through;
+            }
+        }
+    }
+}

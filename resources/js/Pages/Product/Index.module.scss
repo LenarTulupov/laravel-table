@@ -1,0 +1,33 @@
+.product-page {
+
+    
+    .grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &__container {
+            // display: grid;
+            // grid-template-columns: repeat(2, 1fr);
+            display: flex;
+            // flex-direction: column;
+            gap: 100px;
+
+            &-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                // align-items: center;
+                justify-self: start;
+            }
+
+        }
+
+        &__content {
+            display: flex;
+            gap: 20px;
+        }
+
+
+    }
+}

@@ -1,0 +1,26 @@
+.search-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    &__flex {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    &__input {
+        width: 100%;
+        font-size: 13px;
+        outline: none;
+        border: none;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
+
+
