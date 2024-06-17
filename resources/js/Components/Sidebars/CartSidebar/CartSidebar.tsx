@@ -19,7 +19,8 @@ const CartSidebar: FC<ICartSidebar> = ({
   const { cart } = useCartContext();
 
   const totalCartPrice = cart.reduce((total, product) =>
-    total + (product.price_new * product.quantity), 0).toFixed(2);
+    total + (product.price_new * product.quantity), 0);
+  const totalCartPriceFixed = totalCartPrice.toFixed(2);
   const totalCartDiscount = (totalCartPrice * 0.25).toFixed(2);
 
   return (
@@ -67,7 +68,7 @@ const CartSidebar: FC<ICartSidebar> = ({
             </div>
             <div className={`${styles.checkout__subtotal} ${styles.subtotal}`}>
               <div className={styles.subtotal__title}>SUBTOTAL (EXCLUDING DELIVERY)</div>
-              <div className={styles.subtotal__price}>£{totalCartPrice}</div>
+              <div className={styles.subtotal__price}>£{totalCartPriceFixed}</div>
               <div className={styles.subtotal__text}>
                 *All taxes are included in product prices
               </div>

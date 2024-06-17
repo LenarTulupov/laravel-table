@@ -37,7 +37,7 @@ const CardSidebar: FC<ICardSidebar> = ({
                 <img src={image[0]} alt="" className={styles['content__img']} />
                 <div className={`${styles['content__row-1']} ${styles['row-1']}`}>
                     <div className={styles['row-1__title']}>{title}</div>
-                        <CloseButton onClick={() => removeFromCart({id})}/>
+                        <CloseButton onClick={() => removeFromCart(product)}/>
                 </div>
                 <div className={`${styles['content__row-2']} ${styles['row-2']}`}>
                     <div className={`${styles['row-2__size-color']} ${styles['size-color']}`}>

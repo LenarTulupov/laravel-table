@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FC, useEffect, useState } from 'react';
-import styles from './EditCartSidebar.module.scss';
 import CloseButton from '@/Components/Buttons/CloseButton/CloseButton';
+import styles from './EditCartSidebar.module.scss';
 
 interface IEditCartSidebar {
   isEditOpen: boolean;
@@ -9,6 +9,31 @@ interface IEditCartSidebar {
   product: any;
   selectedSize: any; 
 }
+
+interface IProductColorImage {
+  image_path: string
+}
+
+interface IColor {
+  id: number
+  color: {
+    name: string
+  }
+  product_color_images: IProductColorImage
+}
+
+interface ISize {
+  id: number
+  name: string
+}
+
+interface IProductDetails {
+  id: number
+  title: string
+  product_colors: IColor[]
+  sizes: ISize[]
+}
+
 
 const EditCartSidebar: FC<IEditCartSidebar> = ({
   isEditOpen,
@@ -57,7 +82,7 @@ const EditCartSidebar: FC<IEditCartSidebar> = ({
               <div className={`${styles.parameters__colors} ${styles.colors}`}>
                 <label htmlFor="colors" className={styles.colors__label}>Color:</label>
                 <select id="colors" className={styles.colors__select}>
-                  {productDetails.product_colors.map(color => (
+                  {productDetails.product_colors.map((color: IColor) => (
                     <option key={color.id} className={styles.colors__option} value={color.id}>
                       {color.color.name}
                     </option>
@@ -71,7 +96,7 @@ const EditCartSidebar: FC<IEditCartSidebar> = ({
                   className={styles.sizes__select}
                   defaultValue={selectedSize ? selectedSize.id : ''} 
                 >
-                  {productDetails.sizes.map(size => (
+                  {productDetails.sizes.map((size: ISize) => (
                     <option key={size.id} className={styles.sizes__option} value={size.id}>
                       {size.name}
                     </option>

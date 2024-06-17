@@ -7,6 +7,9 @@ interface IProduct {
   price_old: number;
   product_colors: Array<{
     color_id: number;
+    color: {
+      name: string
+    }
     product_color_images: Array<{ image_path: string }>
   }>;
   size: {

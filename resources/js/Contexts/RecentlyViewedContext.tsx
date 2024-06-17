@@ -1,19 +1,14 @@
 import { ReactNode, createContext, useContext, useState } from "react";
+import { IColor, ISize } from '../types/basic.interface'
 
 interface IRecentlyViewedProduct {
     id: number
     image: string[]
     title: string
-    price_new: string
-    price_old: string
-    colors: Array<{
-        color_id: number
-        product_color_images: Array<{ image_path: string }>
-    }>
-    sizes: Array<{
-        id: number
-        name: string
-    }>
+    price_new: number
+    price_old: number
+    product_colors: IColor[]
+    sizes: ISize[]
 }
 
 interface IRecentlyViewedContext {

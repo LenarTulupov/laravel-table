@@ -5,7 +5,7 @@ import '../css/global.scss'
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import Layout from './Layouts/Layout/Layout';
+// import Layout from './Layouts/Layout/Layout';
 import { CartProvider } from './Contexts/CartContext';
 import { FavoriteProvider } from './Contexts/FavoriteContext';
 import { RecentlyViewedProvider } from './Contexts/RecentlyViewedContext';
@@ -22,9 +22,9 @@ createInertiaApp({
             <RecentlyViewedProvider>
             <FavoriteProvider>
             <CartProvider>
-                <Layout>
+                {/* <Layout> */}
                     <App {...props} />
-                </Layout>
+                {/* </Layout> */}
             </CartProvider>
             </FavoriteProvider>
             </RecentlyViewedProvider>

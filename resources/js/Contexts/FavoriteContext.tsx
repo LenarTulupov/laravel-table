@@ -1,4 +1,5 @@
 import { ReactNode, createContext, useContext, useState } from "react";
+import { IColor, ISize } from '../types/basic.interface'
 
 interface IFavoriteItem {
     id: number
@@ -6,14 +7,8 @@ interface IFavoriteItem {
     price_new: number
     price_old: number
     image: string[]
-    colors: Array<{
-        color_id: number
-        product_color_images: Array<{ image_path: string }>
-    }>
-    sizes: Array<{
-        id: number
-        name: string
-    }>
+    colors: IColor[]
+    sizes: ISize[]
 }
 
 interface IFavoriteContext {

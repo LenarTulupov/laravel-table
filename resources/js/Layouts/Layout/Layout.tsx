@@ -5,7 +5,11 @@ import styles from './Layout.module.scss';
 import CartSidebar from "@/Components/Sidebars/CartSidebar/CartSidebar";
 import EditCartSidebar from "@/Components/Sidebars/EditCartSidebar/EditCartSidebar";
 
-const Layout: FC = ({ children }) => {
+interface ILayout {
+  children: React.ReactNode
+}
+
+const Layout: FC<ILayout> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isEditCartSidebarOpen, setIsEditCartSidebarOpen] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
@@ -15,9 +19,9 @@ const Layout: FC = ({ children }) => {
     setIsSidebarOpen(!isSidebarOpen);
   }
 
-  const handleToggleEditSidebar = (product = null) => {
+  const handleToggleEditSidebar = (product: any = null) => {
     setSelectedProduct(product);
-    setSelectedSize(product.size);
+    setSelectedSize(product ? product.size : null);
     setIsEditCartSidebarOpen(!isEditCartSidebarOpen);
   }
 

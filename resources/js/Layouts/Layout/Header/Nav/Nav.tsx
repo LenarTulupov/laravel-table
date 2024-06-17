@@ -5,28 +5,28 @@ const Nav = () => {
   return (
     <nav className={styles.nav}>
         <ul className={styles.nav__list}>
-            <li className="nav__list-item">
-                <NavLink to="/" className={({isActive}) => isActive ? activeLink : normalLink}>
+            <li className={styles['nav__list-item']}>
+                <NavLink href="/" className={styles['nav__list-link']} active={false}>
                     All Clothing
                 </NavLink>
             </li>
-            <li className="nav__list-item">
-                <NavLink to="/" className={({isActive}) => isActive ? activeLink : normalLink}>
+            <li className={styles['nav__list-item']}>
+                <NavLink href="/" className={styles['nav__list-link']} active={false}>
                     Collection
                 </NavLink>
             </li>
-            <li className="nav__list-item">
-                <NavLink to="/modiweek" className={({isActive}) => isActive ? activeLink : normalLink}>
+            <li className={styles['nav__list-item']}>
+                <NavLink href="/modiweek" className={styles['nav__list-link']} active={false}>
                     Modiweek
                 </NavLink>
             </li>
-            <li className="nav__list-item">
-                <NavLink to="/plussize" className={({isActive}) => isActive ? activeLink : normalLink}>
+            <li className={styles['nav__list-item']}>
+                <NavLink href="/plussize" className={styles['nav__list-link']} active={false}>
                     Plus Size
                 </NavLink>
             </li>
-            <li className="nav__list-item">
-                <NavLink to="/sustainability" className={({isActive}) => isActive ? activeLink : normalLink}>
+            <li className={styles['nav__list-item']}>
+                <NavLink href="/sustainability" className={styles['nav__list-link']} active={false}>
                     Sustainability
                 </NavLink>
             </li>

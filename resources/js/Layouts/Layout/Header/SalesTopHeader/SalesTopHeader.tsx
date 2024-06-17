@@ -7,17 +7,17 @@ import { Link } from '@inertiajs/react';
 
 const SalesTopHeader = () => {
     const calculateTimeRemaining = () => {
-        const currentTime = new Date();
-        const nextInterval = new Date(
+        const currentTime: Date = new Date();
+        const nextInterval: Date = new Date(
             currentTime.getFullYear(),
             currentTime.getMonth(),
             currentTime.getDate(),
             Math.floor(currentTime.getHours() / 3) * 3 + 3
         );
-        if (nextInterval - currentTime < 0) {
+        if (nextInterval.getTime() - currentTime.getTime() < 0) {
             nextInterval.setHours(nextInterval.getHours() + 3);
         }
-        return Math.floor((nextInterval - currentTime) / 1000);
+        return Math.floor((nextInterval.getTime() - currentTime.getTime()) / 1000);
     }
     const [timeRemaining, setTimeRemaining] = useState<number>(calculateTimeRemaining());
 
@@ -59,7 +59,7 @@ const SalesTopHeader = () => {
                 <SwiperSlide>
                     <Link
                         className={styles['sales-top-header__link']}
-                        to="#!"
+                        href="#!"
                     >
                         30% OFF ALMOST EVERYTHING!* ENDS IN
                         <span>{formatTime(timeRemaining)}</span>
@@ -68,7 +68,7 @@ const SalesTopHeader = () => {
                 <SwiperSlide>
                     <Link
                         className={styles['sales-top-header__link']}
-                        to="#!"
+                        href="#!"
                     >
                         DOWNLOAD THE BOOHOO APP FOR EXCLUSIVE DISCOUNTS!
                     </Link>
@@ -76,7 +76,7 @@ const SalesTopHeader = () => {
                 <SwiperSlide>
                     <Link
                         className={styles['sales-top-header__link']}
-                        to="#!"
+                        href="#!"
                     >
                         40% OFF MENSWEAR!*
                     </Link>
