@@ -38,36 +38,44 @@ const Index = () => {
                 </div>
               ) : (
                 <div className={styles['favorite-page__grid']}>
-                  {favorites.map(favorite => (
-                    <Card
-                      key={favorite.id}
-                      id={favorite.id}
-                      image={favorite.image}
-                      title={favorite.title}
-                      price_new={favorite.price_new}
-                      price_old={favorite.price_old}
-                      colors={favorite.colors}
-                      sizes={favorite.sizes}
-                    />
-                  ))}
+                  {favorites.map(favorite => {
+                    console.log(favorite.colors);
+                    return (
+                      <Card
+                        key={favorite.id}
+                        id={favorite.id}
+                        image={favorite.image}
+                        title={favorite.title}
+                        price_new={favorite.price_new}
+                        price_old={favorite.price_old}
+                        colors={favorite.colors}
+                        sizes={favorite.sizes}
+                      />
+
+                    )
+                  })}
                 </div>
               )}
               {filteredProducts.length > 0 && (
                 <section className={`${styles['favorite-page__recently-viewed']} ${styles['recently-viewed']}`}>
                   <h2 className={styles['recently-viewed__title']}>RECENTLY VIEWED ITEMS</h2>
                   <div className={styles['recently-viewed__grid']}>
-                    {filteredProducts.map(product => (
-                      <Card
-                        key={product.id}
-                        id={product.id}
-                        image={product.product_colors[0].product_color_images.map(img => img.image_path)}
-                        title={product.title}
-                        price_new={product.price_new}
-                        price_old={product.price_old}
-                        colors={product.product_colors}
-                        sizes={product.sizes}
-                      />
-                    ))}
+                    {filteredProducts.map(product => {
+                      console.log(product.product_colors);
+                      return (
+
+                        <Card
+                          key={product.id}
+                          id={product.id}
+                          image={product.product_colors[0].product_color_images.map(img => img.image_path)}
+                          title={product.title}
+                          price_new={product.price_new}
+                          price_old={product.price_old}
+                          colors={product.product_colors}
+                          sizes={product.sizes}
+                        />
+                      )
+                    })}
                   </div>
                 </section>
               )}

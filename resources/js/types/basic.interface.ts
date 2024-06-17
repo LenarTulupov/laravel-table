@@ -4,7 +4,9 @@ export interface IColorImage {
   
   export interface IColor {
     color_id: number;
-    color: string;
+    color: {
+        name: string
+    }
     product_color_images: IColorImage[];
   }
   

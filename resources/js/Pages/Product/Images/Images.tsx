@@ -1,6 +1,27 @@
+import { FC } from 'react'
 import styles from './Images.module.scss'
 
-const Images = ({
+interface IProductImage {
+    id: number
+    image_path: string
+}
+
+interface IProductColor {
+    color: {
+        name: string
+    }
+    product_color_images: IProductImage[]
+}
+
+interface IProduct {
+    imagesArray: IProductImage[]
+    firstImage: string
+    handleImageChangeOnClick: (imagePath: string) => void
+    imageLoaded: boolean
+    handleImageLoad: () => void
+}
+
+const Images: FC<IProduct> = ({
     imagesArray,
     firstImage,
     handleImageChangeOnClick,
@@ -10,7 +31,7 @@ const Images = ({
     return (
         <section className={styles.images}>
             <div className={styles.images__column}>
-                {imagesArray.map(img => (
+                {imagesArray.map((img: IProductImage) => (
                     <img
                         className={img.image_path === firstImage ? styles['images__column_active'] : ''}
                         key={img.id}
