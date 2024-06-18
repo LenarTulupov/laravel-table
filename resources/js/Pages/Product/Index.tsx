@@ -29,10 +29,10 @@ interface ISize {
 interface IProduct {
   product: {
     title: string
-        price_new: number
-        price_old: number
-        sizes: ISize[];
-  }
+    price_new: number
+    price_old: number
+    sizes: ISize[];
+}
   product_colors: IProductColor[];
 }
 
@@ -79,6 +79,7 @@ const Index: FC = () => {
   const colorName = product.product_colors[0].color.name;
   const imagesArray = product.product_colors[0].product_color_images;
 
+  console.log(product);
   return (
     <Layout>
       <main className={styles['product-page']}>
@@ -93,7 +94,7 @@ const Index: FC = () => {
                 handleImageLoad={handleImageLoad}
               />
               <Description
-                product={product.product}
+                product={product}
                 colorName={colorName}
                 handleOpenDescription={handleOpenDescription}
                 isDescriptionOpen={isDescriptionOpen}

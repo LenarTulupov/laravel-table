@@ -28,6 +28,7 @@
         handleOpenDescription,
         isDescriptionOpen
     }) => {
+        console.log(product.title);
         return (
             <section className={styles['description']}>
                 <h1 className={styles.description__title}>{product.title}</h1>

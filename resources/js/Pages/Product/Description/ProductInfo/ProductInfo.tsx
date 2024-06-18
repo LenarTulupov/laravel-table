@@ -1,6 +1,17 @@
+import { FC } from 'react'
 import styles from './ProductInfo.module.scss'
 
-const ProductInfo = ({ handleOpenDescription, isDescriptionOpen, colorName }) => {
+interface IProductInfo {
+  handleOpenDescription: () => void
+  isDescriptionOpen: boolean
+  colorName: string
+}
+
+const ProductInfo: FC<IProductInfo> = ({
+  handleOpenDescription,
+  isDescriptionOpen,
+  colorName 
+}) => {
   return (
     <section className={styles['product-info']}>
       <button onClick={handleOpenDescription} className={`${styles['product-info__btn']} ${styles.btn}`}>
