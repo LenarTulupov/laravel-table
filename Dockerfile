@@ -1,43 +1,49 @@
-# Используем официальный образ PHP с FPM
-FROM php:8.1-fpm
+# Используем официальный PHP образ с установленным Composer
+FROM composer:latest AS build
 
-# Устанавливаем системные зависимости
-RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip \
-    npm
+# Устанавливаем рабочую директорию
+WORKDIR /app
 
-# Устанавливаем Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# Настраиваем рабочую директорию
-WORKDIR /var/www
-
-# Копируем зависимости и устанавливаем их
+# Копируем файлы composer и устанавливаем зависимости
 COPY composer.json composer.lock ./
 RUN composer install --no-scripts --no-autoloader --prefer-dist
+
+# Используем официальный Node образ для сборки фронтенда
+FROM node:latest AS frontend-build
+
+# Устанавливаем рабочую директорию
+WORKDIR /app
+
+# Копируем package файлы и устанавливаем зависимости
+COPY package.json yarn.lock ./
+RUN yarn install
 
 # Копируем весь проект
 COPY . .
 
-# Устанавливаем зависимости Node.js
-RUN npm install && npm run build
+# Собираем фронтенд
+RUN yarn build
 
-# Оптимизируем Laravel
-RUN php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache
+# Используем официальный PHP образ с поддержкой Apache
+FROM php:8.1-apache
 
-# Настраиваем права доступа
-RUN chown -R www-data:www-data /var/www
+# Устанавливаем рабочую директорию
+WORKDIR /var/www/html
 
-# Открываем порт
-EXPOSE 9000
+# Копируем зависимости и проект
+COPY --from=build /app/vendor ./vendor
+COPY --from=frontend-build /app/public/build ./public/build
+COPY . .
 
-# Запускаем PHP-FPM
-CMD ["php-fpm"]
+# Устанавливаем права на записи для логов и кэша
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Обновляем конфигурацию Apache
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN a2enmod rewrite
+
+# Устанавливаем переменные окружения для PHP
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+
+# Запускаем сервер Apache
+CMD ["apache2-foreground"]
