@@ -33,7 +33,14 @@ WORKDIR /var/www/html
 # Копируем зависимости и проект
 COPY --from=build /app/vendor ./vendor
 COPY --from=frontend-build /app/public/build ./public/build
-COPY . .
+COPY --from=frontend-build /app/resources ./resources
+COPY --from=frontend-build /app/routes ./routes
+COPY --from=frontend-build /app/database ./database
+COPY --from=frontend-build /app/config ./config
+COPY --from=frontend-build /app/bootstrap ./bootstrap
+COPY --from=frontend-build /app/public ./public
+COPY --from=frontend-build /app/storage ./storage
+COPY --from=frontend-build /app/artisan ./artisan
 
 # Устанавливаем права на записи для логов и кэша
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
@@ -41,6 +48,12 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 # Обновляем конфигурацию Apache
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN a2enmod rewrite
+RUN echo "<Directory /var/www/html/public>" >> /etc/apache2/apache2.conf
+RUN echo "    Options Indexes FollowSymLinks" >> /etc/apache2/apache2.conf
+RUN echo "    AllowOverride All" >> /etc/apache2/apache2.conf
+RUN echo "    Require all granted" >> /etc/apache2/apache2.conf
+RUN echo "</Directory>" >> /etc/apache2/apache2.conf
+RUN echo "DirectoryIndex index.php index.html" >> /etc/apache2/apache2.conf
 
 # Устанавливаем переменные окружения для PHP
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
