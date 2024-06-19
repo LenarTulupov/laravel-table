@@ -24,35 +24,20 @@ COPY . .
 # Собираем фронтенд
 RUN yarn build
 
-# Используем официальный PHP образ с установленным Nginx
-FROM php:8.1-fpm
+# Используем официальный Nginx образ
+FROM nginx:alpine
 
-# Устанавливаем рабочую директорию
-WORKDIR /var/www/html
+# Копируем собранные файлы в Nginx
+COPY --from=build /app/public /usr/share/nginx/html
 
-# Копируем зависимости и проект
-COPY --from=build /app/vendor ./vendor
-COPY --from=frontend-build /app/public/build ./public/build
-COPY --from=frontend-build /app/resources ./resources
-COPY --from=frontend-build /app/routes ./routes
-COPY --from=frontend-build /app/database ./database
-COPY --from=frontend-build /app/config ./config
-COPY --from=frontend-build /app/bootstrap ./bootstrap
-COPY --from=frontend-build /app/public ./public
-COPY --from=frontend-build /app/storage ./storage
-COPY --from=frontend-build /app/artisan ./artisan
+# Копируем конфигурацию Nginx
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-# Устанавливаем права на записи для логов и кэша
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# Устанавливаем права на запись, если это необходимо
+# RUN chown -R nginx:nginx /usr/share/nginx/html
 
-# Устанавливаем конфигурацию для Nginx
-RUN apt-get update && apt-get install -y nginx
-COPY ./nginx/default.conf /etc/nginx/sites-available/default
-RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-RUN echo "fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;" > /etc/nginx/fastcgi_params
+# Открываем порт 80 для внешних соединений
+EXPOSE 80
 
-# Устанавливаем переменные окружения для PHP-FPM
-ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
-
-# Запускаем PHP-FPM и Nginx
+# Запускаем Nginx в foreground режиме
 CMD ["nginx", "-g", "daemon off;"]
