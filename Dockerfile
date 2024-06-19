@@ -24,8 +24,8 @@ COPY . .
 # Собираем фронтенд
 RUN yarn build
 
-# Используем официальный PHP образ с поддержкой Apache
-FROM php:8.1-apache
+# Используем официальный PHP образ с установленным Nginx
+FROM php:8.1-fpm
 
 # Устанавливаем рабочую директорию
 WORKDIR /var/www/html
@@ -45,18 +45,14 @@ COPY --from=frontend-build /app/artisan ./artisan
 # Устанавливаем права на записи для логов и кэша
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Обновляем конфигурацию Apache
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
-RUN a2enmod rewrite
-RUN echo "<Directory /var/www/html/public>" >> /etc/apache2/apache2.conf
-RUN echo "    Options Indexes FollowSymLinks" >> /etc/apache2/apache2.conf
-RUN echo "    AllowOverride All" >> /etc/apache2/apache2.conf
-RUN echo "    Require all granted" >> /etc/apache2/apache2.conf
-RUN echo "</Directory>" >> /etc/apache2/apache2.conf
-RUN echo "DirectoryIndex index.php index.html" >> /etc/apache2/apache2.conf
+# Устанавливаем конфигурацию для Nginx
+RUN apt-get update && apt-get install -y nginx
+COPY ./nginx/default.conf /etc/nginx/sites-available/default
+RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+RUN echo "fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;" > /etc/nginx/fastcgi_params
 
-# Устанавливаем переменные окружения для PHP
-ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+# Устанавливаем переменные окружения для PHP-FPM
+ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS=0
 
-# Запускаем сервер Apache
-CMD ["apache2-foreground"]
+# Запускаем PHP-FPM и Nginx
+CMD ["nginx", "-g", "daemon off;"]
