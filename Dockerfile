@@ -24,20 +24,39 @@ COPY . .
 # Собираем фронтенд
 RUN yarn build
 
-# Используем официальный Nginx образ
-FROM nginx:alpine
+# Используем официальный PHP образ с поддержкой Apache
+FROM php:8.1-apache
 
-# Копируем собранные файлы в Nginx
-COPY --from=build /app/public /usr/share/nginx/html
+# Устанавливаем рабочую директорию
+WORKDIR /var/www/html
 
-# Копируем конфигурацию Nginx
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+# Копируем зависимости и проект
+COPY --from=build /app/vendor ./vendor
+COPY --from=frontend-build /app/public/build ./public/build
+COPY --from=frontend-build /app/resources ./resources
+COPY --from=frontend-build /app/routes ./routes
+COPY --from=frontend-build /app/database ./database
+COPY --from=frontend-build /app/config ./config
+COPY --from=frontend-build /app/bootstrap ./bootstrap
+COPY --from=frontend-build /app/public ./public
+COPY --from=frontend-build /app/storage ./storage
+COPY --from=frontend-build /app/artisan ./artisan
 
-# Устанавливаем права на запись, если это необходимо
-# RUN chown -R nginx:nginx /usr/share/nginx/html
+# Устанавливаем права на записи для логов и кэша
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Открываем порт 80 для внешних соединений
-EXPOSE 80
+# Обновляем конфигурацию Apache
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN a2enmod rewrite
+RUN echo "<Directory /var/www/html/public>" >> /etc/apache2/apache2.conf
+RUN echo "    Options Indexes FollowSymLinks" >> /etc/apache2/apache2.conf
+RUN echo "    AllowOverride All" >> /etc/apache2/apache2.conf
+RUN echo "    Require all granted" >> /etc/apache2/apache2.conf
+RUN echo "</Directory>" >> /etc/apache2/apache2.conf
+RUN echo "DirectoryIndex index.php index.html" >> /etc/apache2/apache2.conf
 
-# Запускаем Nginx в foreground режиме
-CMD ["nginx", "-g", "daemon off;"]
+# Устанавливаем переменные окружения для PHP
+ENV APACHE_DOCUMENT_ROOT /var/www/html/public
+
+# Запускаем сервер Apache
+CMD ["apache2-foreground"]
