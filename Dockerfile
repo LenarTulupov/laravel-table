@@ -1,5 +1,5 @@
 # Используем официальный образ PHP с FPM
-FROM php:8.3-6-fpm
+FROM php:8.1-fpm
 
 # Устанавливаем системные зависимости
 RUN apt-get update && apt-get install -y \
