@@ -46,6 +46,7 @@ const Index: FC = () => {
   const [isDescriptionOpen, setIsDescriptionOpen] = useState<boolean>(false);
   const [firstImage, setFirstImage] = useState('');
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+  const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
 
   const { addToRecentlyViewed } = useRecentlyViewedContext();
 
@@ -60,6 +61,10 @@ const Index: FC = () => {
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
+
+  const formToggle = () => {
+    setIsFormOpen(!isFormOpen);
+  }
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -107,9 +112,9 @@ const Index: FC = () => {
             <div className={styles.grid__container}>
               <div className={styles['grid__container-wrapper']}>
                 <Rating />
-                <PhotosReview />
+                <PhotosReview formToggle={formToggle}/>
               </div>
-              <Reviews />
+              <Reviews isFormOpen={isFormOpen}/>
             </div>
           </div>
         </div>

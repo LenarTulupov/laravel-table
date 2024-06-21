@@ -1,0 +1,34 @@
+.user-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 400px;
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__comment {
+        display: flex;
+        flex-direction: column;
+
+        &-text {
+            min-height: 300px;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 10px;
+
+        &-photo {
+            border: 1px solid #000;
+        }
+
+        &-submit {
+            border: 1px solid #fd9191;
+        }
+        
+    }
+}

@@ -1,0 +1,14 @@
+.user {
+    display: flex;
+    gap: 20px;
+
+    &__name {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__email {
+        display: flex;
+        flex-direction: column;
+    }
+}
