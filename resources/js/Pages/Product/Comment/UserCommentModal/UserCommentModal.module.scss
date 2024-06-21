@@ -1,8 +1,28 @@
 .user-comment {
+    margin: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 400px;
+    width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    min-height: calc(100vh - 40px);
+    justify-content: space-between;
+
+    &__flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    &__close-button {
+        background-color: gray;
+        padding: 10px;
+        border-radius: 100%;
+        display: flex;
+    }
 
     &__title {
         display: flex;
@@ -14,7 +34,7 @@
         flex-direction: column;
 
         &-text {
-            min-height: 300px;
+            min-height: 200px;
         }
     }
 

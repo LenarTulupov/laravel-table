@@ -8,7 +8,12 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function index() {
-        $products = Product::with(['productColors.color', 'productColors.productColorImages', 'sizes'])->get();
+        $products = Product::with(['productColors.color', 'productColors.productColorImages', 'sizes', 'ratings'])
+            ->get()
+            ->map(function ($product) {
+                $product->average_rating = $product->average_rating;
+                return $product;
+            });
         return response()->json($products);
     }
 
@@ -19,7 +24,8 @@ class ProductController extends Controller
 
     public function show($id) {
         try {
-            $product = Product::with(['productColors.color', 'productColors.productColorImages', 'sizes'])->findOrFail($id);
+            $product = Product::with(['productColors.color', 'productColors.productColorImages', 'sizes', 'ratings'])->findOrFail($id);
+            $product->average_rating = $product->average_rating;
             return response()->json($product);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Internal Server Error'], 500);

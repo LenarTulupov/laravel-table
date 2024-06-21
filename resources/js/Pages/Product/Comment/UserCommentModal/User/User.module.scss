@@ -5,10 +5,20 @@
     &__name {
         display: flex;
         flex-direction: column;
+        width: 190px !important;
+
+        &-label {
+            width: fit-content;
+        }
     }
 
     &__email {
         display: flex;
         flex-direction: column;
+        width: 190px !important;
+
+        &-label {
+            width: fit-content;
+        }
     }
 }
