@@ -1,0 +1,18 @@
+.recommend {
+    &__flex {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__yes {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+
+    &__no {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+}
