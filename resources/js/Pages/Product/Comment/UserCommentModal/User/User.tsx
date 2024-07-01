@@ -1,15 +1,40 @@
+import TextInput from '@/Components/TextInput';
 import styles from './User.module.scss'
+import InputLabel from '@/Components/InputLabel';
 
-const User = () => {
+const User = ({ name, setName, email, setEmail }) => {
+    console.log(name);
     return (
         <div className={`${styles.user}`}>
             <div className={styles['user__name']} >
-                <label htmlFor="name" className={styles['user__name-label']}>Name</label>
-                <input type="text" id='name' required className={styles['user__name-input']} />
+                <InputLabel
+                    htmlFor='name'
+                    className={styles['user__name-label']}
+                >
+                    Name
+                </InputLabel>
+                <TextInput
+                    id='name'
+                    required
+                    className={styles['user__name-input']}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
             </div>
             <div className={styles['user__email']}>
-                <label htmlFor="email" className={styles['user__email-label']}>Email</label>
-                <input type="text" id='email' required className={styles['user__email-input']} />
+                <InputLabel
+                    htmlFor='email'
+                    className={styles['user__email-label']}
+                >
+                    Email
+                </InputLabel>
+                <TextInput
+                    id='email'
+                    required
+                    className={styles['user__email-input']}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
             </div>
         </div>
     )

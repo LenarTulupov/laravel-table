@@ -9,6 +9,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { CartProvider } from './Contexts/CartContext';
 import { FavoriteProvider } from './Contexts/FavoriteContext';
 import { RecentlyViewedProvider } from './Contexts/RecentlyViewedContext';
+import { SearchProvider } from './Contexts/SearchContext';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -20,15 +21,17 @@ createInertiaApp({
 
         root.render(
             <RecentlyViewedProvider>
-            <FavoriteProvider>
-            <CartProvider>
-                {/* <Layout> */}
-                    <App {...props} />
-                {/* </Layout> */}
-            </CartProvider>
-            </FavoriteProvider>
+                <FavoriteProvider>
+                    <CartProvider>
+                        <SearchProvider>
+                            {/* <Layout> */}
+                            <App {...props} />
+                            {/* </Layout> */}
+                        </SearchProvider>
+                    </CartProvider>
+                </FavoriteProvider>
             </RecentlyViewedProvider>
-    );
+        );
     },
     progress: {
         color: '#4B5563',

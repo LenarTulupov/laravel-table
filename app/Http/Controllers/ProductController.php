@@ -24,7 +24,7 @@ class ProductController extends Controller
 
     public function show($id) {
         try {
-            $product = Product::with(['productColors.color', 'productColors.productColorImages', 'sizes', 'ratings'])->findOrFail($id);
+            $product = Product::with(['productColors.color', 'productColors.productColorImages', 'sizes', 'ratings', 'comments.replies'])->findOrFail($id);
             $product->average_rating = $product->average_rating;
             return response()->json($product);
         } catch (\Exception $e) {

@@ -16,7 +16,6 @@
         justify-content: space-between;
     }
 
-
     &__close-button {
         background-color: gray;
         padding: 10px;
@@ -35,6 +34,9 @@
 
         &-text {
             min-height: 200px;
+            border-radius: 6px;
+            --tw-border-opacity: 1;
+            border-color: rgb(209 213 219 / var(--tw-border-opacity));
         }
     }
 
@@ -49,6 +51,5 @@
         &-submit {
             border: 1px solid #fd9191;
         }
-        
     }
 }

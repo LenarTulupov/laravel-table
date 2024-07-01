@@ -12,6 +12,7 @@ const ProductInfo: FC<IProductInfo> = ({
   isDescriptionOpen,
   colorName 
 }) => {
+  const className = isDescriptionOpen ? styles['product-info__list_open'] : ''; 
   return (
     <section className={styles['product-info']}>
       <button onClick={handleOpenDescription} className={`${styles['product-info__btn']} ${styles.btn}`}>

@@ -30,7 +30,7 @@ const Links: FC<ILinks> = ({
                     </button>
                 </li>
                 <li className={styles.links__item}>
-                    <NavLink href="/dashboard" className={styles.links__link} active={false}>
+                    <NavLink href="/signin" className={styles.links__link} active={false}>
                         Sign In
                     </NavLink>
                 </li>
