@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useContext, useEffect, useState } from "react";
 
 interface IProduct {
   id: number;
@@ -30,6 +30,21 @@ export const CartContext = createContext<ICartContext>({} as ICartContext);
 
 export const CartProvider = ({ children } : { children: ReactNode }) => {
   const [cart, setCart] = useState<IProduct[]>([]);
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if(storedCart) {
+      try {
+        setCart(JSON.parse(storedCart));
+      } catch(error) {
+        console.error('Error parsing cart data from localStorage: ', error)
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart])
 
   const addToCart = (product: IProduct) => {
     const existingProductIndex = cart.findIndex(

@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useContext, useEffect, useState } from "react";
 import { IColor, ISize } from '../types/basic.interface'
 
 interface IFavoriteItem {
@@ -20,6 +20,21 @@ export const FavoriteContext = createContext<IFavoriteContext>({} as IFavoriteCo
 
 export const FavoriteProvider = ({ children }: { children: ReactNode}) => {
     const [favorites, setFavorites] = useState<IFavoriteItem[]>([]);
+
+    useEffect(() => {
+        const storedFavorite = localStorage.getItem('favorites');
+        if(storedFavorite) {
+            try {
+                setFavorites(JSON.parse(storedFavorite));
+            } catch(error) {
+                console.error('Error parsing favorites data from localStorage: ', error)
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }, [favorites])
 
     const addToFavorite = (item: IFavoriteItem) => {
         setFavorites(prevFavorites => [...prevFavorites, item]);

@@ -4,8 +4,8 @@ import Rating from './Rating/Rating'
 import Recommend from './Recommend/Recommend'
 import CloseButton from '@/Components/Buttons/CloseButton/CloseButton'
 import { FC, useState } from 'react'
-import TextInput from '@/Components/TextInput'
-import InputLabel from '@/Components/InputLabel'
+import InputLabel from '@/Components/InputLabel/InputLabel'
+import TextInput from '@/Components/TextInput/TextInput'
 
 interface IUserComment {
   onClick: () => void
@@ -45,11 +45,10 @@ const UserCommentModal: FC<IUserComment> = ({ onClick }) => {
         <Rating rating={rating} onRatingChange={handleRatingChange} />
         <div className={styles['user-comment__title']}>
           <InputLabel
+            text='Title of Review'
             htmlFor='title'
             className={styles['user-comment__title-label']}
-          >
-            Title of Review
-          </InputLabel>
+          />
           <TextInput
             id='title'
             placeholder='Give your review a title'
@@ -60,14 +59,13 @@ const UserCommentModal: FC<IUserComment> = ({ onClick }) => {
         </div>
         <div className={styles['user-comment__comment']}>
           <InputLabel
+          text='How was your overall experience?'
             htmlFor='comment'
             className={styles['user-comment__comment-label']}
-          >
-            How was your overall experience?
-          </InputLabel>
-          <textarea 
+          />
+          <textarea
             id="comment"
-            className={styles['user-comment__comment-text']} 
+            className={styles['user-comment__comment-text']}
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           ></textarea>

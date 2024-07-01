@@ -5,6 +5,7 @@ import { Link } from "@inertiajs/react"
 import { FC, useState } from "react"
 import SearchPanel from "./Links/SearchPanel/SearchPanel"
 import styles from './Header.module.scss'
+import Logo from "@/Components/Logo/Logo"
 
 interface IHeader {
   toggleSidebar: () => void
@@ -25,7 +26,7 @@ const Header: FC<IHeader> = ({ toggleSidebar }) => {
             <div className={`${styles.columns__row} ${styles.row}`}>
               <div className={`${styles.row__logo} ${styles.logo}`}>
                 <Link href="/" className={styles.logo__link}>
-                  CrazyShop
+                  <Logo className={styles.logo}/>
                 </Link>
               </div>
               <div className="row__links">

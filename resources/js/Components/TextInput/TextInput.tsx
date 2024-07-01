@@ -1,4 +1,5 @@
 import { ChangeEvent, FC } from "react"
+import styles from './TextInput.module.scss'
 
 interface ITextInput {
   value: string
@@ -25,7 +26,7 @@ const TextInput: FC<ITextInput> = ({
       placeholder={placeholder}
       id={id}
       required={required}
-      className={className}
+      className={`${styles['text-input']} ${className}`}
     />
   )
 }

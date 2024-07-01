@@ -1,18 +1,16 @@
-import TextInput from '@/Components/TextInput';
+import InputLabel from '@/Components/InputLabel/InputLabel';
 import styles from './User.module.scss'
-import InputLabel from '@/Components/InputLabel';
+import TextInput from '@/Components/TextInput/TextInput';
 
 const User = ({ name, setName, email, setEmail }) => {
-    console.log(name);
     return (
         <div className={`${styles.user}`}>
-            <div className={styles['user__name']} >
+            <div className={styles['user__name']}>
                 <InputLabel
+                    text='Name'
                     htmlFor='name'
                     className={styles['user__name-label']}
-                >
-                    Name
-                </InputLabel>
+                />
                 <TextInput
                     id='name'
                     required
@@ -23,11 +21,10 @@ const User = ({ name, setName, email, setEmail }) => {
             </div>
             <div className={styles['user__email']}>
                 <InputLabel
+                    text='email'
                     htmlFor='email'
                     className={styles['user__email-label']}
-                >
-                    Email
-                </InputLabel>
+                />
                 <TextInput
                     id='email'
                     required

@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useContext, useEffect, useState } from "react";
 import { IColor, ISize } from '../types/basic.interface'
 
 interface IRecentlyViewedProduct {
@@ -33,6 +33,22 @@ export const RecentlyViewedProvider = ({children} : {children: ReactNode}) => {
             return [...prev, product].slice(-5);
         })
     }
+
+    useEffect(() => {
+        const storedRecentlyViewed = localStorage.getItem('recentlyViewed');
+
+        if(storedRecentlyViewed) {
+            try {
+                setRecentlyViewed(JSON.parse(storedRecentlyViewed));
+            } catch(error) {
+                console.error('Error parsing recently viewed data from localStorage: ', error);
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+    }, [recentlyViewed]);
 
     return (
         <RecentlyViewedContext.Provider value={{ recentlyViewed, addToRecentlyViewed }}>
