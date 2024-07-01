@@ -41,4 +41,17 @@ class Product extends Model
     public function sizes() {
         return $this->belongsToMany(Size::class, 'product_sizes');
     }
+
+    public function ratings() {
+        return $this->hasMany(Rating::class);
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function getAverageRating() {
+        $average = $this->ratings()->avg('rating');
+        return $average ?: 0;
+    }
 }

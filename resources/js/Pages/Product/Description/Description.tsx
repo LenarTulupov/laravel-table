@@ -28,7 +28,6 @@
         handleOpenDescription,
         isDescriptionOpen
     }) => {
-        console.log(product.title);
         return (
             <section className={styles['description']}>
                 <h1 className={styles.description__title}>{product.title}</h1>
@@ -46,7 +45,6 @@
                 </div>
                 <div className={`${styles.description__sizes} ${styles.sizes}`}>
                     {product.sizes.map(size => {
-                        console.log(size);
                         return (
 
                             <div key={size.id} className={styles.sizes__size}>

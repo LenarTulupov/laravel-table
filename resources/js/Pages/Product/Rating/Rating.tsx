@@ -1,12 +1,22 @@
 import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa'
 import styles from './Rating.module.scss'
+import { FC } from 'react';
 
-const Rating = () => {
+interface IRating {
+    rating: number
+    reviews: number
+}
+
+const Rating: FC<IRating> = ({rating, reviews}) => {
+    const countRating = rating ?? 0;
+
     return (
         <section className={styles.rating}>
             <h2 className={styles.rating__title}>Rating</h2>
             <div className={styles.rating__average}>
-                <div className={styles['rating__average-number']}>4.5</div>
+                <div className={styles['rating__average-number']}>
+                   { countRating } 
+                </div>
                 <div className={`${styles['rating__average-stars']} 
                   ${styles['stars-average']}`}
                 >
@@ -17,7 +27,7 @@ const Rating = () => {
                     <FaStarHalfAlt className={styles['stars-average__half']} />
                 </div>
             </div>
-            <div className={styles.rating__reviewers}>Based on 3 Reviews</div>
+            <div className={styles.rating__reviewers}>Based on { reviews.length } Reviews</div>
             <div className={`${styles.rating__reviews} ${styles.reviews}`}>
                 <div className={styles['reviews-5']}>
                     <div className={`${styles['reviews-5__flex']} ${styles.flex}`}>

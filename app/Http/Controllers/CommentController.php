@@ -12,7 +12,7 @@ class CommentController extends Controller
 
         $request->validate([
             'product_id' => 'required|exists:products,id',
-            'user_id' => 'required|exists:user,id',
+            'user_id' => 'required|exists:user,id', 
             'comment' => 'required|string',
             'rating' => 'nullable|integer|min:1|max:5',
             'parent_id' => 'nullable|exists:comments,id',

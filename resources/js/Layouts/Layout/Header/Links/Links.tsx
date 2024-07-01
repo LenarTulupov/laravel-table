@@ -4,6 +4,8 @@ import { IoSearch } from "react-icons/io5";
 import { useCartContext } from "@/Contexts/CartContext";
 import { useFavoriteContext } from "@/Contexts/FavoriteContext";
 import { FC } from "react";
+import { usePage } from "@inertiajs/react";
+import { FaRegFaceSmile } from "react-icons/fa6";
 
 interface ILinks {
     toggleSidebar: () => void
@@ -11,10 +13,14 @@ interface ILinks {
 }
 
 const Links: FC<ILinks> = ({
-    toggleSidebar, searchToggle
+    toggleSidebar,
+    searchToggle
 }) => {
     const { cart } = useCartContext();
     const { favorites } = useFavoriteContext();
+
+    const { auth } = usePage().props;
+    const user = auth.user;
 
 
 
@@ -30,9 +36,15 @@ const Links: FC<ILinks> = ({
                     </button>
                 </li>
                 <li className={styles.links__item}>
-                    <NavLink href="/dashboard" className={styles.links__link} active={false}>
+                    { user ? (
+                        <NavLink href="/profile">
+                            <FaRegFaceSmile className={styles['links__item-logo']}/>
+                        </NavLink>
+                    ) : (
+                    <NavLink href="/signin" className={styles.links__link} active={false}>
                         Sign In
                     </NavLink>
+                    )}
                 </li>
                 <li className={styles.links__item}>
                     <NavLink href="/favorite" className={styles.links__link} active={false}>

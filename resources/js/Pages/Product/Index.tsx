@@ -9,6 +9,7 @@ import Images from './Images/Images';
 import PhotosReview from './PhotosReview/PhotosReview';
 import Reviews from './Reviews/Reviews';
 import styles from './Index.module.scss'
+import UserCommentModal from './Comment/UserCommentModal/UserCommentModal';
 
 interface IProductColorImage {
   id: number;
@@ -78,48 +79,64 @@ const Index: FC = () => {
         console.error('Error fetching product: ', error);
       }
     };
+
     fetchProduct();
   }, [productId, addToRecentlyViewed]);
 
   if (!product) {
     return <div>Loading...</div>;
   }
-  
+
   const colorName = product.product_colors[0].color.name;
   const imagesArray: IProductImage[] = product.product_colors[0].product_color_images;
 
   console.log(product);
+
   return (
-    <Layout>
-      <main className={styles['product-page']}>
-        <div className="container">
-          <div className={`${styles['product-page__grid']} ${styles.grid}`}>
-            <div className={styles.grid__content}>
-              <Images
-                imagesArray={imagesArray}
-                firstImage={firstImage}
-                handleImageChangeOnClick={handleImageChangeOnClick}
-                imageLoaded={imageLoaded}
-                handleImageLoad={handleImageLoad}
-              />
-              <Description
-                product={product}
-                colorName={colorName}
-                handleOpenDescription={handleOpenDescription}
-                isDescriptionOpen={isDescriptionOpen}
-              />
-            </div>
-            <div className={styles.grid__container}>
-              <div className={styles['grid__container-wrapper']}>
-                <Rating />
-                <PhotosReview formToggle={formToggle}/>
+    <>
+      {isFormOpen && (
+        <>
+          <div className={styles.overlay} onClick={formToggle}/>
+          <div className={styles.modal} >
+            <UserCommentModal onClick={formToggle} />
+          </div>
+        </>
+      )}
+
+      <Layout>
+        <main className={styles['product-page']}>
+          <div className="container">
+            <div className={`${styles['product-page__grid']} ${styles.grid}`}>
+              <div className={styles.grid__content}>
+                <Images
+                  imagesArray={imagesArray}
+                  firstImage={firstImage}
+                  handleImageChangeOnClick={handleImageChangeOnClick}
+                  imageLoaded={imageLoaded}
+                  handleImageLoad={handleImageLoad}
+                />
+                <Description
+                  product={product}
+                  colorName={colorName}
+                  handleOpenDescription={handleOpenDescription}
+                  isDescriptionOpen={isDescriptionOpen}
+                />
               </div>
-              <Reviews isFormOpen={isFormOpen}/>
+              <div className={styles.grid__container}>
+                <div className={styles['grid__container-wrapper']}>
+                  <Rating
+                    reviews={product.ratings}
+                    rating={product.average_rating}
+                  />
+                  <PhotosReview formToggle={formToggle} />
+                </div>
+                <Reviews reviewers={product.ratings} />
+              </div>
             </div>
           </div>
-        </div>
-      </main>
-    </Layout>
+        </main>
+      </Layout>
+    </>
   )
 }
 

@@ -12,3 +12,5 @@ Route::get('/products', [ProductController::class, 'index']);
 
 Route::get('/products/{id}', [ProductController::class, 'show']);
 
+Route::get('/products/{id}/comments', [CommentController::class, 'index']);
+
