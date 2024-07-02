@@ -1,14 +1,6 @@
-import { ChangeEvent, FC } from "react"
+import { FC } from "react"
 import styles from './TextInput.module.scss'
-
-interface ITextInput {
-  value: string
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
-  placeholder?: string
-  id?: string
-  required?: boolean
-  className?: string
-}
+import { ITextInput } from "@/types/textInput.interface"
 
 const TextInput: FC<ITextInput> = ({
   value,

@@ -24,9 +24,7 @@ createInertiaApp({
                 <FavoriteProvider>
                     <CartProvider>
                         <SearchProvider>
-                            {/* <Layout> */}
                             <App {...props} />
-                            {/* </Layout> */}
                         </SearchProvider>
                     </CartProvider>
                 </FavoriteProvider>

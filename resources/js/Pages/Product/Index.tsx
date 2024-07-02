@@ -2,7 +2,6 @@ import { usePage } from '@inertiajs/react';
 import { FC, useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRecentlyViewedContext } from '@/Contexts/RecentlyViewedContext';
-import Layout from '@/Layouts/Layout/Layout';
 import Description from './Description/Description';
 import Rating from './Rating/Rating';
 import Images from './Images/Images';
@@ -10,6 +9,7 @@ import PhotosReview from './PhotosReview/PhotosReview';
 import Reviews from './Reviews/Reviews';
 import styles from './Index.module.scss'
 import UserCommentModal from './Comment/UserCommentModal/UserCommentModal';
+import GuestLayout from '@/Layouts/GuestLayout/GuestLayout';
 
 interface IProductColorImage {
   id: number;
@@ -96,14 +96,14 @@ const Index: FC = () => {
     <>
       {isFormOpen && (
         <>
-          <div className={styles.overlay} onClick={formToggle}/>
+          <div className={styles.overlay} onClick={formToggle} />
           <div className={styles.modal} >
             <UserCommentModal onClick={formToggle} />
           </div>
         </>
       )}
 
-      <Layout>
+      <GuestLayout>
         <main className={styles['product-page']}>
           <div className="container">
             <div className={`${styles['product-page__grid']} ${styles.grid}`}>
@@ -135,7 +135,7 @@ const Index: FC = () => {
             </div>
           </div>
         </main>
-      </Layout>
+      </GuestLayout>
     </>
   )
 }

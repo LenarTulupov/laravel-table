@@ -18,13 +18,6 @@ Route::get('/favorite', function () {
     return Inertia::render('Favorite/Index');
 })->name('favorite');
 
-
-
-
-// Route::get('/register', function() {
-//     return Inertia::render('Register/Register');
-// });
-
 Route::get('/product/{id}', function($id) {
     return Inertia::render('Product/Index', ['productId' => $id]);
 });
@@ -43,5 +36,22 @@ Route::post('logout', [SignInController::class, 'logout'])->name('logout');
 Route::get('/profile', function() {
     return Inertia::render('Profile/Profile');
 })->name('profile');
+
+// Nav
+Route::get('/all', function() {
+    return Inertia::render('Nav/All/All');
+});
+Route::get('/dresses', function() {
+    return Inertia::render('Nav/Dresses/Dresses');
+});
+Route::get('/new', function() {
+    return Inertia::render('Nav/New/New');
+});
+Route::get('/summer', function() {
+    return Inertia::render('Nav/Summer/Summer');
+});
+Route::get('/trends', function() {
+    return Inertia::render('Nav/Trends/Trends');
+});
 
 require __DIR__.'/auth.php';

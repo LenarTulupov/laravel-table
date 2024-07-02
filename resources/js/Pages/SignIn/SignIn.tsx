@@ -35,7 +35,7 @@ const SignIn = () => {
                                 </Link>
 
                                 <div className={styles['sign-in__email']}>
-                                    <InputLabel htmlFor="email" text="Email" />
+                                    <InputLabel htmlFor="email">Email</InputLabel>
                                     <TextInput
                                         id="email"
                                         required
@@ -46,9 +46,7 @@ const SignIn = () => {
                                     { errors.email && <div className={styles.form__error}>{errors.email}</div> }
                                 </div>
                                 <div className={styles['sign-in__password']}>
-                                    <InputLabel
-                                        text="Password"
-                                        htmlFor="password" />
+                                    <InputLabel htmlFor="password">Password</InputLabel>
                                     <TextInput
                                         id="password"
                                         required
@@ -61,7 +59,7 @@ const SignIn = () => {
                                 <div className={styles['sign-in__flex']}>
                                     <div className={styles['sign-in__checkbox']}>
                                         <Checkbox id="checkbox" checked={data.remember} onChange={(e) => setData('remember', e.target.checked)}/>
-                                        <InputLabel htmlFor="checkbox" text="Remember me" />
+                                        <InputLabel htmlFor="checkbox">Remember me</InputLabel>
                                     </div>
                                     <Link href="#!">
                                         Forgot your password?
