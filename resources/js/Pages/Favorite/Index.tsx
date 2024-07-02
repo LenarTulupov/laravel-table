@@ -2,8 +2,8 @@ import { useFavoriteContext } from '@/Contexts/FavoriteContext';
 import Card from '@/Components/Cards/Card/Card';
 import { useRecentlyViewedContext } from '@/Contexts/RecentlyViewedContext';
 import { FcLike } from "react-icons/fc";
-import Layout from '@/Layouts/Layout/Layout';
 import styles from './Index.module.scss';
+import GuestLayout from '@/Layouts/GuestLayout/GuestLayout';
 
 const Index = () => {
   const { favorites } = useFavoriteContext();
@@ -17,7 +17,7 @@ const Index = () => {
   });
 
   return (
-    <Layout>
+    <GuestLayout>
       <main className={styles['favorite-page']}>
         <div className="container">
           <div className={styles['favorite-page__wrapper']}>
@@ -83,7 +83,7 @@ const Index = () => {
           </div>
         </div>
       </main>
-    </Layout>
+    </GuestLayout>
   );
 };
 

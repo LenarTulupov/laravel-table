@@ -1,30 +1,31 @@
 interface IProductColorImage {
-    id: number;
-    image_path: string;
+  image_path: string
+}
+
+export interface IColor {
+  color_id: number
+  name: string
+}
+
+interface IProductColor extends IColor {
+  color: {
+    color_id: number
+    name: string
   }
-  
-  interface IProductColor {
-    color: {
-      name: string;
-    };
-    product_color_images: IProductColorImage[];
-  }
-  
-  interface ISize {
-    id: number;
-    abbreviation: string;
-  }
-  
-  interface IProduct {
-    title: string;
-    price_new: number;
-    price_old: number;
-    sizes: ISize[];
-    product_colors: IProductColor[];
-  }
-  
-  interface IProductImage {
-    id: number;
-    image_path: string;
-  }
+  product_color_images: IProductColorImage[]
+}
+
+interface ISizes {
+  id: number
+  name: string
+}
+
+export interface IProduct {
+  id: number
+  title: string
+  price_new: number
+  price_old: number
+  product_colors: IProductColor[]
+  sizes: ISizes[]
+}
   

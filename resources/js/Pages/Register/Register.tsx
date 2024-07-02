@@ -35,7 +35,7 @@ const Register = () => {
               <Logo className={styles.logo} />
             </Link>
             <div className={styles.form__name}>
-              <InputLabel htmlFor='name' text='Name' />
+              <InputLabel htmlFor='name'>Name</InputLabel>
               <TextInput
                 id='name'
                 required
@@ -46,7 +46,7 @@ const Register = () => {
               {errors.name && <div className={styles.form__error}>{errors.name}</div>}
             </div>
             <div className={styles.form__email}>
-              <InputLabel htmlFor='email' text='Email' />
+              <InputLabel htmlFor='email'>Email</InputLabel>
               <TextInput
                 id='email'
                 required
@@ -57,7 +57,7 @@ const Register = () => {
               {errors.email && <div className={styles.form__error}>{errors.email}</div>}
             </div>
             <div className={styles.form__password}>
-              <InputLabel htmlFor='password' text='Password' />
+              <InputLabel htmlFor='password'>Password</InputLabel>
               <TextInput
                 id='password'
                 required
@@ -68,7 +68,7 @@ const Register = () => {
               {errors.password && <div className={styles.form__error}>{errors.password}</div>}
             </div>
             <div className={styles['form__password-confirmation']}>
-              <InputLabel htmlFor='password_confirmation' text='Confirm Password' />
+              <InputLabel htmlFor='password_confirmation'>Confirm Password</InputLabel>
               <TextInput
                 id='password_confirmation'
                 required

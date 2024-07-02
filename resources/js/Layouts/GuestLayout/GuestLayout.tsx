@@ -1,15 +1,15 @@
 import { FC, useEffect, useState } from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import styles from './Layout.module.scss';
 import CartSidebar from "@/Components/Sidebars/CartSidebar/CartSidebar";
 import EditCartSidebar from "@/Components/Sidebars/EditCartSidebar/EditCartSidebar";
+import styles from './GuestLayout.module.scss'
 
 interface ILayout {
   children: React.ReactNode
 }
 
-const Layout: FC<ILayout> = ({ children }) => {
+const GuestLayout: FC<ILayout> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isEditCartSidebarOpen, setIsEditCartSidebarOpen] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
@@ -75,4 +75,4 @@ const Layout: FC<ILayout> = ({ children }) => {
   );
 }
 
-export default Layout;
+export default GuestLayout;

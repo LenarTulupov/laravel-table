@@ -4,3 +4,7 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
 }
+.filters {
+    display: flex;
+    justify-content: center;
+}

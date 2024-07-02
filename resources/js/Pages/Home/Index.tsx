@@ -1,47 +1,18 @@
 import axios from "axios";
-import { FC, useEffect, useState } from "react"
+import { ChangeEvent, FC, useEffect, useState } from "react"
 import styles from './Index.module.scss'
 import Card from "@/Components/Cards/Card/Card";
-import Layout from "@/Layouts/Layout/Layout";
 import SearchLayout from "@/Layouts/SearchLayout";
 import { useSearchContext } from "@/Contexts/SearchContext";
-
-interface IProductColorImage {
-  image_path: string
-}
-
-interface IColor {
-  color_id: number
-  name: string
-}
-
-interface IProductColor extends IColor {
-  color: {
-    color_id: number
-    name: string
-  }
-  product_color_images: IProductColorImage[]
-}
-
-interface ISizes {
-  id: number
-  name: string
-}
-
-interface IProduct {
-  id: number
-  title: string
-  price_new: number
-  price_old: number
-  product_colors: IProductColor[]
-  sizes: ISizes[]
-}
-
+import GuestLayout from "@/Layouts/GuestLayout/GuestLayout";
+import Filter from "@/Components/Filter/Filter";
+import Filters from "./Filters/Filters";
 
 const Index: FC = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { inputValue } = useSearchContext();
+  const [filterProducts, setFilterProducts] = useState(products);
 
   const filteredProducts = products.filter(product => {
     const value = product.title.toLowerCase();
@@ -53,8 +24,6 @@ const Index: FC = () => {
 
     return isExist || colorFilter;
   });
-
-
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/products')
@@ -72,10 +41,13 @@ const Index: FC = () => {
     return <div>Loading...</div>;
   }
 
+
+
   return (
 
     <div>
-      <Layout>
+      <GuestLayout>
+        <Filters products={products} setFilterProducts={setFilterProducts} className={styles.filters}/>
         {inputValue.length > 0 ? (
           <SearchLayout products={filteredProducts}>
             {null}
@@ -83,19 +55,19 @@ const Index: FC = () => {
         ) : (
           <div className="container">
             <div className={styles.home__row}>
-              {products.map((product: IProduct) => {
+              {filterProducts.map((product: IProduct) => {
+                const colorArray = product.product_colors;
+                const imagesArray = colorArray[0].product_color_images;
                 return (
-                  product.product_colors.length > 0
-                    && product.product_colors[0].product_color_images.length > 0 ? (
+                  colorArray.length > 0 && imagesArray.length > 0 ? (
                     <Card
                       key={product.id}
                       id={product.id}
-                      image={product.product_colors[0].product_color_images
-                        .map(img => img.image_path)}
+                      image={imagesArray.map(img => img.image_path)}
                       title={product.title}
                       price_new={product.price_new}
                       price_old={product.price_old}
-                      colors={product.product_colors}
+                      colors={colorArray}
                       sizes={product.sizes}
                     />
                   ) : null
@@ -104,7 +76,7 @@ const Index: FC = () => {
             </div>
           </div>
         )}
-      </Layout>
+      </GuestLayout>
     </div>
   )
 }
