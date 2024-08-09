@@ -1,84 +1,53 @@
-import axios from "axios";
-import { ChangeEvent, FC, useEffect, useState } from "react"
+import GuestLayout from "@/Layouts/GuestLayout/GuestLayout"
+import Banners from "./Banners/Banners"
+import Featured from "./Featured/Featured"
+import Container from "@/Components/Container/Container"
 import styles from './Index.module.scss'
-import Card from "@/Components/Cards/Card/Card";
-import SearchLayout from "@/Layouts/SearchLayout";
-import { useSearchContext } from "@/Contexts/SearchContext";
-import GuestLayout from "@/Layouts/GuestLayout/GuestLayout";
-import Filter from "@/Components/Filter/Filter";
-import Filters from "./Filters/Filters";
+import Links from "./Links/Links"
+import Brand from "./Brand/Brand"
+import Testimonial from "./Testimonial/Testimonial"
+import Partners from "./Partners/Partners"
+import Benefits from "./Benefits/Benefits"
+import ScrollToTopButton from "@/Components/Buttons/ScrollToTopButton/ScrollToTopButton"
+import useScrollVisibility from "@/hooks/useScrollVisibility"
+import scrollToTop from "@/utils/scrollToTop"
+import useScrollToTop from "@/hooks/useScrollToTop"
+import { useProductsContext } from "@/Contexts/ProductsContext"
+import SpinnerLoader from "@/Components/SpinnerLoader/SpinnerLoader"
 
-const Index: FC = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const { inputValue } = useSearchContext();
-  const [filterProducts, setFilterProducts] = useState(products);
+const Home = () => {
+  const isScrollButtonVisible = useScrollVisibility(1000);
+  useScrollToTop();
+  const { products } = useProductsContext();
+  const { loading } = useProductsContext();
 
-  const filteredProducts = products.filter(product => {
-    const value = product.title.toLowerCase();
-    const isExist = value.includes(inputValue.toLowerCase())
 
-    const colorFilter = product.product_colors.some(color => {
-      return color.color.name.toLowerCase().includes(inputValue);
-    });
-
-    return isExist || colorFilter;
-  });
-
-  useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/products')
-      .then(response => {
-        setProducts(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('У вас проблемы вывода продуктов: ', error)
-        setLoading(false);
-      })
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
+  if(loading) {
+    return <SpinnerLoader/>
   }
-
-
-
+  
   return (
-
-    <div>
+    <main className={styles.home}>
       <GuestLayout>
-        <Filters products={products} setFilterProducts={setFilterProducts} className={styles.filters}/>
-        {inputValue.length > 0 ? (
-          <SearchLayout products={filteredProducts}>
-            {null}
-          </SearchLayout>
-        ) : (
-          <div className="container">
-            <div className={styles.home__row}>
-              {filterProducts.map((product: IProduct) => {
-                const colorArray = product.product_colors;
-                const imagesArray = colorArray[0].product_color_images;
-                return (
-                  colorArray.length > 0 && imagesArray.length > 0 ? (
-                    <Card
-                      key={product.id}
-                      id={product.id}
-                      image={imagesArray.map(img => img.image_path)}
-                      title={product.title}
-                      price_new={product.price_new}
-                      price_old={product.price_old}
-                      colors={colorArray}
-                      sizes={product.sizes}
-                    />
-                  ) : null
-                );
-              })}
-            </div>
+        <Banners/>
+        <Container>
+          <div className={styles.home__flex}>
+          <Featured products={ products }/>
+          <Links/>
+          <Brand/>
+          <Testimonial/>
+          <Partners/>
+          <Benefits/>
           </div>
-        )}
+        </Container>
+        <ScrollToTopButton 
+          onClick={ scrollToTop } 
+          isVisible={ isScrollButtonVisible } 
+          className={styles.scroll}
+        />
       </GuestLayout>
-    </div>
+    </main>
   )
 }
 
-export default Index;
+export default Home

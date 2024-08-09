@@ -22,8 +22,10 @@ class Product extends Model
         'available'
     ];
 
-    public function category() {
-        return $this->belongsTo(Category::class);
+    public $timestamps = true;
+
+    public function categories() {
+        return $this->belongsToMany(Category::class, 'categories_merge');
     }
 
     public function productColors() {

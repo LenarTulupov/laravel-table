@@ -3,6 +3,8 @@
     align-items: center;
     justify-content: center;
     gap: 15px;
+    height: 45px;
+    border-bottom: 1px solid var(--gray);
 
     &__flex {
         display: flex;

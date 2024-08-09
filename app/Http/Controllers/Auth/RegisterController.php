@@ -12,7 +12,7 @@ use Inertia\Inertia;
 class RegisterController extends Controller
 {
     public function showRegistrationForm() {
-        return Inertia::render('Register/Register');
+        return Inertia::render('Register/Index');
     }
 
     public function register(Request $request) {

@@ -1,12 +1,31 @@
 .header {
-    border-bottom: 1px solid #d5d5d5;
+    border-bottom: 1px solid var(--gray);
 }
 .row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
+    &__burger {
+        display: none;
+    }
 }
 .logo {
     width: 100px;
+}
+
+@media (max-width: 768px) {
+    .row__links {
+        display: none;
+    }
+    .row__burger {
+        display: flex;
+    }
+    .columns__row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .logo {
+        justify-self: center;
+    }
 }

@@ -1,0 +1,33 @@
+.card-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px;
+    height: 100%;
+
+    &__title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        height: 50px;
+    }
+
+    &__color {
+    }
+    &__btn {
+        border-radius: 6px;
+        width: 100%;
+    }
+
+    &__price-color {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__sizes {
+        min-height: 59px;
+    }
+}

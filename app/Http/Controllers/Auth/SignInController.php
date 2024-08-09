@@ -11,7 +11,7 @@ use Inertia\Inertia;
 class SignInController extends Controller
 {
     public function showLoginForm() {
-        return Inertia::render('SignIn/SignIn');
+        return Inertia::render('SignIn/Index');
     }
 
     public function signin(Request $request) {

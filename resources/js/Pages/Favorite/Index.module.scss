@@ -1,4 +1,8 @@
 .favorite-page {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
 
     &__wrapper {
         display: flex;
@@ -6,7 +10,7 @@
         gap: 20px;
     }
 
-    .header{
+    .header {
         display: flex;
         justify-content: center;
 
@@ -40,19 +44,17 @@
         }
 
         .recently-viewed {
-
             &__grid {
                 display: grid;
                 grid-template-columns: repeat(5, 1fr);
             }
-    
+
             &__title {
                 // border-left: 3px solid #f69;
                 position: relative;
                 padding-left: 10px;
                 font-size: 20px;
                 margin-bottom: 20px;
-                
 
                 &::before {
                     content: "";
@@ -64,7 +66,6 @@
                     left: 0;
                 }
             }
-    
         }
     }
     &__grid {

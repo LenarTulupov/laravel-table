@@ -1,6 +1,40 @@
 .footer {
-    background-color: #000;
-    &__title {
-        color: #fff;
+    margin: 30px 0;
+    padding-top: 50px;
+    &__col {
+        &-title {
+            margin-bottom: 15px;
+
+        }
+        &-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        } 
+            
+        &-item {
+            color: gray;
+            &:hover {
+                color: black;
+            }
+        }
     }
+
+    &__flex {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+    &__payment {
+        display: grid;
+        grid-template-columns: repeat(3, 35px);
+        gap: 15px;
+    }
+    &__bottom {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        align-items: center;
+        margin-top: 50px;
+    };
 }
