@@ -24,12 +24,12 @@ const SalesTopHeader = () => {
     const swiperOptions = {
         slidesPerView: 1,
         autoplay: {
-            delay: 4500,
+            delay: 7000,
             disableOnInteraction: false,
         },
         loop: true,
         loopAdditionalSlides: 1,
-        speed: 1050,
+        speed: 2000,
         allowTouchMove: false,
         modules: [Autoplay]
     };

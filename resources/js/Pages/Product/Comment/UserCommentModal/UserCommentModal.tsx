@@ -6,6 +6,7 @@ import CloseButton from '@/Components/Buttons/CloseButton/CloseButton'
 import { FC, useState } from 'react'
 import InputLabel from '@/Components/InputLabel/InputLabel'
 import TextInput from '@/Components/TextInput/TextInput'
+import Button from '@/Components/Buttons/Button/Button'
 
 interface IUserComment {
   onClick: () => void
@@ -28,11 +29,6 @@ const UserCommentModal: FC<IUserComment> = ({ onClick }) => {
     e.preventDefault();
   }
 
-  console.log(title);
-  console.log(comment);
-  console.log(recommend);
-
-
   return (
     <>
       <form className={`${styles['user-comment']}`} onSubmit={handleSubmit}>
@@ -45,10 +41,11 @@ const UserCommentModal: FC<IUserComment> = ({ onClick }) => {
         <Rating rating={rating} onRatingChange={handleRatingChange} />
         <div className={styles['user-comment__title']}>
           <InputLabel
-            text='Title of Review'
             htmlFor='title'
             className={styles['user-comment__title-label']}
-          />
+          >
+            Title of Review
+          </InputLabel>
           <TextInput
             id='title'
             placeholder='Give your review a title'
@@ -59,11 +56,13 @@ const UserCommentModal: FC<IUserComment> = ({ onClick }) => {
         </div>
         <div className={styles['user-comment__comment']}>
           <InputLabel
-          text='How was your overall experience?'
             htmlFor='comment'
             className={styles['user-comment__comment-label']}
-          />
+          >
+            How was your overall experience?
+          </InputLabel>
           <textarea
+            placeholder='Leave your comment of the product'
             id="comment"
             className={styles['user-comment__comment-text']}
             value={comment}
@@ -73,7 +72,13 @@ const UserCommentModal: FC<IUserComment> = ({ onClick }) => {
         <Recommend recommend={recommend} setRecommend={setRecommend} />
         <div className={styles['user-comment__buttons']}>
           <button className={styles['user-comment__buttons-photo']}>Add Photos</button>
-          <button className={styles['user-comment__buttons-submit']}>Submit</button>
+          {/* <button className={styles['user-comment__buttons-submit']}>Submit</button> */}
+          <Button variant="gray" type='file'>
+            Add Photos
+          </Button>
+          <Button variant="black" type='submit'>
+            Submit
+          </Button>
         </div>
       </form>
     </>

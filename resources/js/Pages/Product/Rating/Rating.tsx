@@ -1,13 +1,13 @@
 import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa'
-import styles from './Rating.module.scss'
 import { FC } from 'react';
+import styles from './Rating.module.scss'
 
 interface IRating {
     rating: number
     reviews: number
 }
 
-const Rating: FC<IRating> = ({rating, reviews}) => {
+const Rating: FC<IRating> = ({ rating, reviews }) => {
     const countRating = rating ?? 0;
 
     return (

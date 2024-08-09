@@ -1,15 +1,18 @@
-import { usePage } from '@inertiajs/react';
-import { FC, useEffect, useState } from 'react';
-import axios from 'axios';
-import { useRecentlyViewedContext } from '@/Contexts/RecentlyViewedContext';
-import Description from './Description/Description';
-import Rating from './Rating/Rating';
-import Images from './Images/Images';
-import PhotosReview from './PhotosReview/PhotosReview';
-import Reviews from './Reviews/Reviews';
-import styles from './Index.module.scss'
-import UserCommentModal from './Comment/UserCommentModal/UserCommentModal';
-import GuestLayout from '@/Layouts/GuestLayout/GuestLayout';
+import { usePage } from "@inertiajs/react";
+import { FC, useEffect, useState } from "react";
+import axios from "axios";
+import { useRecentlyViewedContext } from "@/Contexts/RecentlyViewedContext";
+import Description from "./Description/Description";
+import Rating from "./Rating/Rating";
+import Images from "./Images/Images";
+import PhotosReview from "./PhotosReview/PhotosReview";
+import Reviews from "./Reviews/Reviews";
+import styles from "./Index.module.scss";
+import UserCommentModal from "./Comment/UserCommentModal/UserCommentModal";
+import GuestLayout from "@/Layouts/GuestLayout/GuestLayout";
+import Container from "@/Components/Container/Container";
+import { useProductsContext } from "@/Contexts/ProductsContext";
+import SpinnerLoader from "@/Components/SpinnerLoader/SpinnerLoader";
 
 interface IProductColorImage {
   id: number;
@@ -42,56 +45,89 @@ interface IProductImage {
 }
 
 const Index: FC = () => {
-  const { productId } = usePage().props;
-  const [product, setProduct] = useState<IProduct | null>(null);
-  const [isDescriptionOpen, setIsDescriptionOpen] = useState<boolean>(false);
-  const [firstImage, setFirstImage] = useState('');
-  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+  // const [firstImage, setFirstImage] = useState('');
+  // const [imageLoaded, setImageLoaded] = useState<boolean>(false);
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
 
-  const { addToRecentlyViewed } = useRecentlyViewedContext();
+  // const { addToRecentlyViewed } = useRecentlyViewedContext();
 
-  const handleOpenDescription = () => {
-    setIsDescriptionOpen(!isDescriptionOpen);
-  };
 
-  const handleImageChangeOnClick = (imagePath: string) => {
-    setFirstImage(imagePath);
-  };
+  // const handleImageChangeOnClick = (imagePath: string) => {
+  //   setFirstImage(imagePath);
+  // };
 
-  const handleImageLoad = () => {
-    setImageLoaded(true);
-  };
+  // const handleImageLoad = () => {
+  //   setImageLoaded(true);
+  // };
 
   const formToggle = () => {
     setIsFormOpen(!isFormOpen);
   }
 
+  // useEffect(() => {
+  //   const fetchProduct = async () => {
+  //     try {
+  //       const response = await axios.get(`http://127.0.0.1:8000/api/products/${productId}`);
+  //       const productData = response.data;
+  //       setProduct(productData);
+  //       // setFirstImage(productData.product_colors[0].product_color_images[0].image_path);
+  //       // addToRecentlyViewed(productData);
+  //     } catch (error) {
+  //       console.error('Error fetching product: ', error);
+  //     }
+  //   };
+
+  //   fetchProduct();
+  // }, [productId]);
+
+  // if (!product) {
+  //   return <div>Loading...</div>;
+  // }
+
+  // const imagesArray: IProductImage[] = product.product_colors[0].product_color_images;
+
+  const { productId } = usePage().props;
+  const [product, setProduct] = useState<IProduct | null>(null);
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = useState<string>('');
+  const [selectedSize, setSelectedSize] = useState<ISize | null>(null)
+
+  const handleOpenDescription = () => {
+    setIsDescriptionOpen(!isDescriptionOpen);
+  };
+
+  const handleSelectImage = (imagePath: string) => {
+    setSelectedImage(imagePath);
+  };
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8000/api/products/${productId}`);
-        const productData = response.data;
+        const response = await fetch(
+          `http://127.0.0.1:8000/api/products/${productId}`,
+        );
+        const productData = await response.json();
         setProduct(productData);
-        setFirstImage(productData.product_colors[0].product_color_images[0].image_path);
-        addToRecentlyViewed(productData);
+        if (productData.product_colors.length > 0 && productData.product_colors[0].product_color_images.length > 0) {
+          setSelectedImage(productData.product_colors[0].product_color_images[0].image_path);
+        }
       } catch (error) {
-        console.error('Error fetching product: ', error);
+        console.error("Fetching error of product: ", error);
       }
     };
-
     fetchProduct();
-  }, [productId, addToRecentlyViewed]);
+  }, [productId]);
 
-  if (!product) {
-    return <div>Loading...</div>;
+  if(!product) {
+    return <SpinnerLoader/>
   }
 
-  const colorName = product.product_colors[0].color.name;
-  const imagesArray: IProductImage[] = product.product_colors[0].product_color_images;
+  const imagesArray = product
+    ? product.product_colors[0].product_color_images
+    : [];
 
-  console.log(product);
-
+  const title = product ? product.title : [];
+  const colorName = product ? product.product_colors[0].color.name : '';
   return (
     <>
       {isFormOpen && (
@@ -103,10 +139,39 @@ const Index: FC = () => {
         </>
       )}
 
-      <GuestLayout>
-        <main className={styles['product-page']}>
-          <div className="container">
-            <div className={`${styles['product-page__grid']} ${styles.grid}`}>
+    <GuestLayout>
+      <main className={styles["product-page"]}>
+        <Container>
+          <div className={`${styles['product-page__grid']} ${styles.grid}`}>
+            <div className={styles.grid__content}>
+              <Images
+                imagesArray={imagesArray}
+                title={title}
+                handleSelectImage={handleSelectImage}
+                selectedImage={selectedImage}
+              />
+              <Description
+                product={product}
+                colorName={colorName}
+                handleOpenDescription={handleOpenDescription}
+                isDescriptionOpen={isDescriptionOpen}
+                selectedSize={selectedSize}
+                setSelectedSize={setSelectedSize}
+              />
+            </div>
+            <div className={styles.grid__container}>
+              <div className={styles['grid__container-wrapper']}>
+                <Rating
+                  reviews={product.ratings}
+                  rating={product.average_rating}
+                />
+                <PhotosReview formToggle={formToggle} />
+              </div>
+              <Reviews reviewers={product.ratings} />
+            </div>
+          </div>
+
+          {/* <div className={`${styles['product-page__grid']} ${styles.grid}`}>
               <div className={styles.grid__content}>
                 <Images
                   imagesArray={imagesArray}
@@ -132,12 +197,12 @@ const Index: FC = () => {
                 </div>
                 <Reviews reviewers={product.ratings} />
               </div>
-            </div>
-          </div>
-        </main>
-      </GuestLayout>
+            </div> */}
+        </Container>
+      </main>
+    </GuestLayout>
     </>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

@@ -1,35 +1,53 @@
-$blue: #0000FF;
-$beige: #F5F5DC;
+$blue: #161d37;
+$beige: #f5f5dc;
 $black: #000000;
-$brown: #A52A2A;
-$ruby: #E0115F;
+$brown: #a52a2a;
+$ruby: #e0115f;
 $darkbrown: #654321;
-$pink: #FFC0CB;
-$brightpink: #FF69B4;
-$middlebrown: #8B4513;
-$brightbrown: #D2691E;
-$sand: #C2B280;
-$camel: #C19A6B;
-$lightblue: #ADD8E6;
+$pink: #ffc0cb;
+$brightpink: #ff69b4;
+$middlebrown: #8b4513;
+$brightbrown: #d2691e;
+$sand: #c2b280;
+$camel: #c19a6b;
+$lightblue: #add8e6;
+$green: #e0e9cb;
+$orange: #fcb468;
+$white: #f7f5f4;
+$multi: #bc3056;
+$stone: #f5f0e4;
+$hot-pink: #f84c7f;
+$olive: #cdd031;
+$khaki: #d1bf81;
+$ecru: #dfdcd1;
 
 $color-map: (
-  "blue": $blue,
-  "beige": $beige,
-  "black": $black,
-  "brown": $brown,
-  "ruby": $ruby,
-  "darkbrown": $darkbrown,
-  "pink": $pink,
-  "brightpink": $brightpink,
-  "middlebrown": $middlebrown,
-  "brightbrown": $brightbrown,
-  "sand": $sand,
-  "camel": $camel,
-  "lightblue": $lightblue
+    "blue": $blue,
+    "beige": $beige,
+    "black": $black,
+    "brown": $brown,
+    "ruby": $ruby,
+    "darkbrown": $darkbrown,
+    "pink": $pink,
+    "brightpink": $brightpink,
+    "middlebrown": $middlebrown,
+    "brightbrown": $brightbrown,
+    "sand": $sand,
+    "camel": $camel,
+    "lightblue": $lightblue,
+    "green": $green,
+    "orange": $orange,
+    "white": $white,
+    "multi": $multi,
+    "stone": $stone,
+    "hot-pink": $hot-pink,
+    "olive": $olive,
+    "khaki": $khaki,
+    "ecru": $ecru,
 );
 
 @each $name, $color in $color-map {
-  .color-#{$name} {
-    background-color: $color;
-  }
+    .color-#{$name} {
+        background-color: $color;
+    }
 }

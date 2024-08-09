@@ -6,14 +6,15 @@ import EditCartSidebar from "@/Components/Sidebars/EditCartSidebar/EditCartSideb
 import styles from './GuestLayout.module.scss'
 
 interface ILayout {
-  children: React.ReactNode
+  children: ReactNode
+  
 }
 
 const GuestLayout: FC<ILayout> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isEditCartSidebarOpen, setIsEditCartSidebarOpen] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
-  const [selectedSize, setSelectedSize] = useState<any>(null); 
+  const [selectedSize, setSelectedSize] = useState<any>(null);
 
   const handleToggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -48,29 +49,30 @@ const GuestLayout: FC<ILayout> = ({ children }) => {
   }, [isSidebarOpen, isEditCartSidebarOpen]);
 
   return (
-    <div 
+    <div
       className={`${styles.layout} ${(isSidebarOpen) ? styles.blurred : ''}`}>
-        
+
       <CartSidebar
         toggleSidebar={handleToggleSidebar}
         isOpen={isSidebarOpen}
         toggleEditSidebar={handleToggleEditSidebar}
         isEditOpen={isEditCartSidebarOpen}
-        product={selectedProduct} 
+        product={selectedProduct}
       />
 
       <EditCartSidebar
         toggleEditSidebar={handleToggleEditSidebar}
         isEditOpen={isEditCartSidebarOpen}
         product={selectedProduct}
-        selectedSize={selectedSize} 
+        selectedSize={selectedSize}
       />
-
-      <Header toggleSidebar={handleToggleSidebar} />
-      <div className={styles.layout__content}>
-        {children}
+      <div className={styles.flex}>
+        <Header toggleSidebar={handleToggleSidebar}/>
+        <div className={styles.layout__content}>
+          {children}
+        </div>
+        <Footer />
       </div>
-      {/* <Footer /> */}
     </div>
   );
 }

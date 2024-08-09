@@ -19,13 +19,13 @@ return new class extends Migration
             $table->decimal('price_new', 10, 2)->check('price_new >= 0');
             $table->decimal('price_old', 10, 2)->nullable()->check('price_old >= 0');
             $table->integer('quantity')->nullable()->check('quantity >= 0');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->boolean('added_to_favorite')->default(false);
             $table->boolean('added_to_cart')->default(false);
             $table->boolean('available')->default(true);
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
         });
     }
 
@@ -34,6 +34,12 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('products', function (Blueprint $table) {
+            // Удалить внешний ключ при откате миграции
+            $table->dropForeign(['category_id']);
+        });
+
         Schema::dropIfExists('products');
+
     }
 };

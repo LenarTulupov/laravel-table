@@ -1,0 +1,30 @@
+.benefits {
+    &__list {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        justify-self: center;
+        width: 200px;
+        &-logo {
+            font-size: 20px;
+        }
+        &-header {
+            font-weight: 700;
+        }
+        
+        &-descr {
+            font-size: 14px;
+            text-align: center;
+            word-wrap: break-word; // добавлено
+            word-break: break-all; // добавлено
+        }
+        
+    }
+}

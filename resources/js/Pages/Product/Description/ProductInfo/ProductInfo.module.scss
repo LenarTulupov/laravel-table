@@ -6,7 +6,12 @@
     .btn {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         width: 100%;
+
+        &__title-logo {
+            font-size: 26px;
+        }
 
     }
 

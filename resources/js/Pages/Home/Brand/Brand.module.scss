@@ -1,0 +1,15 @@
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    &__title {
+        font-size: 50px;
+    }
+    &__text {
+        width: 500px;
+    }
+    &__img {
+        height: 400px;
+    }
+}

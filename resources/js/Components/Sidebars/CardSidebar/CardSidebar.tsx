@@ -32,7 +32,7 @@ const CardSidebar: FC<ICardSidebar> = ({
     const colorName = product.product_colors[0].color.name;
 
     return (
-        <article className={`${styles['card-sidebar']}`}>
+        <div className={`${styles['card-sidebar']}`}>
             <div className={`${styles['card-sidebar__content']} ${styles.content}`}>
                 <img src={image[0]} alt="" className={styles['content__img']} />
                 <div className={`${styles['content__row-1']} ${styles['row-1']}`}>
@@ -65,7 +65,7 @@ const CardSidebar: FC<ICardSidebar> = ({
                     </div>
                 </div>
             </div>
-        </article>
+        </div>
     )
 }
 

@@ -4,6 +4,7 @@ import styles from './CartSidebar.module.scss';
 import { useCartContext } from "@/Contexts/CartContext";
 import CloseButton from "@/Components/Buttons/CloseButton/CloseButton";
 import EmptyCard from "@/Components/Cards/Card/EmptyCard/EmptyCard";
+import Button from "@/Components/Buttons/Button/Button";
 
 interface ICartSidebar {
   toggleSidebar: () => void;
@@ -75,8 +76,8 @@ const CartSidebar: FC<ICartSidebar> = ({
             </div>
 
             <div className={`${styles.checkout__buttons} ${styles.buttons}`}>
-              <button className={styles.buttons__cart}>View Cart</button>
-              <button className={styles.buttons__checkout}>Checkout</button>
+              <Button variant="gray" className={styles.buttons__gray}>View Cart</Button>
+              <Button variant="black" className={styles.buttons__black}>Checkout</Button>
             </div>
           </div>
         </>

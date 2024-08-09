@@ -1,26 +1,28 @@
 import Radio from '@/Components/Radio/Radio';
 import styles from './Recommend.module.scss'
+import { ChangeEvent, FC } from 'react';
 
-const Recommend = ({ recommend, setRecommend }) => {
+interface IRecommend {
+    recommend: string
+    setRecommend: (value: string) => void
+}
 
-    const handleChange = (e) => {
+const Recommend: FC<IRecommend> = ({ recommend, setRecommend }) => {
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setRecommend(e.target.value)
     }
 
-    console.log(recommend);
     return (
         <div className={styles['recommend']}>
             <div className={styles.recommend__title}>Do you recommend this product?</div>
             <div className={styles.recommend__flex}>
                 <div className={`${styles['recommend__yes']}`}>
                     <Radio
-                    
-                    />
-                    <input 
-                        type="radio" 
-                        id='yes' 
-                        className={styles['recommend__yes-input']} 
-                        value={recommend}
+                        id='yes'
+                        className={styles['recommend__yes-input']}
+                        name='recommend'
+                        value='yes'
                         checked={recommend === 'yes'}
                         onChange={handleChange}
                     />
@@ -28,13 +30,10 @@ const Recommend = ({ recommend, setRecommend }) => {
                 </div>
                 <div className={`${styles['recommend__no']}`}>
                     <Radio
-                    
-                    />
-                    <input 
-                        type="radio" 
-                        id='no' 
-                        className={styles['recommend__no-input']} 
-                        value={recommend}
+                        id="no"
+                        className={styles['recommend__no-input']}
+                        name="recommend"
+                        value="no"
                         checked={recommend === 'no'}
                         onChange={handleChange}
                     />

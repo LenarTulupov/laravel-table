@@ -1,0 +1,11 @@
+.price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &__old {
+        font-size: 14px;
+        text-decoration-line: line-through;
+        color: rgb(119, 119, 119);
+    }
+}

@@ -1,0 +1,9 @@
+.stars {
+    display: flex;
+    gap: 2px;
+    & * {
+        fill: var(--yellow);
+        font-size: 20px;
+    }
+    
+}

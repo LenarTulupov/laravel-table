@@ -23,7 +23,7 @@ Route::get('/product/{id}', function($id) {
 });
 
 Route::fallback(function () {
-    return Inertia::render('NotFound/NotFound');
+    return Inertia::render('NotFound/Index');
 });
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
@@ -34,24 +34,27 @@ Route::post('/signin', [SignInController::class, 'signin']);
 Route::post('logout', [SignInController::class, 'logout'])->name('logout');
 
 Route::get('/profile', function() {
-    return Inertia::render('Profile/Profile');
+    return Inertia::render('Profile/Index');
 })->name('profile');
 
 // Nav
 Route::get('/all', function() {
-    return Inertia::render('Nav/All/All');
+    return Inertia::render('All/Index');
 });
 Route::get('/dresses', function() {
-    return Inertia::render('Nav/Dresses/Dresses');
+    return Inertia::render('Dresses/Index');
 });
 Route::get('/new', function() {
-    return Inertia::render('Nav/New/New');
+    return Inertia::render('New/Index');
 });
 Route::get('/summer', function() {
-    return Inertia::render('Nav/Summer/Summer');
+    return Inertia::render('Summer/Index');
 });
 Route::get('/trends', function() {
-    return Inertia::render('Nav/Trends/Trends');
+    return Inertia::render('Trends/Index');
+});
+Route::get('/add', function() {
+    return Inertia::render('AddNewProduct/AddNewProduct');
 });
 
 require __DIR__.'/auth.php';

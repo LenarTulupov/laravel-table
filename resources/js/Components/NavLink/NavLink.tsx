@@ -5,17 +5,18 @@ import styles from './NavLink.module.scss'
 interface INavLink {
   href: string
   children: ReactNode
+  className?: string
 }
 
 
-const NavLink: FC<INavLink> = ({ href, children }) => {
+const NavLink: FC<INavLink> = ({ href, children, className }) => {
     const { url } = usePage();
     const isActive = url === href;
 
   return (
     <Link 
       href={href}
-      className={`${styles['nav-link']} ${isActive ? styles['nav-link_active']: ''}`}
+      className={`${styles['nav-link']} ${isActive ? styles['nav-link_active']: ''} ${className}`}
     >
       {children}
     </Link>

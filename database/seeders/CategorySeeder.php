@@ -13,13 +13,23 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        
-        DB::table('categories')->insert([
-            ['name' => 'coats'],
-            ['name' => 'jackets'],
-            ['name' => 'dresses'],
-            ['name' => 'trousers'],
-            ['name' => 'all'],
-        ]);
+    $categories = [
+               ['name' => 'coats'],
+               ['name' => 'jackets'],
+               ['name' => 'dresses'],
+               ['name' => 'trousers'],
+               ['name' => 'summer'],
+               ['name' => 'trends'],
+               ['name' => 'new'],
+               ['name' => 'skirt'],
+               ['name' => 'top'],
+               ['name' => 't-shirt'],
+               ['name' => 'joggers'],
+               ['name' => 'blazer']
+           ];
+
+           foreach ($categories as $category) {
+               DB::table('categories')->updateOrInsert(['name' => $category['name']], $category);
+           }
     }
 }

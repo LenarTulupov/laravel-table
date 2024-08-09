@@ -2,6 +2,7 @@ import axios from 'axios';
 import { FC, useEffect, useState } from 'react';
 import CloseButton from '@/Components/Buttons/CloseButton/CloseButton';
 import styles from './EditCartSidebar.module.scss';
+import SpinnerLoader from '@/Components/SpinnerLoader/SpinnerLoader';
 
 interface IEditCartSidebar {
   isEditOpen: boolean;
@@ -41,7 +42,7 @@ const EditCartSidebar: FC<IEditCartSidebar> = ({
   product,
   selectedSize 
 }) => {
-  const [productDetails, setProductDetails] = useState<any>(null);
+  const [productDetails, setProductDetails] = useState<IProductDetails | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
 

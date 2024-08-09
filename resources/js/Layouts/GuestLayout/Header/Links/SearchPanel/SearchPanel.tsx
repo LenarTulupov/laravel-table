@@ -1,17 +1,18 @@
+import { FC, useEffect } from "react"
 import CloseButton from "@/Components/Buttons/CloseButton/CloseButton"
-import { FC, useEffect, useState } from "react"
-import styles from './SearchPanel.module.scss'
-import { IoSearch } from "react-icons/io5";
-import { useSearchContext } from "@/Contexts/SearchContext";
 import TextInput from "@/Components/TextInput/TextInput";
+import { IoSearch } from "react-icons/io5";
+import styles from './SearchPanel.module.scss'
 
 
 interface ISearchPanel {
     searchToggle: () => void
+    inputValue: string
+    setInputValue: (value: string) => void
 }
 
-const SearchPanel: FC<ISearchPanel> = ({ searchToggle }) => {
-    const { inputValue, setInputValue } = useSearchContext();
+const SearchPanel: FC<ISearchPanel> = ({ searchToggle, inputValue, setInputValue }) => {
+
 
     useEffect(() => {
         return () => setInputValue('');
