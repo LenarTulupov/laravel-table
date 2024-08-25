@@ -1,0 +1,101 @@
+.filter-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    border-bottom: 1px solid var(--gray);
+    height: 45px;
+    &__section {
+        @extend .section;
+    }
+}
+
+.section {
+    &:last-child {
+        border-right: 1px solid var(--gray);
+    }
+    &__button {
+        height: 45px;
+        padding: 0 30px;
+        border-left: 1px solid var(--gray);
+        &_active {
+            border-bottom: none;
+        }
+    }
+    &__list {
+        position: absolute;
+        bottom: -180px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        display: flex;
+        align-content: flex-start;
+        flex-flow: column wrap;
+        gap: 0 20px;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #fff;
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+        overflow: hidden;
+        border-bottom: 1px solid var(--gray);
+        &_active {
+            max-height: 280px;
+            width: 100%;
+        }
+        &-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            width: 200px;
+        }
+    }
+    &__select {
+        position: absolute;
+        top: 46px;
+        right: 0;
+        z-index: 1;
+        overflow: hidden;
+        border: none;
+        --tw-shadow: none;
+        border-right: 1px solid var(--gray) !important;
+        border-left: 1px solid var(--gray) !important;
+        border-bottom: 1px solid var(--gray) !important;
+    }
+}
+@media (max-width: 992px) {
+    .filter-layout {
+        font-size: 15px;
+    }
+}
+@media (max-width: 768px) {
+    .filter-layout {
+        font-size: 14px;
+    }
+}
+@media (max-width: 560px) {
+    .filter-layout {
+        font-size: 13px;
+    }
+}
+@media (max-width: 480px) {
+    .filter-layout {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+}
+//     .filter-layout {
+//         align-items: center;
+//         grid-template-columns: 1fr auto;
+//         font-size: 12px;
+//     }
+//     .filter-layout__center {
+//         grid-column-start: 1;
+//     }
+// }
+// @media (max-width: 320px) {
+//     .filter-layout {
+//         font-size: 11px;
+//     }
+// }

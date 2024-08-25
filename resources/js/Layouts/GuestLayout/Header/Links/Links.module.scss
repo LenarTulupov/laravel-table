@@ -1,0 +1,21 @@
+.links {
+    justify-self: end;
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    &__link {
+        display: flex;
+        gap: 10px;
+    }
+    &__item {
+        &-logo {
+            font-size: 18px;
+        }
+        &:hover {
+            color: rgb(124, 124, 124);
+        }
+    }
+    
+}

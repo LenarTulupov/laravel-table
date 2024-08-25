@@ -1,0 +1,41 @@
+.button {
+    padding: 10px 20px;
+
+}
+
+.blue {
+    background-color: #4ea0ff;
+    border: 1px solid #4ea0ff;
+    color: white;
+    &:hover {
+        color: #4ea0ff;
+        background-color: #fff;
+        
+    }
+}
+.black {
+    background-color: black;
+    color: white;
+
+    &:hover {
+        background-color: #000000d2;
+    }
+}
+
+.gray {
+    background-color: #f8f8f8;
+    color: black;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #d4d4d4;
+    }
+}
+.white {
+    background-color: #fff;
+    border: 1px solid #000;
+    
+    &:hover {
+        background-color: #d4d4d4;
+    }
+}

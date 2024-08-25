@@ -1,0 +1,32 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    // position: relative;
+    // overflow: hidden;
+
+
+    &__content {
+        transition: transform 0.3s ease;
+        // transform: translateX(0);
+        // height: var(--content-height);
+    }
+}
+
+.blurred {
+    &::before {
+        content: '';
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        // backdrop-filter: blur(2px); 
+        background: rgba($color: #ffffff, $alpha: 0.7);
+        z-index: 1; 
+    }
+}
+.flex {
+    display: flex;
+    flex-direction: column;
+}

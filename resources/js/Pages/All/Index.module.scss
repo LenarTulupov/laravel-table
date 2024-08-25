@@ -1,0 +1,19 @@
+.all {
+    position: relative;
+}
+
+.home__row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+.filters {
+    display: flex;
+    justify-content: center;
+}
+
+.scroll {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}

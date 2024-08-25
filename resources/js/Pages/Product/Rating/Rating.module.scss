@@ -1,0 +1,187 @@
+.rating {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__reviewers {
+        
+    }
+    &__title {
+        text-transform: uppercase;
+        // text-align: center;
+        font-size: 36px;
+    }
+
+    &__average {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #4a4a4a;
+        }
+        &-stars {
+            display: flex;
+            gap: 10px;
+
+            .stars-average {
+                &__yellow {
+                    fill: var(--yellow);
+                }
+
+                &__half {
+                    fill: var(--yellow);
+                }
+            }
+
+            & * {
+                font-size: 36px;
+                color: var(--gray);
+            }
+        }
+    }
+    .reviews {
+        border-right: 1px solid var(--gray);
+        border-left: 1px solid var(--gray);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        // width: fit-content;
+
+       
+
+        .reviews-5 {
+            padding: 0 15px;
+
+            .flex {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+
+                &__stars {
+                    display: flex;
+                    color: var(--gray);
+                }
+
+                &__lines {
+                    display: flex;
+                    width: 100%;
+
+                    &-line {
+                        width: 100%;
+                        height: 100%;
+                        background-color: var(--yellow);
+                    }
+                }
+            }
+        }
+        .reviews-4 {
+            padding: 0 15px;
+
+            .flex {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+
+                &__stars {
+                    display: flex;
+                    color: var(--gray);
+                }
+
+                &__lines {
+                    display: flex;
+                    width: 100%;
+
+                    &-line {
+                        width: 100%;
+                        height: 100%;
+                        background-color: var(--yellow);
+                    }
+                }
+            }
+        }
+        .reviews-3 {
+            padding: 0 15px;
+
+            .flex {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+
+                &__stars {
+                    display: flex;
+                    color: var(--gray);
+                }
+
+                &__lines {
+                    display: flex;
+                    width: 100%;
+
+                    &-line {
+                        width: 100%;
+                        height: 100%;
+                        background-color: var(--yellow);
+                    }
+                }
+            }
+        }
+        .reviews-2 {
+            padding: 0 15px;
+
+            .flex {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+
+                &__stars {
+                    display: flex;
+                    color: var(--gray);
+                }
+
+                &__lines {
+                    display: flex;
+                    width: 100%;
+
+                    &-line {
+                        width: 100%;
+                        height: 100%;
+                        background-color: var(--yellow);
+                    }
+                }
+            }
+        }
+        .reviews-1 {
+            padding: 0 15px;
+
+            .flex {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+
+                &__stars {
+                    display: flex;
+                    color: var(--gray);
+                }
+
+                &__lines {
+                    display: flex;
+                    width: 100%;
+
+                    &-line {
+                        width: 100%;
+                        height: 100%;
+                        background-color: var(--yellow);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// @media(max-width: 992px) {
+//     .rating__reviews {
+//         width: 31.4%;
+//     }
+// }

@@ -1,0 +1,94 @@
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // gap: 20px;
+    &__title {
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .price {
+        display: flex;
+        gap: 10px;
+        &__old {
+            text-decoration: line-through;
+        }
+    }
+    .color {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        &__background {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            box-shadow: 1px 2px 2px var(--gray);
+        }
+    }
+    .sizes {
+        display: flex;
+        gap: 10px;
+
+        &__size {
+            padding: 5px 15px;
+            border: 1px solid var(--gray);
+        }
+    }
+    .quantity-product {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--gray);
+        width: fit-content;
+        &__increment {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+        }
+        &__decrement {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 40px;
+        }
+        &__input {
+            text-align: center;
+            border: none;
+            width: 70px;
+            &:focus {
+                box-shadow: none;
+            }
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+        }
+    }
+    &__buttons {
+        display: flex;
+    }
+    .buttons {
+        @extend .description__buttons;
+    }
+}
+
+@media(max-width: 992px) {
+    .description {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .description__title {
+        font-size: 17px;
+    }
+}
+
+@media(max-width: 320px) {
+    .buttons__btn {
+        padding: 10px 10px;
+    }
+}
