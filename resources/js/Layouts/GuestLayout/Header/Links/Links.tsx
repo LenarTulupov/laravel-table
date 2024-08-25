@@ -33,7 +33,7 @@ const Links: FC<ILinks> = ({ toggleSidebar, searchToggle }) => {
           </button>
         </li>
         <li className={styles.links__item}>
-          {user ? ( 
+          {user ? (
             <NavLink href="/profile">
               <FaRegFaceSmile className={styles["links__item-logo"]} />
             </NavLink>

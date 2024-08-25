@@ -36,10 +36,10 @@ const Images: FC<IProduct> = ({
         })}
       </div>
       <div className={styles.images__main}>
-        <img 
-          src={selectedImage} 
-          alt={title} 
-          className={styles['images__main-image']} 
+        <img
+          src={selectedImage}
+          alt={title}
+          className={styles['images__main-image']}
         />
       </div>
     </section>

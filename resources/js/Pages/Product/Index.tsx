@@ -73,7 +73,7 @@ const Index: FC = () => {
         const productData = await response.json();
         setProduct(productData);
         if (
-          productData.product_colors.length > 0 && 
+          productData.product_colors.length > 0 &&
           productData.product_colors[0].product_color_images.length > 0) {
           setSelectedImage(productData.product_colors[0].product_color_images[0].image_path);
         }

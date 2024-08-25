@@ -2,15 +2,13 @@
     width: 100%;
     &__content {
         @extend .content;
-    
     }
 }
 
-
 .content {
     display: grid;
-    grid-template-columns: auto 1fr; 
-    grid-template-rows: 1fr 1fr 1fr; 
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     background-color: #fff;
 
     & > :not(:first-child) {
@@ -19,7 +17,7 @@
 
     &__img {
         grid-row: 1 / span 3;
-        grid-column: 1; 
+        grid-column: 1;
         width: 120px;
         height: 186px;
         border-right: 1px solid var(--gray);
@@ -37,7 +35,9 @@
         @extend .row-3;
     }
 
-    .row-1, .row-2, .row-3 {
+    .row-1,
+    .row-2,
+    .row-3 {
         display: flex;
         align-items: center;
         padding: 10px;
@@ -89,7 +89,8 @@
             }
         }
 
-        &__quantity, &__available {
+        &__quantity,
+        &__available {
             font-size: 14px;
         }
 

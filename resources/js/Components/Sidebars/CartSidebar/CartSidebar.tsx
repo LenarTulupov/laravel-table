@@ -26,7 +26,7 @@ const CartSidebar: FC<ICartSidebar> = ({
     total + (parseFloat(product.price_new) * product.quantity), 0);
   const totalCartPriceFixed = totalCartPrice.toFixed(2);
   const totalCartDiscount = (totalCartPrice * 0.25).toFixed(2);
-  
+
 
   return (
     <div className={
@@ -49,8 +49,8 @@ const CartSidebar: FC<ICartSidebar> = ({
 
           <div className={styles['cart-sidebar__content']}>
             {cart.map(product => (
-              product.product_colors.length > 0 && 
-              product.product_colors[0].product_color_images.length > 0 ? (
+              product.product_colors.length > 0 &&
+                product.product_colors[0].product_color_images.length > 0 ? (
                 <CardSidebar
                   key={`${product.id}_${product.size.id}`}
                   id={product.id}
@@ -76,9 +76,9 @@ const CartSidebar: FC<ICartSidebar> = ({
               <div className={styles.subtotal__title}>
                 SUBTOTAL (EXCLUDING DELIVERY)
               </div>
-              <Price 
-                price={totalCartPriceFixed} 
-                className={styles.subtotal__price} 
+              <Price
+                price={totalCartPriceFixed}
+                className={styles.subtotal__price}
               />
               <div className={styles.subtotal__text}>
                 *All taxes are included in product prices

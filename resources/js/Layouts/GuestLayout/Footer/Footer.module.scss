@@ -4,14 +4,13 @@
     &__col {
         &-title {
             margin-bottom: 15px;
-
         }
         &-list {
             display: flex;
             flex-direction: column;
             gap: 5px;
-        } 
-            
+        }
+
         &-item {
             color: gray;
             &:hover {
@@ -36,11 +35,10 @@
         gap: 50px;
         align-items: center;
         margin-top: 50px;
-    };
+    }
 }
 
-@media(max-width: 480px) {
-
+@media (max-width: 480px) {
     .footer {
         &__bottom {
             display: flex;
@@ -50,17 +48,17 @@
             }
         }
         &__flex {
-          display: grid;
-          grid-template-rows: repeat(2, auto);
-          justify-self: center;
-          & > * {
-              justify-self: center;
-          }
+            display: grid;
+            grid-template-rows: repeat(2, auto);
+            justify-self: center;
+            & > * {
+                justify-self: center;
+            }
         }
     }
 }
 
-@media(max-width: 320px) {
+@media (max-width: 320px) {
     .footer {
         &__payment {
             display: flex;

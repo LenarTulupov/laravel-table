@@ -21,13 +21,13 @@
         &-descr {
             font-size: 14px;
             text-align: center;
-            word-wrap: break-word; 
-            word-break: break-all; 
+            word-wrap: break-word;
+            word-break: break-all;
         }
     }
 }
 
-@media(max-width: 480px) {
+@media (max-width: 480px) {
     .benefits {
         &__list {
             flex-direction: column;

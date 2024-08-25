@@ -39,7 +39,7 @@ const CardSidebar: FC<ICardSidebar> = ({
                 <img src={image[0]} alt={title} className={styles['content__img']} />
                 <div className={`${styles['content__row-1']} ${styles['row-1']}`}>
                     <div className={styles['row-1__title']}>{title}</div>
-                        <CloseButton onClick={() => removeFromCart(product)}/>
+                    <CloseButton onClick={() => removeFromCart(product)} />
                 </div>
                 <div className={`${styles['content__row-2']} ${styles['row-2']}`}>
                     <div className={
@@ -61,18 +61,18 @@ const CardSidebar: FC<ICardSidebar> = ({
                     <div className={styles['row-2__available']}>In stock</div>
                 </div>
                 <div className={`${styles['content__row-3']} ${styles['row-3']}`}>
-                    <button 
+                    <button
                         onClick={toggleEditSidebar}
                         className={styles['row-3__edit']}>
                         Edit
                     </button>
                     <div className={`${styles['row-3__price']} ${styles.price}`}>
-                        <Price 
-                            price={totalProductPrice} 
+                        <Price
+                            price={totalProductPrice}
                             className={styles.price__new}
                         />
-                        <Price 
-                            price={totalProductPriceOld} 
+                        <Price
+                            price={totalProductPriceOld}
                             className={styles.price__prev}
                         />
                     </div>

@@ -21,7 +21,6 @@
                 // align-items: center;
                 justify-self: start;
             }
-
         }
 
         &__content {
@@ -31,7 +30,7 @@
     }
 }
 
-@media(max-width: 992px) {
+@media (max-width: 992px) {
     .grid__content {
         display: flex;
         flex-direction: column;
@@ -49,7 +48,7 @@
     }
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
     .grid__container-wrapper {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, auto);
@@ -57,9 +56,8 @@
     }
 }
 
-@media(max-width: 320px) {
+@media (max-width: 320px) {
     .product-page {
         width: fit-content;
     }
 }
-

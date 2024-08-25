@@ -70,7 +70,7 @@ const UserCommentModal: FC<IUserComment> = ({ onClick, productId }) => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      
+
       setName('');
       setEmail('');
       setTitle('');
@@ -96,9 +96,9 @@ const UserCommentModal: FC<IUserComment> = ({ onClick, productId }) => {
   return (
     <>
       <form className={`${styles['user-comment']}`} onSubmit={handleSubmit}>
-          <div className={styles['user-comment__close-button']}>
-            <CloseButton onClick={onClick} />
-          </div>
+        <div className={styles['user-comment__close-button']}>
+          <CloseButton onClick={onClick} />
+        </div>
         <div className={styles['user-comment__flex']}>
           <User name={name} setName={setName} email={email} setEmail={setEmail} />
         </div>

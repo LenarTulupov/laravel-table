@@ -78,23 +78,23 @@ const FilterLayout: FC<IFilterLayout> = ({
   return (
     <>
       <header className={styles["filter-layout"]}>
-        <FilterSidebar 
-        isSectionOpened={isSectionOpened}
-        toggleSection={toggleSection}
-        uniqueSizes={uniqueSizes}
-        selectedSizes={selectedSizes}
-        onSizeChange={onSizeChange}
-        uniqueColors={uniqueColors}
-        selectedColors={selectedColors}
-        onColorChange={onColorChange}
-        price={price}
-        selectedPrice={selectedPrice}
-        onPriceChange={onPriceChange}
-        isAnyFilterSelected={isAnyFilterSelected}
-        selectRef={selectRef}
-        selectedSort={selectedSort}
-        onSortChange={onSortChange}
-        sort={sort}
+        <FilterSidebar
+          isSectionOpened={isSectionOpened}
+          toggleSection={toggleSection}
+          uniqueSizes={uniqueSizes}
+          selectedSizes={selectedSizes}
+          onSizeChange={onSizeChange}
+          uniqueColors={uniqueColors}
+          selectedColors={selectedColors}
+          onColorChange={onColorChange}
+          price={price}
+          selectedPrice={selectedPrice}
+          onPriceChange={onPriceChange}
+          isAnyFilterSelected={isAnyFilterSelected}
+          selectRef={selectRef}
+          selectedSort={selectedSort}
+          onSortChange={onSortChange}
+          sort={sort}
         />
       </header>
       <div>{children}</div>
