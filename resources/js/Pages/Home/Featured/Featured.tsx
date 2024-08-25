@@ -1,4 +1,8 @@
 import { FC, useEffect, useRef, useState } from 'react';
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 import Button from '@/Components/Buttons/Button/Button';
 import Card from '@/Components/Cards/Card/Card';
 import { IProduct } from '@/types/product.interface';
@@ -8,11 +12,29 @@ import { Navigation } from 'swiper/modules';
 
 import { AiOutlineCaretUp } from 'react-icons/ai';
 
+<<<<<<< HEAD
+=======
+=======
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import Button from '@/Components/Buttons/Button/Button';
+import Card from '@/Components/Cards/Card/Card';
+import { IProduct } from '@/types/product.interface';
+import { AiOutlineCaretUp } from 'react-icons/ai';
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 import './Featured-swiper-buttons.css';
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 import styles from './Featured.module.scss';
 
 interface IFeatured {
@@ -28,6 +50,10 @@ const Featured: FC<IFeatured> = ({ products }) => {
     const nextButtonRef = useRef(null);
 
     const handleToggleShow = () => {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         setIsShowOpen(p => !p);
     }
 
@@ -36,12 +62,33 @@ const Featured: FC<IFeatured> = ({ products }) => {
     }
 
     const getFilteredProducts = (filter: string, products: IProduct[]) => {
+<<<<<<< HEAD
+=======
+=======
+        setIsShowOpen(!isShowAllOpen);
+    }
+
+    const getActivefilter = (filter) => {
+        setActiveFilter(filter);
+    }
+
+    const getFilteredProducts = (filter, products) => {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         if (filter === 'Hot') {
             return products.filter(product =>
                 product.categories.some(category =>
                     category.name === 'trends'));
         } else if (filter === 'New') {
+<<<<<<< HEAD
             return [...products].reverse();
+=======
+<<<<<<< HEAD
+            return [...products].reverse();
+=======
+            return [...products].reverse(); // Создаем новый массив и переворачиваем его
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         }
         return products;
     }
@@ -50,8 +97,17 @@ const Featured: FC<IFeatured> = ({ products }) => {
         setFilteredProducts(getFilteredProducts(activeFilter, products));
     }, [activeFilter, products]);
 
+<<<<<<< HEAD
     const displayedProducts =
         isShowAllOpen ? filteredProducts : filteredProducts.slice(0, 8);
+=======
+<<<<<<< HEAD
+    const displayedProducts =
+        isShowAllOpen ? filteredProducts : filteredProducts.slice(0, 8);
+=======
+    const displayedProducts = isShowAllOpen ? filteredProducts : filteredProducts.slice(0, 8);
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
     useEffect(() => {
         if (goodsRef.current) {
@@ -105,10 +161,20 @@ const Featured: FC<IFeatured> = ({ products }) => {
                 {displayedProducts.length > 0 ? (
                     isShowAllOpen ? (
                         displayedProducts.map(product => (
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                             <div
                                 className={styles['featured__goods-grid']}
                                 key={product.id}
                             >
+<<<<<<< HEAD
+=======
+=======
+                            <div className={styles['featured__goods-grid']} key={product.id}>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                                 <Card
                                     id={product.id}
                                     image={product.images}
@@ -124,10 +190,23 @@ const Featured: FC<IFeatured> = ({ products }) => {
                     ) : (
                         <>
                             <Swiper
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                                 key={activeFilter}
                                 className={styles.swiper}
                                 slidesPerView={1}
                                 slidesPerGroup={1}
+<<<<<<< HEAD
+=======
+=======
+                                style={{ width: `calc(100vw - 50px)` }}
+                                slidesPerView={4}
+                                slidesPerGroup={4}
+                                spaceBetween={30}
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                                 speed={1000}
                                 allowTouchMove={true}
                                 simulateTouch={true}
@@ -142,6 +221,10 @@ const Featured: FC<IFeatured> = ({ products }) => {
                                         swiper.navigation.update();
                                     });
                                 }}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                                 breakpoints={{
                                     768: {
                                         slidesPerView: 4,
@@ -156,6 +239,14 @@ const Featured: FC<IFeatured> = ({ products }) => {
                             >
                                 {displayedProducts.map((product) => (
                                     <SwiperSlide key={product.id}>
+<<<<<<< HEAD
+=======
+=======
+                            >
+                                {displayedProducts.map((product, index) => (
+                                    <SwiperSlide key={index}>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                                         <Card
                                             id={product.id}
                                             image={product.images}
@@ -169,6 +260,10 @@ const Featured: FC<IFeatured> = ({ products }) => {
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                             <button
                                 ref={prevButtonRef}
                                 className="custom-swiper-button-prev"
@@ -179,6 +274,15 @@ const Featured: FC<IFeatured> = ({ products }) => {
                                 ref={nextButtonRef}
                                 className="custom-swiper-button-next"
                             >
+<<<<<<< HEAD
+=======
+=======
+                            <button ref={prevButtonRef} className="custom-swiper-button-prev">
+                                <AiOutlineCaretUp className={styles.button__icon} />
+                            </button>
+                            <button ref={nextButtonRef} className="custom-swiper-button-next">
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                                 <AiOutlineCaretUp className={styles.button__icon} />
                             </button>
                         </>

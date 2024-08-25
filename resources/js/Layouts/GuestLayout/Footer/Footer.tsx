@@ -32,6 +32,10 @@ const Footer = () => {
           </div>
         </div>
         <footer className={styles.footer__bottom}>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
           <h1 className={styles['footer__bottom-title']}>© 2024 - SIMPLE RETRO POWERED BY SHOPIFY</h1>
           <div className={styles.footer__payment}>
             <img
@@ -50,6 +54,19 @@ const Footer = () => {
               alt="mastercard" 
             />
           </div>
+<<<<<<< HEAD
+=======
+=======
+          <h1>© 2024 - SIMPLE RETRO POWERED BY SHOPIFY</h1>
+          <div className={styles.footer__payment}>
+            <img src="https://www.svgrepo.com/show/266068/american-express.svg" alt="" />
+            <img src="https://www.svgrepo.com/show/452222/google-pay.svg" alt="" />
+            <img src="https://www.svgrepo.com/show/452059/mastercard.svg" alt="" />
+          </div>
+
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         </footer>
       </Container>
     </footer>

@@ -1,13 +1,29 @@
 .cart-sidebar {
     position: fixed;
+<<<<<<< HEAD
     top: calc(var(--header-height) - 4px);
+=======
+<<<<<<< HEAD
+    top: calc(var(--header-height) - 4px);
+=======
+    top: calc(var(--header-height) - 1px);
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     right: 0;
     height: 100vh;
     width: 360px;
     border-left: 1px solid #d9d9d9;
     transition: transform 0.3s ease;
     transform: translateX(106%);
+<<<<<<< HEAD
     z-index: 20;
+=======
+<<<<<<< HEAD
+    z-index: 20;
+=======
+    z-index: 2;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     &::before {
         content: "";
         position: absolute;
@@ -25,17 +41,41 @@
     &__open-edit {
         transform: translateX(-240px);
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
     &__content {
         overflow-y: auto;
         max-height: 50%;
+<<<<<<< HEAD
+=======
+=======
+ 
+    &__content {
+        overflow-y: auto;
+        height: 28%;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         display: flex;
         flex-direction: column;
         gap: 10px;
         background-color: rgb(237, 237, 237);
 
+<<<<<<< HEAD
         & > :not(:last-child) {
             border-bottom: 1px solid var(--gray);
+=======
+<<<<<<< HEAD
+        & > :not(:last-child) {
+            border-bottom: 1px solid var(--gray);
+=======
+
+        & > :not(:last-child) {
+             border-bottom: 1px solid var(--gray);
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         }
 
         & > :not(:first-child) {
@@ -52,6 +92,10 @@
         }
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     &__header {
         display: flex;
         flex-direction: column;
@@ -71,12 +115,29 @@
         height: 100%;
         background-color: #fff;
     }
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
     .content {
         border-bottom: 1px solid #d9d9d9;
     }
 
     .header {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        display: flex;
+        flex-direction: column;
+        background-color: #efeeef;
+        border-bottom: 1px solid var(--gray);
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         &__subheader {
             font-size: 14px;
         }
@@ -95,16 +156,34 @@
             text-align: center;
             padding: 2px 20px;
         }
+<<<<<<< HEAD
         &__header {
+=======
+<<<<<<< HEAD
+        &__header {
+=======
+
+        .header-header {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: black;
             background-color: #f8f8f8;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         }
 
         .header-header {
             @extend .header__header;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
             .header__title {
                 text-transform: uppercase;
@@ -114,6 +193,10 @@
     }
 
     .checkout {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         @extend .cart-sidebar__checkout;
 
         &__discount {
@@ -124,6 +207,22 @@
 
         .discount {
             @extend .checkout__discount;
+<<<<<<< HEAD
+=======
+=======
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-top: 1px solid var(--gray);
+        background-color: #fff;
+
+        .discount {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
             &__title {
                 font-size: 14px;
@@ -134,15 +233,32 @@
             }
         }
 
+<<<<<<< HEAD
         &__subtotal {
+=======
+<<<<<<< HEAD
+        &__subtotal {
+=======
+        .subtotal {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             display: grid;
             grid-template-columns: 1fr auto;
             grid-template-rows: 1fr auto;
             gap: 5px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         }
 
         .subtotal {
             @extend .checkout__subtotal;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
             & > :not(:last-child) {
                 font-weight: bold;
@@ -162,12 +278,23 @@
             }
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         &__buttons {
             display: flex;
         }
 
         .buttons {
             @extend .checkout__buttons;
+<<<<<<< HEAD
+=======
+=======
+        .buttons {
+            display: flex;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             &__gray {
                 padding: 4px 0;
                 flex-grow: 1;
@@ -176,6 +303,10 @@
             &__black {
                 flex-grow: 1;
                 padding: 4px 0;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                 text-transform: uppercase;
             }
         }
@@ -184,6 +315,19 @@
     }
     .footer {
         @extend .cart-sidebar__footer;
+<<<<<<< HEAD
+=======
+=======
+                text-transform: uppercase; 
+
+            }
+        }
+    }
+    .footer {
+        height: 100%;
+        background-color: #fff;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     }
 }
 
@@ -257,8 +401,18 @@
         }
     }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 @media(max-width: 404px) {
     .cart-sidebar {
         top: calc(var(--header-height) + 15px);
     }
 }
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a

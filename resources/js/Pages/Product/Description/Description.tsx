@@ -61,8 +61,8 @@ const Description: FC<IDescription> = ({
     const color = product_colors.length > 0 ? product_colors[0].color.name : '';
 
     const toggleFavorite = () => {
-        if(product) {
-            if(favoriteState) {
+        if (product) {
+            if (favoriteState) {
                 removeFromFavorites(product.id);
             } else {
                 addToFavorites(product.id);
@@ -72,7 +72,7 @@ const Description: FC<IDescription> = ({
     }
 
     useEffect(() => {
-        if(product) {
+        if (product) {
             setFavoriteState(isFavorite(product.id));
         }
     }, [product, isFavorite])
@@ -127,7 +127,7 @@ const Description: FC<IDescription> = ({
                     variant="white"
                     onClick={toggleFavorite}
                 >
-                    { favoriteState ? 'Saved' : 'Save for later'}
+                    {favoriteState ? 'Saved' : 'Save for later'}
                 </Button>
             </div>
             <ProductInfo

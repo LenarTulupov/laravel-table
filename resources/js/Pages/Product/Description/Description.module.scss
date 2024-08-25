@@ -2,29 +2,72 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+<<<<<<< HEAD
     // gap: 20px;
+=======
+<<<<<<< HEAD
+    // gap: 20px;
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     &__title {
         font-weight: bold;
         font-size: 20px;
     }
+<<<<<<< HEAD
     .price {
         display: flex;
         gap: 10px;
+=======
+<<<<<<< HEAD
+    .price {
+        display: flex;
+        gap: 10px;
+=======
+
+    .price {
+        display: flex;
+        gap: 10px;
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         &__old {
             text-decoration: line-through;
         }
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     .color {
         display: flex;
         flex-direction: column;
         gap: 10px;
         &__background {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             width: 30px;
             height: 30px;
             border-radius: 5px;
             box-shadow: 1px 2px 2px var(--gray);
         }
     }
+<<<<<<< HEAD
+=======
+=======
+            width: 26px;
+            height: 26px;
+        }
+    }
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     .sizes {
         display: flex;
         gap: 10px;
@@ -34,11 +77,25 @@
             border: 1px solid var(--gray);
         }
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     .quantity-product {
         display: flex;
         align-items: center;
         border: 1px solid var(--gray);
         width: fit-content;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         &__increment {
             display: flex;
             justify-content: center;
@@ -52,19 +109,44 @@
             align-items: center;
             height: 40px;
             width: 40px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         }
         &__input {
             text-align: center;
             border: none;
             width: 70px;
+<<<<<<< HEAD
             &:focus {
                 box-shadow: none;
             }
+=======
+<<<<<<< HEAD
+            &:focus {
+                box-shadow: none;
+            }
+=======
+            
+            &:focus {
+                box-shadow: none; 
+            }
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             &::-webkit-outer-spin-button,
             &::-webkit-inner-spin-button {
                 -webkit-appearance: none;
             }
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     }
     &__buttons {
         display: flex;
@@ -92,3 +174,15 @@
         padding: 10px 10px;
     }
 }
+<<<<<<< HEAD
+=======
+=======
+
+    }
+
+    .buttons {
+        display: flex;
+    }
+}
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a

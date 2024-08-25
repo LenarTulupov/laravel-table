@@ -3,6 +3,10 @@
     top: var(--header-height);
     right: 0;
     width: 240px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     top: calc(var(--header-height) - 4px);
     z-index: 20;
     transition: transform 0.3s ease;
@@ -10,13 +14,32 @@
     background-color: #fff;
     height: 100%;
 
+<<<<<<< HEAD
+=======
+=======
+    height: calc(100% - var(--header-height) - 44px);
+    z-index: 2;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+    background-color: #fff;
+    
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     &__open {
         transform: translateX(0);
     }
 
     &__content {
         height: 100%;
+<<<<<<< HEAD
         overflow-y: auto;
+=======
+<<<<<<< HEAD
+        overflow-y: auto;
+=======
+        overflow-y: auto; 
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     }
 
     & > :not(:first-child) {
@@ -29,6 +52,10 @@
     &__edit {
         display: flex;
         justify-content: space-between;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         align-items: center;
         padding: 10px 20px;
 
@@ -36,16 +63,35 @@
             @extend .edit-sidebar__edit;
         }
 
+<<<<<<< HEAD
+=======
+=======
+        padding: 10px 20px;
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         .edit__title {
             font-weight: 700;
         }
     }
 
+<<<<<<< HEAD
     .edit-sidebar__parameters {
+=======
+<<<<<<< HEAD
+    .edit-sidebar__parameters {
+=======
+    .parameters {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         display: flex;
         flex-direction: column;
         gap: 10px;
         margin-top: 10px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     }
 
     .parameters {
@@ -54,10 +100,21 @@
         &__colors,
         &__sizes,
         &__quantity {
+<<<<<<< HEAD
+=======
+=======
+
+        .colors, .sizes, .quantity {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             display: flex;
             flex-direction: column;
             gap: 5px;
             font-size: 14px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         }
 
         .colors,
@@ -66,6 +123,11 @@
             @extend .parameters__colors,
                 .parameters__sizes,
                 .parameters__quantity;
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
             &__label {
                 font-weight: 700;
@@ -80,6 +142,10 @@
         }
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     .edit-sidebar__update {
         display: flex;
         flex-direction: column;
@@ -91,15 +157,40 @@
 
         & * {
             border: none;
+<<<<<<< HEAD
+=======
+=======
+    .update {
+        display: flex;
+        flex-direction: column;
+        margin-top: 40px;
+
+        & * {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             border-left: 1px solid var(--gray);
             border-right: 1px solid var(--gray);
             border-bottom: 1px solid var(--gray);
             padding: 5px 0;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             transition: background-color 0.3s ease-in;
             text-transform: uppercase;
 
             &:hover {
                 background-color: #f8f8f8;
+<<<<<<< HEAD
+=======
+=======
+            transition: background-color .3s ease-in;
+            text-transform: uppercase;
+
+            &:hover {
+                background-color: #f8f8f8
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             }
         }
 
@@ -108,9 +199,18 @@
         }
     }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
 @media(max-width: 404px) {
     .edit-sidebar {
         top: calc(var(--header-height) + 15px);
     }
 }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a

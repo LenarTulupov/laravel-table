@@ -15,10 +15,20 @@ const ProductInfo: FC<IProductInfo> = ({
   const className = isDescriptionOpen ? styles['product-info__list_open'] : '';
   return (
     <section className={styles['product-info']}>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
       <button 
         onClick={handleOpenDescription} 
         className={`${styles['product-info__btn']} ${styles.btn}`}
       >
+<<<<<<< HEAD
+=======
+=======
+      <button onClick={handleOpenDescription} className={`${styles['product-info__btn']} ${styles.btn}`}>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         <div className={styles['btn__title-text']}>DESCRIPTION</div>
         {!isDescriptionOpen ? (
           <div className={styles['btn__title-logo']}>+</div>
@@ -26,10 +36,20 @@ const ProductInfo: FC<IProductInfo> = ({
           <div className={styles['btn__title-logo']}>-</div>
         )}
       </button>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
       <div className={
         `${styles['product-info__list']} 
          ${isDescriptionOpen ? styles['product-info__list_open'] : ''}`
       }>
+<<<<<<< HEAD
+=======
+=======
+      <div className={`${styles['product-info__list']} ${isDescriptionOpen ? styles['product-info__list_open'] : ''}`}>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         <div className={styles['product-info__list-item']}>
           <div className={styles['product-info__list-name']}>Color:</div>
           <div className={styles['product-info__list-description']}>

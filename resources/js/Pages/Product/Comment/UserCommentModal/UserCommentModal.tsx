@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 import { ChangeEvent, FC, useRef, useState } from 'react';
 import axios from 'axios';
 import User from './User/User';
@@ -26,12 +30,36 @@ interface IUserComment {
 // }
 
 const UserCommentModal: FC<IUserComment> = ({ onClick, productId }) => {
+<<<<<<< HEAD
+=======
+=======
+import styles from './UserCommentModal.module.scss'
+import User from './User/User'
+import Rating from './Rating/Rating'
+import Recommend from './Recommend/Recommend'
+import CloseButton from '@/Components/Buttons/CloseButton/CloseButton'
+import { FC, useState } from 'react'
+import InputLabel from '@/Components/InputLabel/InputLabel'
+import TextInput from '@/Components/TextInput/TextInput'
+import Button from '@/Components/Buttons/Button/Button'
+
+interface IUserComment {
+  onClick: () => void
+}
+
+const UserCommentModal: FC<IUserComment> = ({ onClick }) => {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
   const [rating, setRating] = useState<number>(0);
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [title, setTitle] = useState<string>('');
   const [comment, setComment] = useState<string>('');
   const [recommend, setRecommend] = useState<string>('');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
   const [file, setFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -92,10 +120,28 @@ const UserCommentModal: FC<IUserComment> = ({ onClick, productId }) => {
       setFile(selectedFile);
     }
   };
+<<<<<<< HEAD
+=======
+=======
+
+
+  const handleRatingChange = (value: number) => {
+    setRating(value);
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  }
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
   return (
     <>
       <form className={`${styles['user-comment']}`} onSubmit={handleSubmit}>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
           <div className={styles['user-comment__close-button']}>
             <CloseButton onClick={onClick} />
           </div>
@@ -105,6 +151,23 @@ const UserCommentModal: FC<IUserComment> = ({ onClick, productId }) => {
         <Rating rating={rating} onRatingChange={handleRatingChange} />
         <div className={styles['user-comment__title']}>
           <InputLabel htmlFor='title' className={styles['user-comment__title-label']}>
+<<<<<<< HEAD
+=======
+=======
+        <div className={styles['user-comment__flex']}>
+          <User name={name} setName={setName} email={email} setEmail={setEmail} />
+          <div className={styles['user-comment__close-button']}>
+            <CloseButton onClick={onClick} />
+          </div>
+        </div>
+        <Rating rating={rating} onRatingChange={handleRatingChange} />
+        <div className={styles['user-comment__title']}>
+          <InputLabel
+            htmlFor='title'
+            className={styles['user-comment__title-label']}
+          >
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             Title of Review
           </InputLabel>
           <TextInput
@@ -116,7 +179,18 @@ const UserCommentModal: FC<IUserComment> = ({ onClick, productId }) => {
           />
         </div>
         <div className={styles['user-comment__comment']}>
+<<<<<<< HEAD
           <InputLabel htmlFor='comment' className={styles['user-comment__comment-label']}>
+=======
+<<<<<<< HEAD
+          <InputLabel htmlFor='comment' className={styles['user-comment__comment-label']}>
+=======
+          <InputLabel
+            htmlFor='comment'
+            className={styles['user-comment__comment-label']}
+          >
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             How was your overall experience?
           </InputLabel>
           <textarea
@@ -127,6 +201,10 @@ const UserCommentModal: FC<IUserComment> = ({ onClick, productId }) => {
             onChange={(e) => setComment(e.target.value)}
           ></textarea>
         </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         <Recommend
           recommend={recommend}
           setRecommend={setRecommend}
@@ -141,6 +219,16 @@ const UserCommentModal: FC<IUserComment> = ({ onClick, productId }) => {
             style={{ display: 'none' }}
           />
           <Button variant="gray" onClick={handleFileButtonClick}>
+<<<<<<< HEAD
+=======
+=======
+        <Recommend recommend={recommend} setRecommend={setRecommend} />
+        <div className={styles['user-comment__buttons']}>
+          <button className={styles['user-comment__buttons-photo']}>Add Photos</button>
+          {/* <button className={styles['user-comment__buttons-submit']}>Submit</button> */}
+          <Button variant="gray" type='file'>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
             Add Photos
           </Button>
           <Button variant="black" type='submit'>
@@ -149,7 +237,20 @@ const UserCommentModal: FC<IUserComment> = ({ onClick, productId }) => {
         </div>
       </form>
     </>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
   );
 };
 
 export default UserCommentModal;
+<<<<<<< HEAD
+=======
+=======
+  )
+}
+
+export default UserCommentModal
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a

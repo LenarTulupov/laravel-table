@@ -1,14 +1,30 @@
 import Card from '@/Components/Cards/Card/Card'
 import { PiEmptyBold } from 'react-icons/pi'
 import styles from './SearchLayout.module.scss'
+<<<<<<< HEAD
 import ProductsGridContainer from '@/Components/ProductsGridContainer/ProductsGridContainer'
+=======
+<<<<<<< HEAD
+import ProductsGridContainer from '@/Components/ProductsGridContainer/ProductsGridContainer'
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
 const SearchLayout = ({ filteredProducts, inputValue }) => {
     return (
         <div className={styles['search-layout']}>
             {inputValue ? (
                 filteredProducts.length > 0 ? (
+<<<<<<< HEAD
                     <ProductsGridContainer>
+=======
+<<<<<<< HEAD
+                    <ProductsGridContainer>
+=======
+
+                    <div className={styles['search-layout__grid']}>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                         {filteredProducts.map(product => (
                             <Card
                                 key={product.id}
@@ -21,7 +37,15 @@ const SearchLayout = ({ filteredProducts, inputValue }) => {
                                 sizes={product.sizes}
                             />
                         ))}
+<<<<<<< HEAD
                     </ProductsGridContainer>
+=======
+<<<<<<< HEAD
+                    </ProductsGridContainer>
+=======
+                    </div>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                 ) : (
                     <div className={`${styles['search-layout__message']} ${styles.message}`}>
                         <h1 className={styles['message__title']}>

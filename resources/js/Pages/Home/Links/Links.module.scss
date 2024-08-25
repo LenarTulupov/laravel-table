@@ -1,6 +1,13 @@
 .links {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    gap: 30px;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
     &__link {
         position: relative;
@@ -44,6 +51,10 @@
         }
     }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
 @media(max-width: 768px) {
     .links {
@@ -55,3 +66,8 @@
         grid-template-columns: 1fr;
     }
 }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a

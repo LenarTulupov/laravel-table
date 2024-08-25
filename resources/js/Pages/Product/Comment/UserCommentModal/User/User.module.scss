@@ -5,8 +5,17 @@
     &__name {
         display: flex;
         flex-direction: column;
+<<<<<<< HEAD
         // width: 190px !important;
         width: 100%;
+=======
+<<<<<<< HEAD
+        // width: 190px !important;
+        width: 100%;
+=======
+        width: 190px !important;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
         &-label {
             width: fit-content;
@@ -16,13 +25,26 @@
     &__email {
         display: flex;
         flex-direction: column;
+<<<<<<< HEAD
         // width: 190px !important;
         width: 100%;
+=======
+<<<<<<< HEAD
+        // width: 190px !important;
+        width: 100%;
+=======
+        width: 190px !important;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
         &-label {
             width: fit-content;
         }
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 }
 @media(max-width: 768px) {
     .user {
@@ -37,4 +59,9 @@
     .user-comment__flex {
         display: block !important;
     }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 }

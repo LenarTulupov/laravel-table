@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 import { Dispatch, FC, SetStateAction } from "react";
+=======
+<<<<<<< HEAD
+import { Dispatch, FC, SetStateAction } from "react";
+=======
+import AddToCartButton from "@/Components/Buttons/AddToCartButton/AddToCartButton";
+import FavoriteButton from "@/Components/Buttons/FavoriteButton/FavoriteButton";
+import { FC } from "react";
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 import styles from "./CardInfo.module.scss";
 import { useCartContext } from "@/Contexts/CartContext";
 import Price from "../../../Price/Price";
@@ -7,18 +17,43 @@ import Color from "@/Components/Color/Color";
 import Button from "@/Components/Buttons/Button/Button";
 import { Link } from "@inertiajs/react";
 import { ISize } from "@/types/basic.interface";
+<<<<<<< HEAD
 import { IProductColor } from "@/types/product.interface";
+=======
+<<<<<<< HEAD
+import { IProductColor } from "@/types/product.interface";
+=======
+import { IColor } from "@/types/product.interface";
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
 interface ICardInfo {
   title: string;
   price_new: string;
   price_old: string;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
   selectedSize: ISize | null;
   setSelectedSize: Dispatch<SetStateAction<ISize | null>>;
   handleColorClick: (colorName: string) => void;
   id: number;
   sizes: ISize[];
   colors: IProductColor[];
+<<<<<<< HEAD
+=======
+=======
+  selectedSize: {
+    id: number;
+    name: string;
+  };
+  handleColorClick: () => void;
+  id: number;
+  sizes: ISize[];
+  colors: IColor[];
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 }
 
 const CardInfo: FC<ICardInfo> = ({
@@ -33,6 +68,10 @@ const CardInfo: FC<ICardInfo> = ({
   colors,
 }) => {
   const { addToCart } = useCartContext();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
   const transformedColors = colors.map(color => ({
     color_id: color.color.id,
@@ -40,11 +79,20 @@ const CardInfo: FC<ICardInfo> = ({
       name: color.color.name
     }
   }));
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
   return (
     <section className={styles["card-info"]}>
       <Link href={`/product/${id}`}>
         <div className={styles["card-info__title"]}>{title}</div>
       </Link>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
       <div className={`${styles["card-info__wrapper"]} ${styles.wrapper}`}>
         <div className={styles['wrapper__price']}>
           <Price price={price_new} />
@@ -57,6 +105,20 @@ const CardInfo: FC<ICardInfo> = ({
         />
       </div>
       <div className={styles['card-info__sizes']}>
+<<<<<<< HEAD
+=======
+=======
+      <div className={styles["card-info__price-color"]}>
+        <Price price_new={price_new} price_old={price_old} />
+        <Color
+          colors={colors}
+          handleColorClick={handleColorClick}
+          className={styles["card-info__color"]}
+        />
+      </div>
+      <div style={{ minHeight: "59px" }}>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         <Sizes
           sizes={sizes}
           selectedSize={selectedSize}

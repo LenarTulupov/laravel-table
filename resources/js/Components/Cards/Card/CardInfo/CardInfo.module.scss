@@ -13,16 +13,38 @@
         overflow: hidden;
         height: 50px;
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+    &__color {
+    }
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     &__btn {
         border-radius: 6px;
         width: 100%;
     }
+<<<<<<< HEAD
     &__wrapper {
+=======
+<<<<<<< HEAD
+    &__wrapper {
+=======
+
+    &__price-color {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     .wrapper {
         @extend .card-info__wrapper;
 
@@ -43,6 +65,11 @@
         }
     }
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     &__sizes {
         min-height: 59px;
     }

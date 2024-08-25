@@ -1,15 +1,19 @@
+<<<<<<< HEAD
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+=======
+import { createContext, ReactNode, useContext, useState } from "react";
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
-interface IFavoriteContext {
+interface IFavContext {
   favorites: number[];
   addToFavorites: (id: number) => void;
   removeFromFavorites: (id: number) => void;
   isFavorite: (id: number) => boolean;
 }
 
-export const FavoriteContext = createContext<IFavoriteContext>({} as IFavoriteContext);
+export const FavContext = createContext<IFavContext>({} as IFavContext);
 
-export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
+export const FavProvider = ({ children }: { children: ReactNode }) => {
   const [favorites, setFavorites] = useState<number[]>([]);
 
   const addToFavorites = (id: number) => {
@@ -32,9 +36,10 @@ export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
     return result;
   };
 
+<<<<<<< HEAD
   useEffect(() => {
     const storedFavorites = localStorage.getItem("favorites");
-    if (storedFavorites) {
+    if(storedFavorites) {
       setFavorites(JSON.parse(storedFavorites));
     };
   }, []);
@@ -43,8 +48,10 @@ export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
   return (
-    <FavoriteContext.Provider
+    <FavContext.Provider
       value={{
         favorites,
         addToFavorites,
@@ -53,8 +60,8 @@ export const FavoriteProvider = ({ children }: { children: ReactNode }) => {
       }}
     >
       {children}
-    </FavoriteContext.Provider>
+    </FavContext.Provider>
   );
 };
 
-export const useFavoritesContext = () => useContext(FavoriteContext);
+export const useFavoritesContext = () => useContext(FavContext);

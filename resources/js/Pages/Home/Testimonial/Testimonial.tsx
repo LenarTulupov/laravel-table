@@ -12,7 +12,14 @@ import Stars from './Stars/Stars';
 import Title from '@/Components/Title/Title';
 import { AiOutlineCaretUp } from 'react-icons/ai';
 import { useRef } from 'react';
+<<<<<<< HEAD
 import Container from '@/Components/Container/Container';
+=======
+<<<<<<< HEAD
+import Container from '@/Components/Container/Container';
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
 
 const Testimonial = () => {
     const img = 'https://cdn.shopify.com/s/files/1/1276/0919/files/Photo_shared_by_o_on_May_29_2024_tagging_abneris_leon23._May_be_an_image_of_1_person_sundress_and_dress._1.jpg?v=1717583154';
@@ -26,8 +33,19 @@ const Testimonial = () => {
             <Title className={styles.testimonial__title}>Testimonial</Title>
             <div>
                 <Swiper
+<<<<<<< HEAD
                     slidesPerView={1}
                     slidesPerGroup={1}
+=======
+<<<<<<< HEAD
+                    slidesPerView={1}
+                    slidesPerGroup={1}
+=======
+                    style={{ width: `calc(100vw - 50px)` }}
+                    slidesPerView={2}
+                    slidesPerGroup={2}
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                     spaceBetween={30}
                     speed={1000}
                     allowTouchMove={true}
@@ -43,12 +61,21 @@ const Testimonial = () => {
                             swiper.navigation.update();
                         });
                     }}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                     breakpoints={{
                         480: {
                             slidesPerView: 2,
                             slidesPerGroup: 2,
                         },
                     }}
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                 >
                     <SwiperSlide>
                         <div className={styles.testimonial__item}>
@@ -62,7 +89,15 @@ const Testimonial = () => {
                                 <div className={styles['testimonial__item-text']} >
                                     “ This is my dream dress! I’m absolutely obsessed with it and fits like a dream, making me feel so good!”
                                 </div>
+<<<<<<< HEAD
                                 <Stars />
+=======
+<<<<<<< HEAD
+                                <Stars />
+=======
+                                <Stars/>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                                 <div className={styles.testimonial__name}>abneris_leon</div>
                             </div>
                         </div>
@@ -79,7 +114,15 @@ const Testimonial = () => {
                                 <div className={styles['testimonial__item-text']} >
                                     “ The dress's intricate details and playful puff sleeves resonate with my dream style, effortlessly merging into my daily wardrobe.”
                                 </div>
+<<<<<<< HEAD
                                 <Stars />
+=======
+<<<<<<< HEAD
+                                <Stars />
+=======
+                                <Stars/>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                                 <div className={styles.testimonial__name}>everlinet</div>
                             </div>
                         </div>
@@ -96,7 +139,15 @@ const Testimonial = () => {
                                 <div className={styles['testimonial__item-text']} >
                                     “ Love this fit! The lace is even more beautiful than I imagined, I paired it with yellow skirt and felt both stylish. I am ready for summer! ”
                                 </div>
+<<<<<<< HEAD
                                 <Stars />
+=======
+<<<<<<< HEAD
+                                <Stars />
+=======
+                                <Stars/>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                                 <div className={styles.testimonial__name}>itsreireii
                                 </div>
                             </div>
@@ -114,12 +165,24 @@ const Testimonial = () => {
                                 <div className={styles['testimonial__item-text']} >
                                     “ The material is great comfortable. It's form-fitting but extremely flattering, and the double layer is absolutely perfect. All-in-all, I'm so pleased with it and would definitely recommend. ”
                                 </div>
+<<<<<<< HEAD
                                 <Stars />
+=======
+<<<<<<< HEAD
+                                <Stars />
+=======
+                                <Stars/>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                                 <div className={styles.testimonial__name}>Thenikkirossi</div>
                             </div>
                         </div>
                     </SwiperSlide>
                     <button ref={prevButtonRef} className="custom-swiper-button-prev">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                         {/* Ваш компонент для кнопки "Назад" */}
                         <AiOutlineCaretUp className={styles.button__icon} />
                     </button>
@@ -127,6 +190,18 @@ const Testimonial = () => {
                         {/* Ваш компонент для кнопки "Вперед" */}
                         <AiOutlineCaretUp className={styles.button__icon} />
                     </button>
+<<<<<<< HEAD
+=======
+=======
+                            {/* Ваш компонент для кнопки "Назад" */}
+                            <AiOutlineCaretUp className={styles.button__icon}/>
+                        </button>
+                        <button ref={nextButtonRef} className="custom-swiper-button-next">
+                            {/* Ваш компонент для кнопки "Вперед" */}
+                            <AiOutlineCaretUp className={styles.button__icon}/>
+                        </button>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
                 </Swiper>
             </div>
         </section>

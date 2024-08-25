@@ -2,16 +2,35 @@
     padding: 15px 0;
     border-bottom: 1px solid var(--gray);
     border-top: 1px solid var(--gray);
+<<<<<<< HEAD
     &__btn {
+=======
+<<<<<<< HEAD
+    &__btn {
+=======
+
+    .btn {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
     }
 
     .btn {
         @extend .product-info__btn;
         
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
+>>>>>>> 134ff02aacae05d81f153a9ea133d4feb5145c3a
         &__title-logo {
             font-size: 26px;
         }
