@@ -1,6 +1,6 @@
 import { useRecentlyViewedContext } from "@/Contexts/RecentlyViewedContext";
-import { useFavoritesContext } from "@/Contexts/FavContext";
 import { useProductsContext } from "@/Contexts/ProductsContext";
+import { useFavoritesContext } from "@/Contexts/FavoriteContext";
 import Container from "@/Components/Container/Container";
 import ProductsGridContainer from "@/Components/ProductsGridContainer/ProductsGridContainer";
 import GuestLayout from "@/Layouts/GuestLayout/GuestLayout";

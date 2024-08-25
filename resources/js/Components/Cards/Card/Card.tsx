@@ -1,11 +1,11 @@
 import { FC, useState, useEffect } from "react";
 import { Link } from "@inertiajs/react";
-import { useFavoritesContext } from "@/Contexts/FavContext";
 import FavoriteButton from "@/Components/Buttons/FavoriteButton/FavoriteButton";
 import CardInfo from "./CardInfo/CardInfo";
 import Picture from "@/Components/Picture/Picture";
 import { IProductColor } from "@/types/product.interface";
 import styles from "./Card.module.scss";
+import { useFavoritesContext } from "@/Contexts/FavoriteContext";
 
 interface ISize {
   id: number;

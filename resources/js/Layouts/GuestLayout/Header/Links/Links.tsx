@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { usePage } from "@inertiajs/react";
 import { useCartContext } from "@/Contexts/CartContext";
-import { useFavoritesContext } from "@/Contexts/FavContext";
 import NavLink from "@/Components/NavLink/NavLink";
 import { FaRegFaceSmile } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
 import styles from "./Links.module.scss";
+import { useFavoritesContext } from "@/Contexts/FavoriteContext";
 
 interface ILinks {
   toggleSidebar: () => void;

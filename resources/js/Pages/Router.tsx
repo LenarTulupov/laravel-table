@@ -4,7 +4,7 @@ import { PaginationProvider } from "@/Contexts/PaginationContext";
 import { FilterProvider } from "@/Contexts/FilterContext";
 import { RecentlyViewedProvider } from "@/Contexts/RecentlyViewedContext";
 import { CartProvider } from "@/Contexts/CartContext";
-import { FavProvider } from "@/Contexts/FavContext";
+import { FavoriteProvider } from "@/Contexts/FavoriteContext";
 
 const Router = ({ children }: { children: ReactNode }) => {
   return (
@@ -12,11 +12,11 @@ const Router = ({ children }: { children: ReactNode }) => {
       <ProductsProvider>
         <FilterProvider>
           <RecentlyViewedProvider>
-            <FavProvider>
+            <FavoriteProvider>
               <CartProvider>
                 {children}
               </CartProvider>
-            </FavProvider>
+            </FavoriteProvider>
           </RecentlyViewedProvider>
         </FilterProvider>
       </ProductsProvider>
