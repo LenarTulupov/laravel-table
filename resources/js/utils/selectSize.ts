@@ -1,5 +1,5 @@
 import { ISize } from "@/types/basic.interface";
-import { Dispatch } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 const handleSizeClick = (
   size: ISize, 

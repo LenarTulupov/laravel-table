@@ -2,24 +2,26 @@
     padding: 15px 0;
     border-bottom: 1px solid var(--gray);
     border-top: 1px solid var(--gray);
-
-    .btn {
+    &__btn {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+    }
+
+    .btn {
+        @extend .product-info__btn;
 
         &__title-logo {
             font-size: 26px;
         }
-
     }
 
     &__list {
         max-height: 0;
         overflow: hidden;
         opacity: 0;
-        transition: max-height .5s ease-in-out, opacity .5s ease-in-out;
+        transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 
         &_open {
             max-height: 1000px;

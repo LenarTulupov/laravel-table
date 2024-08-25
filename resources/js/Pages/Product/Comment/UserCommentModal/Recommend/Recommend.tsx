@@ -5,17 +5,20 @@ import { ChangeEvent, FC } from 'react';
 interface IRecommend {
     recommend: string
     setRecommend: (value: string) => void
+    className?: string
 }
 
-const Recommend: FC<IRecommend> = ({ recommend, setRecommend }) => {
+const Recommend: FC<IRecommend> = ({ recommend, setRecommend, className }) => {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setRecommend(e.target.value)
     }
 
     return (
-        <div className={styles['recommend']}>
-            <div className={styles.recommend__title}>Do you recommend this product?</div>
+        <div className={`${styles['recommend']} ${className || ''}`}>
+            <div className={styles.recommend__title}>
+                Do you recommend this product?
+            </div>
             <div className={styles.recommend__flex}>
                 <div className={`${styles['recommend__yes']}`}>
                     <Radio
@@ -26,7 +29,12 @@ const Recommend: FC<IRecommend> = ({ recommend, setRecommend }) => {
                         checked={recommend === 'yes'}
                         onChange={handleChange}
                     />
-                    <label htmlFor="yes" className={styles['recommend__yes-label']}>Yes</label>
+                    <label 
+                        htmlFor="yes" 
+                        className={styles['recommend__yes-label']}
+                    >
+                        Yes
+                    </label>
                 </div>
                 <div className={`${styles['recommend__no']}`}>
                     <Radio
@@ -37,7 +45,12 @@ const Recommend: FC<IRecommend> = ({ recommend, setRecommend }) => {
                         checked={recommend === 'no'}
                         onChange={handleChange}
                     />
-                    <label htmlFor="no" className={styles['recommend__no-label']}>No</label>
+                    <label 
+                        htmlFor="no" 
+                        className={styles['recommend__no-label']}
+                    >
+                        No
+                    </label>
                 </div>
             </div>
         </div>

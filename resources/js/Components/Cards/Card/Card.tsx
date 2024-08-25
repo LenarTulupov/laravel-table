@@ -4,19 +4,8 @@ import { useFavoritesContext } from "@/Contexts/FavContext";
 import FavoriteButton from "@/Components/Buttons/FavoriteButton/FavoriteButton";
 import CardInfo from "./CardInfo/CardInfo";
 import Picture from "@/Components/Picture/Picture";
+import { IProductColor } from "@/types/product.interface";
 import styles from "./Card.module.scss";
-
-interface IProductColorImage {
-  image_path: string;
-}
-
-interface IColor {
-  color_id: number;
-  color: {
-    name: string;
-  };
-  product_color_images: IProductColorImage[];
-}
 
 interface ISize {
   id: number;
@@ -29,7 +18,7 @@ interface ICard {
   title: string;
   price_new: string;
   price_old: string;
-  colors: IColor[];
+  colors: IProductColor[];
   sizes: ISize[];
   isInfoExist: boolean
 }
@@ -72,10 +61,13 @@ const Card: FC<ICard> = ({
     }
   };
 
-  const handleColorClick = (color: IColor) => {
-    setSelectedColor(color);
-    const newImage = color.product_color_images[0].image_path;
-    setCurrentImage(newImage);
+  const handleColorClick = (colorName: string) => {
+    const selectedColor = colors.find(color => color.color.name === colorName);
+    if (selectedColor) {
+      setSelectedColor(selectedColor);
+      const newImage = selectedColor.product_color_images[0].image_path;
+      setCurrentImage(newImage);
+    }
   };
 
   useEffect(() => {

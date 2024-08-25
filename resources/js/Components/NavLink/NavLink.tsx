@@ -10,13 +10,17 @@ interface INavLink {
 
 
 const NavLink: FC<INavLink> = ({ href, children, className }) => {
-    const { url } = usePage();
-    const isActive = url === href;
+  const { url } = usePage();
+  const isActive = url === href;
 
   return (
-    <Link 
+    <Link
       href={href}
-      className={`${styles['nav-link']} ${isActive ? styles['nav-link_active']: ''} ${className}`}
+      className={
+        `${styles['nav-link']} 
+         ${isActive ? styles['nav-link_active'] : ''} 
+         ${className || ''}`
+      }
     >
       {children}
     </Link>

@@ -1,7 +1,6 @@
 .links {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
 
     &__link {
         position: relative;
@@ -43,5 +42,16 @@
                 left: 0;
             }
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 320px) {
+    .links {
+        grid-template-columns: 1fr;
     }
 }

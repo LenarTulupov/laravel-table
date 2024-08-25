@@ -12,6 +12,7 @@ import Stars from './Stars/Stars';
 import Title from '@/Components/Title/Title';
 import { AiOutlineCaretUp } from 'react-icons/ai';
 import { useRef } from 'react';
+import Container from '@/Components/Container/Container';
 
 const Testimonial = () => {
     const img = 'https://cdn.shopify.com/s/files/1/1276/0919/files/Photo_shared_by_o_on_May_29_2024_tagging_abneris_leon23._May_be_an_image_of_1_person_sundress_and_dress._1.jpg?v=1717583154';
@@ -25,9 +26,8 @@ const Testimonial = () => {
             <Title className={styles.testimonial__title}>Testimonial</Title>
             <div>
                 <Swiper
-                    style={{ width: `calc(100vw - 50px)` }}
-                    slidesPerView={2}
-                    slidesPerGroup={2}
+                    slidesPerView={1}
+                    slidesPerGroup={1}
                     spaceBetween={30}
                     speed={1000}
                     allowTouchMove={true}
@@ -43,6 +43,12 @@ const Testimonial = () => {
                             swiper.navigation.update();
                         });
                     }}
+                    breakpoints={{
+                        480: {
+                            slidesPerView: 2,
+                            slidesPerGroup: 2,
+                        },
+                    }}
                 >
                     <SwiperSlide>
                         <div className={styles.testimonial__item}>
@@ -56,7 +62,7 @@ const Testimonial = () => {
                                 <div className={styles['testimonial__item-text']} >
                                     “ This is my dream dress! I’m absolutely obsessed with it and fits like a dream, making me feel so good!”
                                 </div>
-                                <Stars/>
+                                <Stars />
                                 <div className={styles.testimonial__name}>abneris_leon</div>
                             </div>
                         </div>
@@ -73,7 +79,7 @@ const Testimonial = () => {
                                 <div className={styles['testimonial__item-text']} >
                                     “ The dress's intricate details and playful puff sleeves resonate with my dream style, effortlessly merging into my daily wardrobe.”
                                 </div>
-                                <Stars/>
+                                <Stars />
                                 <div className={styles.testimonial__name}>everlinet</div>
                             </div>
                         </div>
@@ -90,7 +96,7 @@ const Testimonial = () => {
                                 <div className={styles['testimonial__item-text']} >
                                     “ Love this fit! The lace is even more beautiful than I imagined, I paired it with yellow skirt and felt both stylish. I am ready for summer! ”
                                 </div>
-                                <Stars/>
+                                <Stars />
                                 <div className={styles.testimonial__name}>itsreireii
                                 </div>
                             </div>
@@ -108,19 +114,19 @@ const Testimonial = () => {
                                 <div className={styles['testimonial__item-text']} >
                                     “ The material is great comfortable. It's form-fitting but extremely flattering, and the double layer is absolutely perfect. All-in-all, I'm so pleased with it and would definitely recommend. ”
                                 </div>
-                                <Stars/>
+                                <Stars />
                                 <div className={styles.testimonial__name}>Thenikkirossi</div>
                             </div>
                         </div>
                     </SwiperSlide>
                     <button ref={prevButtonRef} className="custom-swiper-button-prev">
-                            {/* Ваш компонент для кнопки "Назад" */}
-                            <AiOutlineCaretUp className={styles.button__icon}/>
-                        </button>
-                        <button ref={nextButtonRef} className="custom-swiper-button-next">
-                            {/* Ваш компонент для кнопки "Вперед" */}
-                            <AiOutlineCaretUp className={styles.button__icon}/>
-                        </button>
+                        {/* Ваш компонент для кнопки "Назад" */}
+                        <AiOutlineCaretUp className={styles.button__icon} />
+                    </button>
+                    <button ref={nextButtonRef} className="custom-swiper-button-next">
+                        {/* Ваш компонент для кнопки "Вперед" */}
+                        <AiOutlineCaretUp className={styles.button__icon} />
+                    </button>
                 </Swiper>
             </div>
         </section>

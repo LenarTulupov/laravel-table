@@ -4,7 +4,7 @@ import { BiSolidLike, BiSolidDislike } from "react-icons/bi";
 
 const Comment = () => {
     return (
-        <article className={styles.comment}>
+        <div className={styles.comment}>
             <div className={`${styles.comment__name} ${styles.name}`}>
                 <div className={styles.name__logo}>
                     <div className={styles.name__text}>sj</div>
@@ -66,7 +66,7 @@ const Comment = () => {
                     </div>
                 </div>
             </div>
-        </article>
+        </div>
     )
 }
 

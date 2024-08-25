@@ -32,14 +32,24 @@ const Footer = () => {
           </div>
         </div>
         <footer className={styles.footer__bottom}>
-          <h1>© 2024 - SIMPLE RETRO POWERED BY SHOPIFY</h1>
+          <h1 className={styles['footer__bottom-title']}>© 2024 - SIMPLE RETRO POWERED BY SHOPIFY</h1>
           <div className={styles.footer__payment}>
-            <img src="https://www.svgrepo.com/show/266068/american-express.svg" alt="" />
-            <img src="https://www.svgrepo.com/show/452222/google-pay.svg" alt="" />
-            <img src="https://www.svgrepo.com/show/452059/mastercard.svg" alt="" />
+            <img
+              className={styles['footer__payment-logo']}
+              src="https://www.svgrepo.com/show/266068/american-express.svg"
+              alt="american express"
+            />
+            <img
+              className={styles['footer__payment-logo']}
+              src="https://www.svgrepo.com/show/452222/google-pay.svg"
+              alt="google pay"
+            />
+            <img
+              className={styles['footer__payment-logo']}
+              src="https://www.svgrepo.com/show/452059/mastercard.svg"
+              alt="mastercard"
+            />
           </div>
-
-
         </footer>
       </Container>
     </footer>

@@ -3,15 +3,17 @@ import { ReactNode, createContext, useContext, useEffect, useState } from "react
 interface IProduct {
   id: number;
   title: string;
-  price_new: number;
-  price_old: number;
-  product_colors: Array<{
+  price_new: string;
+  price_old: string;
+  product_colors: {
     color_id: number;
     color: {
-      name: string
-    }
-    product_color_images: Array<{ image_path: string }>
-  }>;
+      name: string;
+    };
+    product_color_images: {
+      image_path: string;
+    }[];
+  }[];
   size: {
     id: number;
     name: string;
@@ -28,15 +30,15 @@ interface ICartContext {
 
 export const CartContext = createContext<ICartContext>({} as ICartContext);
 
-export const CartProvider = ({ children } : { children: ReactNode }) => {
+export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<IProduct[]>([]);
 
   useEffect(() => {
     const storedCart = localStorage.getItem('cart');
-    if(storedCart) {
+    if (storedCart) {
       try {
         setCart(JSON.parse(storedCart));
-      } catch(error) {
+      } catch (error) {
         console.error('Error parsing cart data from localStorage: ', error)
       }
     }
@@ -71,7 +73,7 @@ export const CartProvider = ({ children } : { children: ReactNode }) => {
   }
 
   return (
-    <CartContext.Provider value={{cart, addToCart, removeFromCart, getProductQuantity}}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, getProductQuantity }}>
       {children}
     </CartContext.Provider>
   )

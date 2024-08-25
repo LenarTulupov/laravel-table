@@ -21,9 +21,22 @@
     }
     &__img {
         width: 250px;
+        height: 350px;
     }
 }
 
 .button__icon {
     font-size: 20px;
+}
+
+@media (max-width: 992px) {
+    .testimonial {
+        &__item {
+            flex-direction: column;
+        }
+        &__img {
+            width: auto;
+            height: auto;
+        }
+    }
 }

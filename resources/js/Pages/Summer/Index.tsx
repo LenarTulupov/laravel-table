@@ -1,15 +1,16 @@
-import { useEffect } from "react";
 import { usePaginationContext } from "@/Contexts/PaginationContext";
 import { useFilterContext } from "@/Contexts/FilterContext";
 import Card from "@/Components/Cards/Card/Card";
 import GuestLayout from "@/Layouts/GuestLayout/GuestLayout";
 import FilterLayout from "@/Layouts/FilterLayout/FilterLayout";
+import { useState } from "react";
 import Pagination from "@/Components/Pagination/Pagination";
+import ProductsGridContainer from "@/Components/ProductsGridContainer/ProductsGridContainer";
 import styles from "./Index.module.scss";
 
 const Summer = () => {
-  const { currentPage, setCurrentPage, ITEMS_PER_PAGE } =
-    usePaginationContext();
+  const { ITEMS_PER_PAGE } = usePaginationContext();
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const {
     filteredProducts,
     uniqueSizes,
@@ -21,15 +22,17 @@ const Summer = () => {
     selectedPrice,
     handlePriceChange,
     selectedSort,
-    handleSortChange,
-    resetFilters
+    handleSortChange
   } = useFilterContext();
 
   const filtered = filteredProducts.filter(
     (product) => product.categories.some(category => category.name === 'summer'),
   );
 
-   useEffect(() => resetFilters(),[]);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedProducts = filtered.slice(startIndex, endIndex);
+
   return (
     <main className={styles.summer}>
       <GuestLayout>
@@ -45,8 +48,8 @@ const Summer = () => {
           selectedSort={selectedSort}
           onSortChange={handleSortChange}
         >
-          <div className={styles.summer__grid}>
-            {filtered.map((product) => (
+          <ProductsGridContainer>
+            {paginatedProducts.map((product) => (
               <Card
                 key={product.id}
                 id={product.id}
@@ -54,11 +57,12 @@ const Summer = () => {
                 title={product.title}
                 price_new={product.price_new}
                 price_old={product.price_old}
-                colors={product.color}
+                colors={product.product_colors}
                 sizes={product.sizes}
+                isInfoExist={true}
               />
             ))}
-          </div>
+          </ProductsGridContainer>
           <Pagination
             totalItems={filtered.length}
             itemsPerPage={ITEMS_PER_PAGE}

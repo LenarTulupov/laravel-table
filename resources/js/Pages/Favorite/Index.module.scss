@@ -1,8 +1,4 @@
 .favorite-page {
-    &__grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-    }
 
     &__wrapper {
         display: flex;
@@ -21,55 +17,52 @@
         }
     }
 
-    .content {
+    &__empty-favorite {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        min-height: 20vh;
+        margin-top: 20px;
+    }
 
-        .empty-favorite {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-
-            &__like {
-                font-size: 50px;
-            }
-
-            &__text {
-                font-size: 18px;
-                text-transform: uppercase;
-            }
+    .empty-favorite {
+        @extend .favorite-page__empty-favorite;
+        &__like {
+            font-size: 50px;
         }
 
-        .recently-viewed {
-            &__grid {
-                display: grid;
-                grid-template-columns: repeat(5, 1fr);
-            }
+        &__text {
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+    }
 
-            &__title {
-                // border-left: 3px solid #f69;
-                position: relative;
-                padding-left: 10px;
-                font-size: 20px;
-                margin-bottom: 20px;
+    .recently-viewed {
+        margin-top: 20px;
 
-                &::before {
-                    content: "";
-                    position: absolute;
-                    width: 3px;
-                    height: 100%;
-                    background-color: #f69;
-                    top: 0;
-                    left: 0;
-                }
+        &__title {
+            position: relative;
+            padding-left: 20px;
+            font-size: 20px;
+            margin-bottom: 20px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 3px;
+                height: 100%;
+                background-color: #f69;
+                top: 0;
+                left: 10px;
             }
         }
     }
-    &__grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
+}
+
+@media(max-width: 320px) {
+    .recently-viewed__title {
+        font-size: 17px !important;
     }
 }

@@ -43,8 +43,8 @@ const Header: FC<IHeader> = ({ toggleSidebar }) => {
     <header className={styles.header}>
       <div className={`${styles.header__columns} ${styles.columns}`}>
         <SalesTopHeader />
-        <Container>
-          {isSearchButtonActive ? (
+        {isSearchButtonActive ? (
+          <Container>
             <div className={`${styles.columns__row} ${styles.row}`}>
               <Burger
                 onClick={toggleBurger}
@@ -64,17 +64,17 @@ const Header: FC<IHeader> = ({ toggleSidebar }) => {
                 searchToggle={searchToggle}
               />
             </div>
-          ) : (
-            <>
-              <SearchPanel
-                searchToggle={searchToggle}
-                setInputValue={setInputValue}
-                inputValue={inputValue}
-              />
-              <SearchLayout filteredProducts={filteredProducts} inputValue={inputValue} />
-            </>
-          )}
-        </Container>
+          </Container>
+        ) : (
+          <>
+            <SearchPanel
+              searchToggle={searchToggle}
+              setInputValue={setInputValue}
+              inputValue={inputValue}
+            />
+            <SearchLayout filteredProducts={filteredProducts} inputValue={inputValue} />
+          </>
+        )}
       </div>
     </header>
   );

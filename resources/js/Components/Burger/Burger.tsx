@@ -3,6 +3,7 @@ import NavLink from '../NavLink/NavLink';
 import CloseButton from '../Buttons/CloseButton/CloseButton';
 import { MdMenu } from "react-icons/md";
 import styles from './Burger.module.scss';
+import Logo from '../Logo/Logo';
 
 interface IBurger {
   onClick: () => void;
@@ -25,6 +26,11 @@ const Burger: FC<IBurger> = ({ onClick, isBurgerOpen, className }) => {
         <CloseButton onClick={onClick} className={styles['burger__sidebar-close']} />
         <nav className={styles.burger__navigation}>
           <ul className={styles['burger__navigation-list']}>
+            <li className={styles['burger__navigation-item']}>
+              <NavLink href="/" className={styles['burger__navigation-link']}>
+                <Logo className={styles['burger__navigation-logo']} />
+              </NavLink>
+            </li>
             <li className={styles['burger__navigation-item']}>
               <NavLink href='/all' className={styles['burger__navigation-link']}>
                 All Clothing

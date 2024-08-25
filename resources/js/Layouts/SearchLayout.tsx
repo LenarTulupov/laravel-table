@@ -1,14 +1,14 @@
 import Card from '@/Components/Cards/Card/Card'
 import { PiEmptyBold } from 'react-icons/pi'
 import styles from './SearchLayout.module.scss'
+import ProductsGridContainer from '@/Components/ProductsGridContainer/ProductsGridContainer'
 
 const SearchLayout = ({ filteredProducts, inputValue }) => {
     return (
         <div className={styles['search-layout']}>
             {inputValue ? (
                 filteredProducts.length > 0 ? (
-
-                    <div className={styles['search-layout__grid']}>
+                    <ProductsGridContainer>
                         {filteredProducts.map(product => (
                             <Card
                                 key={product.id}
@@ -21,7 +21,7 @@ const SearchLayout = ({ filteredProducts, inputValue }) => {
                                 sizes={product.sizes}
                             />
                         ))}
-                    </div>
+                    </ProductsGridContainer>
                 ) : (
                     <div className={`${styles['search-layout__message']} ${styles.message}`}>
                         <h1 className={styles['message__title']}>

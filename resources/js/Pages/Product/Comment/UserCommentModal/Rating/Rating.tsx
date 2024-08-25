@@ -8,7 +8,6 @@ interface IRating {
 }
 
 const Rating: FC<IRating> = ({ rating, onRatingChange }) => {
-    console.log(rating);
     const getStarIcons = (rating: number) => {
         const icons = [];
         for (let i = 1; i <= 5; i++) {

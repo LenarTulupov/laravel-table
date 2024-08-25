@@ -1,14 +1,18 @@
 import { FC, useEffect, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
 import Button from '@/Components/Buttons/Button/Button';
 import Card from '@/Components/Cards/Card/Card';
 import { IProduct } from '@/types/product.interface';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+
 import { AiOutlineCaretUp } from 'react-icons/ai';
+
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 import './Featured-swiper-buttons.css';
+
 import styles from './Featured.module.scss';
 
 interface IFeatured {
@@ -24,20 +28,20 @@ const Featured: FC<IFeatured> = ({ products }) => {
     const nextButtonRef = useRef(null);
 
     const handleToggleShow = () => {
-        setIsShowOpen(!isShowAllOpen);
+        setIsShowOpen(p => !p);
     }
 
-    const getActivefilter = (filter) => {
+    const getActivefilter = (filter: string) => {
         setActiveFilter(filter);
     }
 
-    const getFilteredProducts = (filter, products) => {
+    const getFilteredProducts = (filter: string, products: IProduct[]) => {
         if (filter === 'Hot') {
             return products.filter(product =>
                 product.categories.some(category =>
                     category.name === 'trends'));
         } else if (filter === 'New') {
-            return [...products].reverse(); // Создаем новый массив и переворачиваем его
+            return [...products].reverse();
         }
         return products;
     }
@@ -46,7 +50,8 @@ const Featured: FC<IFeatured> = ({ products }) => {
         setFilteredProducts(getFilteredProducts(activeFilter, products));
     }, [activeFilter, products]);
 
-    const displayedProducts = isShowAllOpen ? filteredProducts : filteredProducts.slice(0, 8);
+    const displayedProducts =
+        isShowAllOpen ? filteredProducts : filteredProducts.slice(0, 8);
 
     useEffect(() => {
         if (goodsRef.current) {
@@ -100,7 +105,10 @@ const Featured: FC<IFeatured> = ({ products }) => {
                 {displayedProducts.length > 0 ? (
                     isShowAllOpen ? (
                         displayedProducts.map(product => (
-                            <div className={styles['featured__goods-grid']} key={product.id}>
+                            <div
+                                className={styles['featured__goods-grid']}
+                                key={product.id}
+                            >
                                 <Card
                                     id={product.id}
                                     image={product.images}
@@ -116,10 +124,10 @@ const Featured: FC<IFeatured> = ({ products }) => {
                     ) : (
                         <>
                             <Swiper
-                                style={{ width: `calc(100vw - 50px)` }}
-                                slidesPerView={4}
-                                slidesPerGroup={4}
-                                spaceBetween={30}
+                                key={activeFilter}
+                                className={styles.swiper}
+                                slidesPerView={1}
+                                slidesPerGroup={1}
                                 speed={1000}
                                 allowTouchMove={true}
                                 simulateTouch={true}
@@ -134,9 +142,20 @@ const Featured: FC<IFeatured> = ({ products }) => {
                                         swiper.navigation.update();
                                     });
                                 }}
+                                breakpoints={{
+                                    768: {
+                                        slidesPerView: 4,
+                                        slidesPerGroup: 4,
+                                    },
+                                    320: {
+                                        slidesPerView: 2,
+                                        slidesPerGroup: 2,
+                                    }
+                                }}
+
                             >
-                                {displayedProducts.map((product, index) => (
-                                    <SwiperSlide key={index}>
+                                {displayedProducts.map((product) => (
+                                    <SwiperSlide key={product.id}>
                                         <Card
                                             id={product.id}
                                             image={product.images}
@@ -150,10 +169,16 @@ const Featured: FC<IFeatured> = ({ products }) => {
                                     </SwiperSlide>
                                 ))}
                             </Swiper>
-                            <button ref={prevButtonRef} className="custom-swiper-button-prev">
+                            <button
+                                ref={prevButtonRef}
+                                className="custom-swiper-button-prev"
+                            >
                                 <AiOutlineCaretUp className={styles.button__icon} />
                             </button>
-                            <button ref={nextButtonRef} className="custom-swiper-button-next">
+                            <button
+                                ref={nextButtonRef}
+                                className="custom-swiper-button-next"
+                            >
                                 <AiOutlineCaretUp className={styles.button__icon} />
                             </button>
                         </>

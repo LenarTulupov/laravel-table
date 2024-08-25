@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 interface IFavContext {
   favorites: number[];
@@ -31,6 +31,17 @@ export const FavProvider = ({ children }: { children: ReactNode }) => {
     const result = favorites.includes(id);
     return result;
   };
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+    if(storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    };
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   return (
     <FavContext.Provider

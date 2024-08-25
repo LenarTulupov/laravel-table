@@ -14,3 +14,6 @@ Route::get('/products/{id}', [ProductController::class, 'show']);
 
 Route::get('/products/{id}/comments', [CommentController::class, 'index']);
 
+Route::post('/products/{id}/comments', [CommentController::class, 'store']);
+
+Route::post('/products/{id}/ratings', [RatingController::class, 'store']);

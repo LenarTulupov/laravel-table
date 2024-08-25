@@ -15,7 +15,10 @@ const ProductInfo: FC<IProductInfo> = ({
   const className = isDescriptionOpen ? styles['product-info__list_open'] : '';
   return (
     <section className={styles['product-info']}>
-      <button onClick={handleOpenDescription} className={`${styles['product-info__btn']} ${styles.btn}`}>
+      <button 
+        onClick={handleOpenDescription} 
+        className={`${styles['product-info__btn']} ${styles.btn}`}
+      >
         <div className={styles['btn__title-text']}>DESCRIPTION</div>
         {!isDescriptionOpen ? (
           <div className={styles['btn__title-logo']}>+</div>
@@ -23,7 +26,10 @@ const ProductInfo: FC<IProductInfo> = ({
           <div className={styles['btn__title-logo']}>-</div>
         )}
       </button>
-      <div className={`${styles['product-info__list']} ${isDescriptionOpen ? styles['product-info__list_open'] : ''}`}>
+      <div className={
+        `${styles['product-info__list']} 
+         ${isDescriptionOpen ? styles['product-info__list_open'] : ''}`
+      }>
         <div className={styles['product-info__list-item']}>
           <div className={styles['product-info__list-name']}>Color:</div>
           <div className={styles['product-info__list-description']}>

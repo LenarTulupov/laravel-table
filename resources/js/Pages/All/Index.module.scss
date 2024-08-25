@@ -12,13 +12,6 @@
     justify-content: center;
 }
 
-.all {
-    &__grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
 .scroll {
     position: fixed;
     bottom: 20px;

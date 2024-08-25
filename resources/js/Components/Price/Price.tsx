@@ -1,16 +1,19 @@
 import { FC } from 'react'
 import styles from './Price.module.scss'
+import formatCurrency from '@/utils/formatCurrency'
 
 interface IPrice {
-    price_new: string
-    price_old: string
+    price: string | number
+    currency?: 'EUR' | 'USD'
+    className?: string
 }
 
-const Price: FC<IPrice> = ({ price_new, price_old}) => {
+const Price: FC<IPrice> = ({ price, currency = 'EUR', className }) => {
     return (
-        <div className={styles.price}>
-            <div className={styles["price__new"]}>{price_new}</div>
-            <div className={styles["price__old"]}>{price_old}</div>
+        <div className={`${styles.price} ${className || ''}`}>
+            {formatCurrency(
+                { price, currency }
+            )}
         </div>
     )
 }

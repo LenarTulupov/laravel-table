@@ -1,7 +1,7 @@
 import { FC, MouseEventHandler } from "react";
-import styles from "./Picture.module.scss";
 import { Link } from "@inertiajs/react";
 import Button from "../Buttons/Button/Button";
+import styles from "./Picture.module.scss";
 
 interface IPicture {
   image: string;
@@ -31,10 +31,12 @@ const Picture: FC<IPicture> = ({
         alt={title}
         className={`${styles.card__img}
            ${isImageHovered ? styles.card__img_hovered : ""}
-           ${className}`}
+           ${className || ''}`}
       />
       <Link href="/" className={styles.picture__text}>
-        <Button variant="black" className={styles['picture__text-button']}>Quick View</Button>
+        <Button variant="black" className={styles['picture__text-button']}>
+          Quick View
+        </Button>
       </Link>
     </div>
   );

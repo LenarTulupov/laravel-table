@@ -1,7 +1,7 @@
 import InputLabel from '@/Components/InputLabel/InputLabel';
 import styles from './User.module.scss'
 import TextInput from '@/Components/TextInput/TextInput';
-import { ChangeEvent, FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 
 interface IUser {
     name: string
@@ -11,11 +11,18 @@ interface IUser {
 }
 
 const User: FC<IUser> = ({ name, setName, email, setEmail }) => {
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        if (inputRef.current) {
+            inputRef.current.focus();
+        }
+    }, [])
+
     return (
         <div className={`${styles.user}`}>
             <div className={styles['user__name']}>
                 <InputLabel
-                    text='Name'
                     htmlFor='name'
                     className={styles['user__name-label']}
                 />
@@ -26,11 +33,11 @@ const User: FC<IUser> = ({ name, setName, email, setEmail }) => {
                     className={styles['user__name-input']}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    ref={inputRef}
                 />
             </div>
             <div className={styles['user__email']}>
                 <InputLabel
-                    text='email'
                     htmlFor='email'
                     className={styles['user__email-label']}
                 />

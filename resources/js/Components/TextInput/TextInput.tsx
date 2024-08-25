@@ -1,15 +1,23 @@
-import { FC } from "react"
+import { ChangeEvent, forwardRef, Ref } from "react"
 import styles from './TextInput.module.scss'
-import { ITextInput } from "@/types/textInput.interface"
 
-const TextInput: FC<ITextInput> = ({
+export interface ITextInput {
+  value: string
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  placeholder?: string
+  id?: string
+  required?: boolean
+  className?: string
+}
+
+const TextInput = forwardRef<HTMLInputElement, ITextInput>(({
   value,
   onChange,
   placeholder,
   id,
   required,
   className
-}) => {
+}, ref: Ref<HTMLInputElement>) => {
   return (
     <input
       type="text"
@@ -18,9 +26,11 @@ const TextInput: FC<ITextInput> = ({
       placeholder={placeholder}
       id={id}
       required={required}
-      className={`${styles['text-input']} ${className}`}
+      className={`${styles['text-input']} ${className || ''}`}
+      ref={ref}
     />
   )
 }
+)
 
 export default TextInput

@@ -15,11 +15,11 @@ const Index = () => {
     return (
         <main className={styles.profile}>
             <div className="container">
-
                 <div className={styles.flex}>
-
                     <div>Добро Пожаловать! {user.name}</div>
-                    <button onClick={handleLogout} className={styles.btn}>Выйти из профиля</button>
+                    <button onClick={handleLogout} className={styles.btn}>
+                        Выйти из профиля
+                    </button>
                 </div>
             </div>
         </main>

@@ -2,7 +2,8 @@
     &__list {
         display: flex;
         gap: 10px;
+        &-item:hover {
+            color: rgb(124, 124, 124);
+        }
     }
 }
-
-  

@@ -2,6 +2,12 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    &__text {
+        @extend .text;
+    }
+    &__name {
+        @extend .name;
+    }
 
     &__flex {
         display: grid;
@@ -90,5 +96,31 @@
             }
             
         }
+    }
+}
+@media(max-width: 480px) {
+    .comment__flex {
+        display: flex;
+        flex-direction: column;
+    }
+    .comment__photo {
+        width: auto;
+    }
+    .comment__wrapper {
+        gap: 15px !important;
+    }
+    .text {
+        gap: 15px !important;
+    }
+    .comment-product {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .text__comment-product {
+        @extend .comment-product;
+    }
+    .name {
+        align-items: center;
     }
 }

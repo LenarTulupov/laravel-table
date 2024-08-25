@@ -10,8 +10,11 @@
     &__img-container {
         position: relative;
         overflow: hidden;
-        // border-radius: 10px;
         border-bottom: 1px solid #efeeef;
+    }
+
+    .img-container {
+        @extend .card__img-container;
     }
 
 

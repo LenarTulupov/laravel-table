@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 interface IInputLabel {
   htmlFor: string;
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const InputLabel: FC<IInputLabel> = ({ htmlFor, className, children }) => {

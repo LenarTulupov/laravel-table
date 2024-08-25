@@ -18,8 +18,6 @@
         margin-bottom: 30px;
 
         &-filter {
-
-
             &_active {
                 position: relative;
 
@@ -38,14 +36,12 @@
 
     &__goods {
         margin-bottom: 20px;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
         overflow: hidden;
         transition: height 0.5s ease;
-        &_open {
-            height: auto;
-        }
+        // &_open {
+        //     display: grid;
+        //     grid-template-columns: repeat(5, 1fr);
+        // }
     }
 
     &__button-container {
@@ -101,4 +97,49 @@
 }
 .button__icon {
     font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .featured__filters-filter {
+        font-size: 35px;
+    }
+    .swiper-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .swiper-slide {
+        justify-self: center;
+    }
+}
+.swiper {
+    .swiper-wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+.featured__goods_open {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+@media (max-width: 992px) {
+    .featured__goods_open {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .featured__goods_open {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .featured__goods_open {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 320px) {
+    .featured__goods_open {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

@@ -10,7 +10,7 @@ interface IColor {
 
 const Color: FC<IColor> = ({ colors, handleColorClick, className }) => {
   return (
-    <div className={`${styles.color} ${className}`}>
+    <div className={`${styles.color} ${className || ''}`}>
       {colors.map(({ color_id, color }) => {
         const colorName = color.name;
         return (

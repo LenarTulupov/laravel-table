@@ -13,18 +13,34 @@
         overflow: hidden;
         height: 50px;
     }
-
-    &__color {
-    }
     &__btn {
         border-radius: 6px;
         width: 100%;
     }
-
-    &__price-color {
+    &__wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    .wrapper {
+        @extend .card-info__wrapper;
+
+        &__price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &_old {
+                font-size: 14px;
+                text-decoration-line: line-through;
+                color: rgb(119, 119, 119);
+            }
+        }
+        &__color {
+            width: 30px;
+            height: 30px;
+        }
     }
 
     &__sizes {

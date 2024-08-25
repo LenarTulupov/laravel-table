@@ -1,23 +1,24 @@
 .nav-link {
     position: relative;
 
-    &:after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -5px;
-        left: 0;
-        background-color: #000;
-        transition: 0.3s;
-    }
 
-    &:hover {
-        &:after {
-            width: 100%;
-        }
-    }
-    &_active {
-        /* text-decoration: line-through; */
-    }
+    // &:after {
+    //     content: "";
+    //     position: absolute;
+    //     width: 0;
+    //     height: 2px;
+    //     bottom: -5px;
+    //     left: 0;
+    //     background-color: #000;
+    //     transition: 0.3s;
+    // }
+
+    // &:hover {
+    //     &:after {
+    //         width: 100%;
+    //     }
+    // }
+    // &_active {
+    //     /* text-decoration: line-through; */
+    // }
 }

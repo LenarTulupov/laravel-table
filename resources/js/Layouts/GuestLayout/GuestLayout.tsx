@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
+import { IProduct, ISize } from "@/types/product.interface";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import CartSidebar from "@/Components/Sidebars/CartSidebar/CartSidebar";
@@ -7,33 +8,24 @@ import styles from './GuestLayout.module.scss'
 
 interface ILayout {
   children: ReactNode
-  
 }
 
 const GuestLayout: FC<ILayout> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isEditCartSidebarOpen, setIsEditCartSidebarOpen] = useState<boolean>(false);
-  const [selectedProduct, setSelectedProduct] = useState<any>(null);
-  const [selectedSize, setSelectedSize] = useState<any>(null);
+  const [selectedProduct, setSelectedProduct] = useState<IProduct | null>(null);
+  const [selectedSize, setSelectedSize] = useState<ISize | null>(null);
+
 
   const handleToggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   }
 
-  const handleToggleEditSidebar = (product: any = null) => {
+  const handleToggleEditSidebar = (product: IProduct | null = null) => {
     setSelectedProduct(product);
     setSelectedSize(product ? product.size : null);
     setIsEditCartSidebarOpen(!isEditCartSidebarOpen);
   }
-
-
-  // const handleEditOrCartSidebarsOpen = () => {
-  //   if(isSidebarOpen) {
-  //     handleToggleSidebar()
-  //   } else if(isSidebarOpen && isEditCartSidebarOpen) {
-  //     handleToggleEditSidebar();
-  //   }
-  // }
 
   useEffect(() => {
     const clearStyle = document.body.style.overflow;
@@ -57,7 +49,7 @@ const GuestLayout: FC<ILayout> = ({ children }) => {
         isOpen={isSidebarOpen}
         toggleEditSidebar={handleToggleEditSidebar}
         isEditOpen={isEditCartSidebarOpen}
-        product={selectedProduct}
+        // product={selectedProduct}
       />
 
       <EditCartSidebar

@@ -1,7 +1,7 @@
 .sales-top-header {
     background-color: #f88d59;
     text-align: center;
-    padding: 5px 0;
+    padding: 5px 15px;
 
     &__list {
         font-size: 13px;
@@ -9,7 +9,6 @@
     }
 
     &__link {
-        
         &:hover {
             text-decoration: underline;
         }

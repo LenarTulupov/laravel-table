@@ -21,3 +21,9 @@
         cursor: not-allowed;
     }
 }
+
+@media(max-width: 340px) {
+    .pagination {
+        flex-direction: column;
+    }
+}

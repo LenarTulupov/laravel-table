@@ -3,19 +3,20 @@
     top: var(--header-height);
     right: 0;
     width: 240px;
-    height: calc(100% - var(--header-height) - 44px);
-    z-index: 2;
+    top: calc(var(--header-height) - 4px);
+    z-index: 20;
     transition: transform 0.3s ease;
     transform: translateX(100%);
     background-color: #fff;
-    
+    height: 100%;
+
     &__open {
         transform: translateX(0);
     }
 
     &__content {
         height: 100%;
-        overflow-y: auto; 
+        overflow-y: auto;
     }
 
     & > :not(:first-child) {
@@ -28,24 +29,43 @@
     &__edit {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 10px 20px;
+
+        .edit {
+            @extend .edit-sidebar__edit;
+        }
 
         .edit__title {
             font-weight: 700;
         }
     }
 
-    .parameters {
+    .edit-sidebar__parameters {
         display: flex;
         flex-direction: column;
         gap: 10px;
         margin-top: 10px;
+    }
 
-        .colors, .sizes, .quantity {
+    .parameters {
+        @extend .edit-sidebar__parameters;
+
+        &__colors,
+        &__sizes,
+        &__quantity {
             display: flex;
             flex-direction: column;
             gap: 5px;
             font-size: 14px;
+        }
+
+        .colors,
+        .sizes,
+        .quantity {
+            @extend .parameters__colors,
+                .parameters__sizes,
+                .parameters__quantity;
 
             &__label {
                 font-weight: 700;
@@ -60,26 +80,37 @@
         }
     }
 
-    .update {
+    .edit-sidebar__update {
         display: flex;
         flex-direction: column;
         margin-top: 40px;
+    }
+
+    .update {
+        @extend .edit-sidebar__update;
 
         & * {
+            border: none;
             border-left: 1px solid var(--gray);
             border-right: 1px solid var(--gray);
             border-bottom: 1px solid var(--gray);
             padding: 5px 0;
-            transition: background-color .3s ease-in;
+            transition: background-color 0.3s ease-in;
             text-transform: uppercase;
 
             &:hover {
-                background-color: #f8f8f8
+                background-color: #f8f8f8;
             }
         }
 
         & > :not(:last-child) {
             border-top: 1px solid var(--gray);
         }
+    }
+}
+
+@media (max-width: 404px) {
+    .edit-sidebar {
+        top: calc(var(--header-height) + 15px);
     }
 }

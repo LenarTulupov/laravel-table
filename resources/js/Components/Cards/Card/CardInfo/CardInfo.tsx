@@ -1,6 +1,4 @@
-import AddToCartButton from "@/Components/Buttons/AddToCartButton/AddToCartButton";
-import FavoriteButton from "@/Components/Buttons/FavoriteButton/FavoriteButton";
-import { FC } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import styles from "./CardInfo.module.scss";
 import { useCartContext } from "@/Contexts/CartContext";
 import Price from "../../../Price/Price";
@@ -9,20 +7,18 @@ import Color from "@/Components/Color/Color";
 import Button from "@/Components/Buttons/Button/Button";
 import { Link } from "@inertiajs/react";
 import { ISize } from "@/types/basic.interface";
-import { IColor } from "@/types/product.interface";
+import { IProductColor } from "@/types/product.interface";
 
 interface ICardInfo {
   title: string;
   price_new: string;
   price_old: string;
-  selectedSize: {
-    id: number;
-    name: string;
-  };
-  handleColorClick: () => void;
+  selectedSize: ISize | null;
+  setSelectedSize: Dispatch<SetStateAction<ISize | null>>;
+  handleColorClick: (colorName: string) => void;
   id: number;
   sizes: ISize[];
-  colors: IColor[];
+  colors: IProductColor[];
 }
 
 const CardInfo: FC<ICardInfo> = ({
@@ -37,20 +33,30 @@ const CardInfo: FC<ICardInfo> = ({
   colors,
 }) => {
   const { addToCart } = useCartContext();
+
+  const transformedColors = colors.map(color => ({
+    color_id: color.color.id,
+    color: {
+      name: color.color.name
+    }
+  }));
   return (
     <section className={styles["card-info"]}>
       <Link href={`/product/${id}`}>
         <div className={styles["card-info__title"]}>{title}</div>
       </Link>
-      <div className={styles["card-info__price-color"]}>
-        <Price price_new={price_new} price_old={price_old} />
+      <div className={`${styles["card-info__wrapper"]} ${styles.wrapper}`}>
+        <div className={styles['wrapper__price']}>
+          <Price price={price_new} />
+          <Price price={price_old} className={styles['wrapper__price_old']} />
+        </div>
         <Color
-          colors={colors}
+          colors={transformedColors}
           handleColorClick={handleColorClick}
-          className={styles["card-info__color"]}
+          className={styles.wrapper__color}
         />
       </div>
-      <div style={{ minHeight: "59px" }}>
+      <div className={styles['card-info__sizes']}>
         <Sizes
           sizes={sizes}
           selectedSize={selectedSize}

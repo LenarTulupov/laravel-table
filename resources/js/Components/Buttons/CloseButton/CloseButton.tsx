@@ -9,8 +9,8 @@ interface ICloseButton {
 
 const CloseButton: FC<ICloseButton> = ({ onClick, className }) => {
   return (
-    <button className={`${styles['close-button']} ${className}`}>
-        <TfiClose onClick={onClick} className={styles['close-button__icon']}/>
+    <button className={`${styles['close-button']} ${className || ''}`}>
+      <TfiClose onClick={onClick} className={styles['close-button__icon']} />
     </button>
   )
 }
