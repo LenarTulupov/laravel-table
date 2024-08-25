@@ -1,6 +1,7 @@
 .nav-link {
     position: relative;
 
+<<<<<<< HEAD
 
     // &:after {
     //     content: "";
@@ -21,4 +22,25 @@
     // &_active {
     //     /* text-decoration: line-through; */
     // }
+=======
+    &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #000;
+        transition: 0.3s;
+    }
+
+    &:hover {
+        &:after {
+            width: 100%;
+        }
+    }
+    &_active {
+        /* text-decoration: line-through; */
+    }
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 }

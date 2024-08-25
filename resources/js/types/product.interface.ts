@@ -9,8 +9,12 @@ export interface IColor {
 }
 
 export interface IProductColor {
+<<<<<<< HEAD
   color_id: number; 
   color: IColor;
+=======
+  color: IColor
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
   product_color_images: IProductColorImage[];
 }
 
@@ -19,6 +23,7 @@ interface ISizes {
   name: string;
 }
 
+<<<<<<< HEAD
 export interface ISize {
   id: number;
   name: string;
@@ -32,6 +37,8 @@ export interface ISize {
   };
 }
 
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 export interface IProduct {
   id: number;
   title: string;
@@ -40,6 +47,7 @@ export interface IProduct {
   product_colors: IProductColor[];
   sizes: ISizes[];
   images: string[];
+<<<<<<< HEAD
   quantity: number; 
   size: ISize; 
 }
@@ -53,3 +61,6 @@ export interface IProduct {
 //   sizes: ISizes[];
 //   images: string[];
 // }
+=======
+}
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818

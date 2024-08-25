@@ -1,9 +1,17 @@
 import InputLabel from '@/Components/InputLabel/InputLabel'
+<<<<<<< HEAD
 import TextInput from '@/Components/TextInput/TextInput'
 import Logo from '@/Components/Logo/Logo'
 import { Link, useForm } from '@inertiajs/react'
 import { FormEvent } from 'react'
 import styles from './Index.module.scss'
+=======
+import styles from './Index.module.scss'
+import TextInput from '@/Components/TextInput/TextInput'
+import Logo from '@/Components/Logo/Logo'
+import { Link, useForm } from '@inertiajs/react'
+import { FormEvent, useState } from 'react'
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
 const Index = () => {
 
@@ -65,11 +73,15 @@ const Index = () => {
                 onChange={(e) => setData('password', e.target.value)}
                 placeholder='Enter your password'
               />
+<<<<<<< HEAD
               {errors.password &&
                 <div className={styles.form__error}>
                   {errors.password}
                 </div>
               }
+=======
+              {errors.password && <div className={styles.form__error}>{errors.password}</div>}
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             </div>
             <div className={styles['form__password-confirmation']}>
               <InputLabel htmlFor='password_confirmation'>Confirm Password</InputLabel>
@@ -80,11 +92,15 @@ const Index = () => {
                 onChange={(e) => setData('password_confirmation', e.target.value)}
                 placeholder='Confirm your password'
               />
+<<<<<<< HEAD
               {errors.password_confirmation && 
                 <div className={styles.form__error}>
                   {errors.password_confirmation}
                 </div>
               }
+=======
+              {errors.password_confirmation && <div className={styles.form__error}>{errors.password_confirmation}</div>}
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             </div>
             <button type='submit' className={styles.form__btn}>Sign Up</button>
           </div>

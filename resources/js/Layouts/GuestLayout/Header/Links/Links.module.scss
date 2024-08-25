@@ -1,5 +1,8 @@
 .links {
+<<<<<<< HEAD
     justify-self: end;
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     &__list {
         display: flex;
         align-items: center;
@@ -13,9 +16,14 @@
         &-logo {
             font-size: 18px;
         }
+<<<<<<< HEAD
         &:hover {
             color: rgb(124, 124, 124);
         }
     }
     
 }
+=======
+    }
+}
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818

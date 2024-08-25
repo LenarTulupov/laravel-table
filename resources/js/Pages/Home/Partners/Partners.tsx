@@ -8,11 +8,19 @@ const Partners = () => {
     const img5 = "https://cdn.shopify.com/s/files/1/1276/0919/files/FORBES_e4728b02-d612-4627-be0d-45377f99022a.png?v=1717056497";
   return (
     <section className={styles.partners}>
+<<<<<<< HEAD
         <img src={img1} alt="elle" className={styles.partners__img} />
         <img src={img2} alt="wwd" className={styles.partners__img} />
         <img src={img3} alt="vogue" className={styles.partners__img} />
         <img src={img4} alt="l'officiel" className={styles.partners__img} />
         <img src={img5} alt="forbes" className={styles.partners__img} />
+=======
+        <img src={img1} alt="" />
+        <img src={img2} alt="" />
+        <img src={img3} alt="" />
+        <img src={img4} alt="" />
+        <img src={img5} alt="" />
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     </section>
   )
 }

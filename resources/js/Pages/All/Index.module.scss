@@ -12,6 +12,16 @@
     justify-content: center;
 }
 
+<<<<<<< HEAD
+=======
+.all {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 .scroll {
     position: fixed;
     bottom: 20px;

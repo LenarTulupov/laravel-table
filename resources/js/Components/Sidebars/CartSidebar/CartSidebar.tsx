@@ -1,4 +1,5 @@
 import { FC } from "react";
+<<<<<<< HEAD
 import { Link } from "@inertiajs/react";
 import { IProduct } from "@/types/product.interface";
 import { useCartContext } from "@/Contexts/CartContext";
@@ -8,13 +9,27 @@ import EmptyCard from "@/Components/Cards/Card/EmptyCard/EmptyCard";
 import Button from "@/Components/Buttons/Button/Button";
 import Price from "@/Components/Price/Price";
 import styles from './CartSidebar.module.scss';
+=======
+import CardSidebar from "../CardSidebar/CardSidebar";
+import styles from './CartSidebar.module.scss';
+import { useCartContext } from "@/Contexts/CartContext";
+import CloseButton from "@/Components/Buttons/CloseButton/CloseButton";
+import EmptyCard from "@/Components/Cards/Card/EmptyCard/EmptyCard";
+import Button from "@/Components/Buttons/Button/Button";
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
 interface ICartSidebar {
   toggleSidebar: () => void;
   isOpen: boolean;
+<<<<<<< HEAD
   toggleEditSidebar: (product: IProduct) => void;
   isEditOpen: boolean;
   product: IProduct
+=======
+  toggleEditSidebar: (product: any) => void;
+  isEditOpen: boolean;
+  product: any
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 }
 
 const CartSidebar: FC<ICartSidebar> = ({
@@ -23,10 +38,16 @@ const CartSidebar: FC<ICartSidebar> = ({
   const { cart } = useCartContext();
 
   const totalCartPrice = cart.reduce((total, product) =>
+<<<<<<< HEAD
     total + (parseFloat(product.price_new) * product.quantity), 0);
   const totalCartPriceFixed = totalCartPrice.toFixed(2);
   const totalCartDiscount = (totalCartPrice * 0.25).toFixed(2);
   
+=======
+    total + (product.price_new * product.quantity), 0);
+  const totalCartPriceFixed = totalCartPrice.toFixed(2);
+  const totalCartDiscount = (totalCartPrice * 0.25).toFixed(2);
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
   return (
     <div className={
@@ -49,8 +70,12 @@ const CartSidebar: FC<ICartSidebar> = ({
 
           <div className={styles['cart-sidebar__content']}>
             {cart.map(product => (
+<<<<<<< HEAD
               product.product_colors.length > 0 && 
               product.product_colors[0].product_color_images.length > 0 ? (
+=======
+              product.product_colors.length > 0 && product.product_colors[0].product_color_images.length > 0 ? (
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
                 <CardSidebar
                   key={`${product.id}_${product.size.id}`}
                   id={product.id}
@@ -70,6 +95,7 @@ const CartSidebar: FC<ICartSidebar> = ({
           <div className={`${styles['cart-sidebar__checkout']} ${styles.checkout}`}>
             <div className={`${styles.checkout__discount} ${styles.discount}`}>
               <div className={styles.discount__title}>DISCOUNT</div>
+<<<<<<< HEAD
               <Price price={totalCartDiscount} className={styles.discount__price} />
             </div>
             <div className={`${styles.checkout__subtotal} ${styles.subtotal}`}>
@@ -80,18 +106,30 @@ const CartSidebar: FC<ICartSidebar> = ({
                 price={totalCartPriceFixed} 
                 className={styles.subtotal__price} 
               />
+=======
+              <div className={styles.discount__price}>-£{totalCartDiscount}</div>
+            </div>
+            <div className={`${styles.checkout__subtotal} ${styles.subtotal}`}>
+              <div className={styles.subtotal__title}>SUBTOTAL (EXCLUDING DELIVERY)</div>
+              <div className={styles.subtotal__price}>£{totalCartPriceFixed}</div>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
               <div className={styles.subtotal__text}>
                 *All taxes are included in product prices
               </div>
             </div>
 
             <div className={`${styles.checkout__buttons} ${styles.buttons}`}>
+<<<<<<< HEAD
               <Button variant="gray" className={styles.buttons__gray}>
                 View Cart
               </Button>
               <Button variant="black" className={styles.buttons__black}>
                 Checkout
               </Button>
+=======
+              <Button variant="gray" className={styles.buttons__gray}>View Cart</Button>
+              <Button variant="black" className={styles.buttons__black}>Checkout</Button>
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             </div>
           </div>
         </>
@@ -99,6 +137,7 @@ const CartSidebar: FC<ICartSidebar> = ({
         <EmptyCard toggleSidebar={toggleSidebar} />
       )}
       <footer className={`${styles['cart-sidebar__footer']} ${styles.footer}`}>
+<<<<<<< HEAD
         <Link href="/trends">
           <img
             src="https://media.boohoo.com/i/boohooamplience/minicart-banner-bottom-nh?qlt=default&fmt=auto"
@@ -106,6 +145,13 @@ const CartSidebar: FC<ICartSidebar> = ({
             className={styles.footer__img}
           />
         </Link>
+=======
+        <img
+          src="https://media.boohoo.com/i/boohooamplience/minicart-banner-bottom-nh?qlt=default&fmt=auto"
+          alt=""
+          className={styles.footer__img}
+        />
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
       </footer>
     </div>
   );

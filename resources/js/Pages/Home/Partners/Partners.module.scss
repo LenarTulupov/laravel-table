@@ -1,6 +1,7 @@
 .partners {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+<<<<<<< HEAD
 }
 @media(max-width: 480px) {
     .partners {
@@ -11,4 +12,6 @@
             width: 100px;
         }
     }
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 }

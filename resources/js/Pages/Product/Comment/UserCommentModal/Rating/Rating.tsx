@@ -8,6 +8,10 @@ interface IRating {
 }
 
 const Rating: FC<IRating> = ({ rating, onRatingChange }) => {
+<<<<<<< HEAD
+=======
+    console.log(rating);
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     const getStarIcons = (rating: number) => {
         const icons = [];
         for (let i = 1; i <= 5; i++) {

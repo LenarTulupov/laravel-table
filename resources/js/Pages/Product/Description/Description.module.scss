@@ -2,29 +2,53 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+<<<<<<< HEAD
     // gap: 20px;
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     &__title {
         font-weight: bold;
         font-size: 20px;
     }
+<<<<<<< HEAD
     .price {
         display: flex;
         gap: 10px;
+=======
+
+    .price {
+        display: flex;
+        gap: 10px;
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
         &__old {
             text-decoration: line-through;
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     .color {
         display: flex;
         flex-direction: column;
         gap: 10px;
         &__background {
+<<<<<<< HEAD
             width: 30px;
             height: 30px;
             border-radius: 5px;
             box-shadow: 1px 2px 2px var(--gray);
         }
     }
+=======
+            width: 26px;
+            height: 26px;
+        }
+    }
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     .sizes {
         display: flex;
         gap: 10px;
@@ -34,11 +58,19 @@
             border: 1px solid var(--gray);
         }
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     .quantity-product {
         display: flex;
         align-items: center;
         border: 1px solid var(--gray);
         width: fit-content;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
         &__increment {
             display: flex;
             justify-content: center;
@@ -52,19 +84,32 @@
             align-items: center;
             height: 40px;
             width: 40px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
         }
         &__input {
             text-align: center;
             border: none;
             width: 70px;
+<<<<<<< HEAD
             &:focus {
                 box-shadow: none;
             }
+=======
+            
+            &:focus {
+                box-shadow: none; 
+            }
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             &::-webkit-outer-spin-button,
             &::-webkit-inner-spin-button {
                 -webkit-appearance: none;
             }
         }
+<<<<<<< HEAD
     }
     &__buttons {
         display: flex;
@@ -92,3 +137,12 @@
         padding: 10px 10px;
     }
 }
+=======
+
+    }
+
+    .buttons {
+        display: flex;
+    }
+}
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818

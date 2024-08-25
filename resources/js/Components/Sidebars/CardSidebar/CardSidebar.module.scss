@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .card-sidebar {
     width: 100%;
     &__content {
@@ -7,6 +8,8 @@
 }
 
 
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 .content {
     display: grid;
     grid-template-columns: auto 1fr; 
@@ -22,6 +25,7 @@
         grid-column: 1; 
         width: 120px;
         height: 186px;
+<<<<<<< HEAD
         border-right: 1px solid var(--gray);
     }
 
@@ -37,6 +41,12 @@
         @extend .row-3;
     }
 
+=======
+        // object-fit: cover;
+        border-right: 1px solid var(--gray);
+    }
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     .row-1, .row-2, .row-3 {
         display: flex;
         align-items: center;
@@ -49,12 +59,16 @@
         justify-content: space-between;
 
         &__title {
+<<<<<<< HEAD
             max-width: 180px;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
             overflow: hidden;
             height: 42px;
+=======
+            font-size: 14px;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
         }
     }
 
@@ -65,11 +79,16 @@
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
 
+<<<<<<< HEAD
         &__size-color {
             @extend .size-color;
         }
 
         .size-color {
+=======
+        .size-color {
+            // width: 52px;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             display: grid;
             align-items: center;
             grid-template-columns: 1fr auto;
@@ -77,6 +96,10 @@
 
             &__size {
                 font-size: 14px;
+<<<<<<< HEAD
+=======
+                // padding: 0 5px;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
                 justify-self: center;
                 align-self: center;
             }
@@ -124,27 +147,40 @@
             justify-self: start;
         }
 
+<<<<<<< HEAD
         &__price {
+=======
+        .price {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             font-size: 14px;
             grid-column: 3 / span 2;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
+<<<<<<< HEAD
             gap: 10px;
         }
 
         .price {
             @extend .row-3__price;
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
             &__new {
                 color: red;
                 font-weight: bold;
                 justify-self: end;
+<<<<<<< HEAD
                 font-size: 14px;
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             }
 
             &__prev {
                 text-decoration: line-through;
+<<<<<<< HEAD
                 font-size: 14px;
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             }
         }
     }

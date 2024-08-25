@@ -16,11 +16,15 @@ const NavLink: FC<INavLink> = ({ href, children, className }) => {
   return (
     <Link 
       href={href}
+<<<<<<< HEAD
       className={
         `${styles['nav-link']} 
          ${isActive ? styles['nav-link_active']: ''} 
          ${className || ''}`
       }
+=======
+      className={`${styles['nav-link']} ${isActive ? styles['nav-link_active']: ''} ${className}`}
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     >
       {children}
     </Link>

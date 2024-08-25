@@ -2,16 +2,25 @@
     padding: 15px 0;
     border-bottom: 1px solid var(--gray);
     border-top: 1px solid var(--gray);
+<<<<<<< HEAD
     &__btn {
+=======
+
+    .btn {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+<<<<<<< HEAD
     }
 
     .btn {
         @extend .product-info__btn;
         
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
         &__title-logo {
             font-size: 26px;
         }

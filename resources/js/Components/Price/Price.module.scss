@@ -1,3 +1,15 @@
 .price {
+<<<<<<< HEAD
     font-size: 16px;
+=======
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &__old {
+        font-size: 14px;
+        text-decoration-line: line-through;
+        color: rgb(119, 119, 119);
+    }
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 }

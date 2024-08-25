@@ -1,6 +1,10 @@
 .links {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+<<<<<<< HEAD
+=======
+    gap: 30px;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
     &__link {
         position: relative;
@@ -44,6 +48,7 @@
         }
     }
 }
+<<<<<<< HEAD
 
 @media(max-width: 768px) {
     .links {
@@ -55,3 +60,5 @@
         grid-template-columns: 1fr;
     }
 }
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818

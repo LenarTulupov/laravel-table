@@ -5,8 +5,12 @@
     &__name {
         display: flex;
         flex-direction: column;
+<<<<<<< HEAD
         // width: 190px !important;
         width: 100%;
+=======
+        width: 190px !important;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
         &-label {
             width: fit-content;
@@ -16,13 +20,18 @@
     &__email {
         display: flex;
         flex-direction: column;
+<<<<<<< HEAD
         // width: 190px !important;
         width: 100%;
+=======
+        width: 190px !important;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
         &-label {
             width: fit-content;
         }
     }
+<<<<<<< HEAD
 }
 @media(max-width: 768px) {
     .user {
@@ -37,4 +46,6 @@
     .user-comment__flex {
         display: block !important;
     }
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 }

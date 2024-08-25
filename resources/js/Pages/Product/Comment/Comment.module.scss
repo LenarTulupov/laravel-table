@@ -2,12 +2,15 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+<<<<<<< HEAD
     &__text {
         @extend .text;
     }
     &__name {
         @extend .name;
     }
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
     &__flex {
         display: grid;
@@ -97,6 +100,7 @@
             
         }
     }
+<<<<<<< HEAD
 }
 @media(max-width: 480px) {
     .comment__flex {
@@ -123,4 +127,6 @@
     .name {
         align-items: center;
     }
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 }

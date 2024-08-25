@@ -1,19 +1,29 @@
 .brand {
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     &__wrapper {
         margin: 0 auto;
         padding: 50px;
     }
+=======
+    justify-content: center;
+    gap: 100px;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     &__title {
         font-size: 50px;
     }
     &__text {
+<<<<<<< HEAD
         max-width: 500px;
+=======
+        width: 500px;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     }
     &__img {
         height: 400px;
     }
+<<<<<<< HEAD
 }
 
 @media(max-width: 992px) {
@@ -38,4 +48,6 @@
             height: auto;
         }
     }
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 }

@@ -13,16 +13,28 @@
         overflow: hidden;
         height: 50px;
     }
+<<<<<<< HEAD
+=======
+
+    &__color {
+    }
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     &__btn {
         border-radius: 6px;
         width: 100%;
     }
+<<<<<<< HEAD
     &__wrapper {
+=======
+
+    &__price-color {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
+<<<<<<< HEAD
     .wrapper {
         @extend .card-info__wrapper;
 
@@ -43,6 +55,8 @@
         }
     }
 
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     &__sizes {
         min-height: 59px;
     }

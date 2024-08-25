@@ -10,6 +10,7 @@
     &__img-container {
         position: relative;
         overflow: hidden;
+<<<<<<< HEAD
         border-bottom: 1px solid #efeeef;
     }
 
@@ -17,6 +18,12 @@
         @extend .card__img-container;
     }
 
+=======
+        // border-radius: 10px;
+        border-bottom: 1px solid #efeeef;
+    }
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
 
     &__favorite {

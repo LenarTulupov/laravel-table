@@ -1,13 +1,21 @@
 .cart-sidebar {
     position: fixed;
+<<<<<<< HEAD
     top: calc(var(--header-height) - 4px);
+=======
+    top: calc(var(--header-height) - 1px);
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     right: 0;
     height: 100vh;
     width: 360px;
     border-left: 1px solid #d9d9d9;
     transition: transform 0.3s ease;
     transform: translateX(106%);
+<<<<<<< HEAD
     z-index: 20;
+=======
+    z-index: 2;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     &::before {
         content: "";
         position: absolute;
@@ -25,17 +33,30 @@
     &__open-edit {
         transform: translateX(-240px);
     }
+<<<<<<< HEAD
 
     &__content {
         overflow-y: auto;
         max-height: 50%;
+=======
+ 
+    &__content {
+        overflow-y: auto;
+        height: 28%;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
         display: flex;
         flex-direction: column;
         gap: 10px;
         background-color: rgb(237, 237, 237);
 
+<<<<<<< HEAD
         & > :not(:last-child) {
             border-bottom: 1px solid var(--gray);
+=======
+
+        & > :not(:last-child) {
+             border-bottom: 1px solid var(--gray);
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
         }
 
         & > :not(:first-child) {
@@ -52,6 +73,7 @@
         }
     }
 
+<<<<<<< HEAD
     &__header {
         display: flex;
         flex-direction: column;
@@ -71,12 +93,23 @@
         height: 100%;
         background-color: #fff;
     }
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
     .content {
         border-bottom: 1px solid #d9d9d9;
     }
 
     .header {
+<<<<<<< HEAD
+=======
+        display: flex;
+        flex-direction: column;
+        background-color: #efeeef;
+        border-bottom: 1px solid var(--gray);
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
         &__subheader {
             font-size: 14px;
         }
@@ -95,16 +128,24 @@
             text-align: center;
             padding: 2px 20px;
         }
+<<<<<<< HEAD
         &__header {
+=======
+
+        .header-header {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: black;
             background-color: #f8f8f8;
+<<<<<<< HEAD
         }
 
         .header-header {
             @extend .header__header;
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
             .header__title {
                 text-transform: uppercase;
@@ -114,6 +155,7 @@
     }
 
     .checkout {
+<<<<<<< HEAD
         @extend .cart-sidebar__checkout;
 
         &__discount {
@@ -124,6 +166,19 @@
 
         .discount {
             @extend .checkout__discount;
+=======
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-top: 1px solid var(--gray);
+        background-color: #fff;
+
+        .discount {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
             &__title {
                 font-size: 14px;
@@ -134,15 +189,22 @@
             }
         }
 
+<<<<<<< HEAD
         &__subtotal {
+=======
+        .subtotal {
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             display: grid;
             grid-template-columns: 1fr auto;
             grid-template-rows: 1fr auto;
             gap: 5px;
+<<<<<<< HEAD
         }
 
         .subtotal {
             @extend .checkout__subtotal;
+=======
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
 
             & > :not(:last-child) {
                 font-weight: bold;
@@ -162,12 +224,17 @@
             }
         }
 
+<<<<<<< HEAD
         &__buttons {
             display: flex;
         }
 
         .buttons {
             @extend .checkout__buttons;
+=======
+        .buttons {
+            display: flex;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
             &__gray {
                 padding: 4px 0;
                 flex-grow: 1;
@@ -176,6 +243,7 @@
             &__black {
                 flex-grow: 1;
                 padding: 4px 0;
+<<<<<<< HEAD
                 text-transform: uppercase;
             }
         }
@@ -184,6 +252,16 @@
     }
     .footer {
         @extend .cart-sidebar__footer;
+=======
+                text-transform: uppercase; 
+
+            }
+        }
+    }
+    .footer {
+        height: 100%;
+        background-color: #fff;
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
     }
 }
 
@@ -257,8 +335,12 @@
         }
     }
 }
+<<<<<<< HEAD
 @media(max-width: 404px) {
     .cart-sidebar {
         top: calc(var(--header-height) + 15px);
     }
 }
+=======
+
+>>>>>>> 9368bb0208ac3e853ff7543cf79958bfde114818
