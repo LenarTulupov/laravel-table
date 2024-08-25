@@ -1,0 +1,15 @@
+.empty-cart {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    justify-items: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #fff;
+    align-items: center;
+
+    &__logo {
+        font-size: 26px;
+    }
+}

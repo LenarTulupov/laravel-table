@@ -1,0 +1,126 @@
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__text {
+        @extend .text;
+    }
+    &__name {
+        @extend .name;
+    }
+
+    &__flex {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+        height: 100%;
+
+        .comment__photo {
+            height: 100%;
+        }
+
+        .comment__wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .comment__stars {
+                color: var(--yellow);
+            }
+
+            .text {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    }
+    .name {
+        display: flex;
+        gap: 20px;
+        &__logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--yellow);
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            .name__text {
+                font-weight: 700;
+                text-transform: uppercase;
+                color: white;
+                font-size: 22px;
+
+            }
+        }
+        &__full {
+            font-weight: bold;
+        }
+    }
+
+    &__photo {
+        width: 200px;
+    }
+
+    &__recommendation {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        &-logo {
+            color: var(--green);
+        }
+    }
+
+    &__stars {
+        display: flex;
+    }
+
+    .text {
+        .comment-helpful {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            &__flex {
+                display: flex;
+                gap: 10px;
+
+                .likes {
+                    display: flex;
+                    gap: 5px;
+                }
+                .dislikes {
+                    display: flex;
+                    gap: 5px;
+                }
+            }
+            
+        }
+    }
+}
+@media(max-width: 480px) {
+    .comment__flex {
+        display: flex;
+        flex-direction: column;
+    }
+    .comment__photo {
+        width: auto;
+    }
+    .comment__wrapper {
+        gap: 15px !important;
+    }
+    .text {
+        gap: 15px !important;
+    }
+    .comment-product {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .text__comment-product {
+        @extend .comment-product;
+    }
+    .name {
+        align-items: center;
+    }
+}

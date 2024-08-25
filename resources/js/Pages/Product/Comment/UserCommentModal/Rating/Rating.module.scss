@@ -1,0 +1,8 @@
+.rating {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &__score {
+        display: flex;
+    }
+}

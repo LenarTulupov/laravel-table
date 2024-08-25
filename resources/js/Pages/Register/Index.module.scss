@@ -1,0 +1,57 @@
+.register {
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        
+
+        &__inner {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: #f1f1f1c8;
+            box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 50px 50px;
+            border-radius: 6px;
+            width: 32vw;
+
+            .form__logo {
+                display: flex;
+                justify-content: center;
+            }
+            .logo {
+                width: 120px;
+            }
+        }
+
+        &__name {
+            display: flex;
+            flex-direction: column;
+        }
+        &__email {
+            display: flex;
+            flex-direction: column;
+        }
+        &__password {
+            display: flex;
+            flex-direction: column;
+
+            &-confirmation {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        &__btn {
+            text-transform: uppercase;
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            font-size: 14px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+    }
+}
+

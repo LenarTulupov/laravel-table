@@ -1,0 +1,26 @@
+.sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    
+    
+    &__item {
+        border-radius: 6px;
+        min-width: 40px;
+        padding: 1px 5px;
+        border: 1px solid rgb(26, 26, 26);
+        background-color: white;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: background-color 0.3s;
+        
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    
+        &.selected {
+            background-color: black;
+            color: white;
+        }
+    }
+}

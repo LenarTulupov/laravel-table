@@ -1,0 +1,123 @@
+.filter-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--gray);
+    &__section {
+        @extend .section;
+    }
+    &__center {
+        display: flex;
+        grid-column-start: 2;
+        justify-self: center;
+    }
+    &__end {
+        justify-self: end;
+    }
+}
+
+.section {
+    &:last-child {
+        border-right: 1px solid var(--gray);
+    }
+    &__button {
+        height: 45px;
+        padding: 0 30px;
+        border-left: 1px solid var(--gray);
+        &_active {
+            border-bottom: none;
+        }
+    }
+    &__list {
+        position: absolute;
+        top: 45.5px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        display: flex;
+        align-content: flex-start;
+        flex-flow: column wrap;
+        gap: 0 20px;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #fff;
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+        overflow: hidden;
+        border-bottom: 1px solid var(--gray);
+        &_active {
+            max-height: 280px;
+            width: 100%;
+        }
+        &-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            width: 200px;
+        }
+    }
+    &__select {
+        position: absolute;
+        top: 46px;
+        right: 0;
+        z-index: 1;
+        overflow: hidden;
+        border: none;
+        --tw-shadow: none;
+        border-right: 1px solid var(--gray) !important;
+        border-left: 1px solid var(--gray) !important;
+        border-bottom: 1px solid var(--gray) !important;
+    }
+}
+@media(max-width: 600px) {
+    .section {
+        &__list {
+            &_active-colors {
+                max-height: 320px;
+                flex-flow: wrap;
+            }
+        }
+    }
+}
+
+@media(max-width: 480px) {
+    .filter-layout {
+        &__center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__end {
+            align-self: center;
+        }
+    }
+    .section {
+        &__list {
+            top: 180.5px;
+            // justify-content: center;
+            &_selected {
+                top: 220.5px;
+            }
+            &_active {
+                max-height: fit-content;
+            }
+            &-group {
+                
+            }
+        }
+        &__button {
+            border-left: none;
+        }
+        &:last-child {
+            border-right: none;
+        }
+        &__select {
+            top: 180.5px;
+            &_selected {
+                top: 220.5px;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,65 @@
+.card {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #efeeef;
+    border-bottom: 1px solid #efeeef;
+
+    &__img-container {
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid #efeeef;
+    }
+
+    .img-container {
+        @extend .card__img-container;
+    }
+
+
+
+    &__favorite {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    &__colors {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-color {
+            width: 30px;
+            height: 100%;
+        }
+    }
+
+    &__color-btn {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cart__info {
+    padding: 10px;
+}
+
+.favorite {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+}
+

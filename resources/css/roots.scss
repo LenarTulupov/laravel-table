@@ -1,0 +1,19 @@
+:root {
+    --container-width: 1230px;
+    --content-height: calc(100vh - (var(--header-height) + var(--footer-height)));
+
+    --top-header: 33.4px;
+    --bottom-header: 46px;
+    --header-height: calc(var(--top-header) + var(--bottom-header));
+    --footer-height: 24px;
+
+    // Colors
+    --gray: #d5d5d5;
+    --yellow: #ffcc00;
+    --green: #1cc186;
+    --blue: #4ea0ff;
+
+    // Muted
+    --blueMuted: #248aff;
+
+}
