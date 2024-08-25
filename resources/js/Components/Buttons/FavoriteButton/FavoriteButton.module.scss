@@ -1,0 +1,22 @@
+.favorite-button {
+  fill: white;
+  stroke: white;
+
+  svg path {
+    fill: white;
+    stroke: black;
+    transition: fill .3s, stroke .3s;
+  }
+
+  &:hover svg path {
+    fill: #bababa;
+    stroke: #bababa;
+  }
+
+  &_active {
+    svg path {
+      fill: #c30000 !important;
+      stroke: #c30000 !important;
+    }
+  }
+}

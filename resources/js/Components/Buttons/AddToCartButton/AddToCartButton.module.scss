@@ -1,0 +1,16 @@
+.button {
+    background-color: var(--gray);
+    padding: 5px 10px;
+    // border-radius: 10px;
+    font-size: 20px;
+
+    &__icon {
+    transform: scaleX(-1); 
+    }
+
+    &_disabled {
+        background-color: #ddd;
+        color: #aaa;
+        cursor: not-allowed;
+    }
+}

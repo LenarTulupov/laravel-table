@@ -1,0 +1,40 @@
+.user {
+    display: flex;
+    gap: 20px;
+
+    &__name {
+        display: flex;
+        flex-direction: column;
+        // width: 190px !important;
+        width: 100%;
+
+        &-label {
+            width: fit-content;
+        }
+    }
+
+    &__email {
+        display: flex;
+        flex-direction: column;
+        // width: 190px !important;
+        width: 100%;
+
+        &-label {
+            width: fit-content;
+        }
+    }
+}
+@media(max-width: 768px) {
+    .user {
+        flex-direction: column;
+        &__name {
+            width: 100% !important;
+        }
+        &__email {
+            width: 100% !important;
+        }
+    }
+    .user-comment__flex {
+        display: block !important;
+    }
+}

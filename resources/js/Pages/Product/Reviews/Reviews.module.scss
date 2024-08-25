@@ -1,0 +1,23 @@
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    .header {
+        
+        &__title {
+            color: var(--yellow);
+            font-size: 26px;
+            font-weight: bold;
+            border-bottom: 3px solid var(--yellow);
+            width: fit-content;
+        }
+
+    }
+    &__comments {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+    }
+}

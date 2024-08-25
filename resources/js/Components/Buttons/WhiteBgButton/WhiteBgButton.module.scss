@@ -1,0 +1,13 @@
+.white-bg-button {
+    background-color: white;
+    padding: 4px 5px;
+    font-size: 15px;
+    color: black;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    border: 1px solid #000;
+
+    &:hover {
+        background-color: var(--gray);
+    }
+}
