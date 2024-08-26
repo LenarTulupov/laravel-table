@@ -1,3 +1,4 @@
+import { FC, RefObject } from 'react';
 import Button from '../Buttons/Button/Button';
 import Checkbox from '../Checkbox/Checkbox';
 import InputLabel from '../InputLabel/InputLabel';
@@ -5,7 +6,26 @@ import Radio from '../Radio/Radio';
 import styles from './FilterSidebar.module.scss'
 import { useFilterContext } from '@/Contexts/FilterContext';
 
-const FilterSidebar = ({
+interface IFilterSidebar {
+  isSectionOpened: "sizes" | "colors" | "prices" | "sort" | null;
+  toggleSection: (section: "sizes" | "colors" | "prices" | "sort" | null) => void;
+  uniqueSizes: string[];
+  selectedSizes: string[];
+  onSizeChange: (size: string) => void;
+  uniqueColors: string[];
+  selectedColors: string[];
+  onColorChange: (color: string) => void;
+  price: string[];
+  selectedPrice: string;
+  onPriceChange: (price: string) => void;
+  isAnyFilterSelected: boolean;
+  selectRef: RefObject<HTMLSelectElement>;
+  selectedSort: string;
+  onSortChange: (sort: string) => void;
+  sort: string[];
+}
+
+const FilterSidebar: FC<IFilterSidebar> = ({
   isSectionOpened,
   toggleSection,
   uniqueSizes,
@@ -54,7 +74,7 @@ const FilterSidebar = ({
               {uniqueSizes.map((size, index) => {
                 const checkboxId = `size-${index}`;
                 return (
-                  <div className={styles["section__list-group"]}>
+                  <div className={styles["section__list-group"]} key={checkboxId}>
                     <Checkbox
                       id={checkboxId}
                       checked={selectedSizes.includes(size)}
@@ -98,7 +118,7 @@ const FilterSidebar = ({
               {uniqueColors.map((color, index) => {
                 const checkboxId = `color-${index}`;
                 return (
-                  <div className={styles["section__list-group"]}>
+                  <div className={styles["section__list-group"]} key={checkboxId}>
                     <Checkbox
                       id={checkboxId}
                       checked={selectedColors.includes(color)}
@@ -141,7 +161,7 @@ const FilterSidebar = ({
               {price.map((priceElement, index) => {
                 const radioId = `priceElement-${index}`;
                 return (
-                  <div className={styles["section__list-group"]}>
+                  <div className={styles["section__list-group"]} key={radioId}>
                     <Radio
                       id={radioId}
                       name="price"
@@ -196,7 +216,6 @@ const FilterSidebar = ({
                 `${styles["section__select"]} 
                  ${isAnyFilterSelected ? styles['section__select_selected'] : ''}`
               }
-              defaultValue={sort[0]}
             >
               {sort.map((sortElement, index) => (
                 <option

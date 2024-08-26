@@ -1,14 +1,6 @@
 import { FC, ReactNode, useEffect, useRef, useState } from "react";
-import Checkbox from "@/Components/Checkbox/Checkbox";
-import Radio from "@/Components/Radio/Radio";
-import InputLabel from "@/Components/InputLabel/InputLabel";
-import Button from "@/Components/Buttons/Button/Button";
-import { useFilterContext } from "@/Contexts/FilterContext";
-import styles from "./FilterLayout.module.scss";
-import useResetFilters from "@/hooks/useResetFilters";
-import Container from "@/Components/Container/Container";
 import FilterSidebar from "@/Components/FilterSidebar/FilterSidebar";
-import CloseButton from "@/Components/Buttons/CloseButton/CloseButton";
+import styles from "./FilterLayout.module.scss";
 
 interface IFilterLayout {
   uniqueSizes: string[];

@@ -33,11 +33,11 @@ const Picture: FC<IPicture> = ({
            ${isImageHovered ? styles.card__img_hovered : ""}
            ${className || ''}`}
       />
-      <Link href="/" className={styles.picture__text}>
+      <div className={styles.picture__text}>
         <Button variant="black" className={styles['picture__text-button']}>
           Quick View
         </Button>
-      </Link>
+      </div>
     </div>
   );
 };

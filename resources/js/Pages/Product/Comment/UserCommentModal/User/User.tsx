@@ -11,7 +11,7 @@ interface IUser {
 }
 
 const User: FC<IUser> = ({ name, setName, email, setEmail }) => {
-    const inputRef = useRef(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         if (inputRef.current) {

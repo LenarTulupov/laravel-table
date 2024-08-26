@@ -32,6 +32,17 @@ export interface ISize {
   };
 }
 
+export interface ICategory {
+  id: number;
+  name: string;
+  created_at: string | null;
+  updated_at: string | null;
+  pivot?: {
+    product_id: number;
+    category_id: number;
+  };
+}
+
 export interface IProduct {
   id: number;
   title: string;
@@ -42,6 +53,7 @@ export interface IProduct {
   images: string[];
   quantity: number; 
   size: ISize; 
+  categories: ICategory[]
 }
 
 // export interface IProduct { 

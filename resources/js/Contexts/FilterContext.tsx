@@ -35,7 +35,7 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const sizes = sizeArrays.map((size) => size.name);
   const uniqueSizes = [...new Set(sizes)];
 
-  const colorArrays = products.map((product) => product.color);
+  const colorArrays = products.map((product) => product.product_colors);
   const colors = colorArrays.map((color) => color[0].color.name);
   const uniqueColors = [...new Set(colors)];
 
@@ -81,7 +81,7 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
 
     if (selectedColors.length > 0) {
       result = result.filter((product) => {
-        return product.color.some((color) => {
+        return product.product_colors.some((color) => {
           return selectedColors.includes(color.color.name);
         });
       });
@@ -90,14 +90,15 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
     if (selectedPrice) {
       const [min, max] = selectedPrice.split(' - ').map((p) => parseFloat(p));
       result = result.filter((product) => {
-        return product.price_new >= min && product.price_new <= max;
+        return parseFloat(product.price_new) >= min && 
+               parseFloat(product.price_new) <= max;
       });
     }
 
     if (selectedSort === "Price (Low to High)") {
-      result.sort((a, b) => a.price_new - b.price_new);
+      result.sort((a, b) => parseFloat(a.price_new) - parseFloat(b.price_new));
     } else if (selectedSort === "Price (High to Low)") {
-      result.sort((a, b) => b.price_new - a.price_new);
+      result.sort((a, b) => parseFloat(b.price_new) - parseFloat(a.price_new));
     } else if (selectedSort === 'Newest in') {
       result.sort((a, b) => b.id - a.id);
     }

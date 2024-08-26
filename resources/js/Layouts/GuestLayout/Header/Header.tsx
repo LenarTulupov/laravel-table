@@ -34,7 +34,7 @@ const Header: FC<IHeader> = ({ toggleSidebar }) => {
 
     return searchTerms.every(term =>
       product.title.toLowerCase().includes(term) ||
-      product.color[0].color.name.toLowerCase().includes(term) ||
+      product.product_colors[0].color.name.toLowerCase().includes(term) ||
       product.categories[0].name.toLowerCase().includes(term)
     );
   });

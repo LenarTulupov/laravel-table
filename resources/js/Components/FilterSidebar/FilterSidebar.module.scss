@@ -30,7 +30,7 @@
     }
     &__list {
         position: absolute;
-        top: 45.5px;
+        top: 45.1px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 1;
@@ -59,7 +59,7 @@
     }
     &__select {
         position: absolute;
-        top: 46px;
+        top: 45.1px;
         right: 0;
         z-index: 1;
         overflow: hidden;
@@ -95,7 +95,6 @@
     .section {
         &__list {
             top: 180.5px;
-            // justify-content: center;
             &_selected {
                 top: 220.5px;
             }
