@@ -1,26 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import { useEffect, useState } from 'react';
+import { Link } from '@inertiajs/react';
+import Timer from '@/Components/Timer/Timer';
 import 'swiper/css';
 import styles from './SalesTopHeader.module.scss';
-import { Link } from '@inertiajs/react';
 
 const SalesTopHeader = () => {
-    const calculateTimeRemaining = () => {
-        const currentTime: Date = new Date();
-        const nextInterval: Date = new Date(
-            currentTime.getFullYear(),
-            currentTime.getMonth(),
-            currentTime.getDate(),
-            Math.floor(currentTime.getHours() / 3) * 3 + 3
-        );
-        if (nextInterval.getTime() - currentTime.getTime() < 0) {
-            nextInterval.setHours(nextInterval.getHours() + 3);
-        }
-        return Math.floor((nextInterval.getTime() - currentTime.getTime()) / 1000);
-    }
-    const [timeRemaining, setTimeRemaining] = useState<number>(calculateTimeRemaining());
-
     const swiperOptions = {
         slidesPerView: 1,
         autoplay: {
@@ -34,25 +19,6 @@ const SalesTopHeader = () => {
         modules: [Autoplay]
     };
 
-    const formatTime = (time: number) => {
-        const hours = Math.floor(time / 3600);
-        const minutes = Math.floor((time % 3600) / 60);
-        const seconds = time % 60;
-        return `${hours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
-    }
-
-    useEffect(() => {
-        const Interval = setInterval(() => {
-            setTimeRemaining(prevTime => {
-                if (prevTime <= 1) {
-                    return calculateTimeRemaining();
-                }
-                return prevTime - 1;
-            })
-        }, 1000);
-        return () => clearInterval(Interval);
-    }, []);
-
     return (
         <div className={styles['sales-top-header']}>
             <Swiper {...swiperOptions} className={styles['sales-top-header__list']}>
@@ -61,8 +27,7 @@ const SalesTopHeader = () => {
                         className={styles['sales-top-header__link']}
                         href="#!"
                     >
-                        30% OFF ALMOST EVERYTHING!* ENDS IN
-                        <span>{formatTime(timeRemaining)}</span>
+                        30% OFF ALMOST EVERYTHING!* ENDS IN <Timer />
                     </Link>
                 </SwiperSlide>
                 <SwiperSlide>

@@ -36,7 +36,6 @@ const All = () => {
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
   const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
-  console.log(paginatedProducts)
 
   return (
     <main className={styles.all}>

@@ -72,7 +72,10 @@ const Header: FC<IHeader> = ({ toggleSidebar }) => {
               setInputValue={setInputValue}
               inputValue={inputValue}
             />
-            <SearchLayout filteredProducts={filteredProducts} inputValue={inputValue} />
+            <SearchLayout 
+              filteredProducts={filteredProducts} 
+              inputValue={inputValue} 
+            />
           </>
         )}
       </div>

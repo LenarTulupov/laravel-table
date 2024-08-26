@@ -1,5 +1,12 @@
 .header {
     border-bottom: 1px solid var(--gray);
+    &__columns {
+        width: 100%;
+    }
+
+    .columns {
+        @extend .header__columns;
+    }
 }
 .row {
     display: grid;
@@ -56,13 +63,4 @@
     .row__burger {
         display: flex;
     }
-
-    // .columns__row {
-    //     display: grid;
-    //     grid-template-columns: repeat(3, 1fr);
-    // }
-    // .logo {
-    //     justify-self: center;
-    //     width: 80px;
-    // }
 }

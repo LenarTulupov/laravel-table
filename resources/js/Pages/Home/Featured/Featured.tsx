@@ -28,12 +28,13 @@ const Featured: FC<IFeatured> = ({ products }) => {
     const nextButtonRef = useRef<HTMLButtonElement>(null);
 
     const handleToggleShow = () => {
-        setIsShowOpen(p => !p);
-    }
+        setIsShowOpen((prev) => !prev);
+        // Убираем scrollIntoView, чтобы страница не прокручивалась
+    };
 
     const getActivefilter = (filter: string) => {
         setActiveFilter(filter);
-    }
+    };
 
     const getFilteredProducts = (filter: string, products: IProduct[]) => {
         if (filter === 'Hot') {
@@ -44,7 +45,7 @@ const Featured: FC<IFeatured> = ({ products }) => {
             return [...products].reverse();
         }
         return products;
-    }
+    };
 
     useEffect(() => {
         setFilteredProducts(getFilteredProducts(activeFilter, products));
@@ -54,14 +55,27 @@ const Featured: FC<IFeatured> = ({ products }) => {
         isShowAllOpen ? filteredProducts : filteredProducts.slice(0, 8);
 
     useEffect(() => {
-        if (goodsRef.current) {
-            if (isShowAllOpen) {
-                goodsRef.current.style.height = `${goodsRef.current.scrollHeight}px`;
-            } else {
-                goodsRef.current.style.height = 'fit-content';
+        const observer = new MutationObserver(() => {
+            if (goodsRef.current) {
+                if (isShowAllOpen) {
+                    goodsRef.current.style.height = `${goodsRef.current.scrollHeight}px`;
+                } else {
+                    goodsRef.current.style.height = 'fit-content';
+                }
             }
+        });
+
+        if (goodsRef.current) {
+            observer.observe(goodsRef.current, {
+                childList: true,
+                subtree: true,
+            });
         }
-    }, [isShowAllOpen]);
+
+        return () => {
+            observer.disconnect();
+        };
+    }, [isShowAllOpen, filteredProducts]);
 
     useEffect(() => {
         setIsShowOpen(false);

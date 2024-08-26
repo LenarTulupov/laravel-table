@@ -38,11 +38,6 @@ interface IProduct {
   product_colors: IProductColor[];
 }
 
-interface IProductImage {
-  id: number;
-  image_path: string;
-}
-
 const Index: FC = () => {
   const { productId } = usePage().props;
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
