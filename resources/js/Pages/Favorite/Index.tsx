@@ -7,6 +7,7 @@ import GuestLayout from "@/Layouts/GuestLayout/GuestLayout";
 import Card from "@/Components/Cards/Card/Card";
 import { FcLike } from "react-icons/fc";
 import styles from "./Index.module.scss";
+import { IProduct } from "@/types/product.interface";
 
 const Index = () => {
   const { favorites } = useFavoritesContext();
@@ -29,7 +30,9 @@ const Index = () => {
       <main className={styles["favorite-page"]}>
         {favoriteProducts.length > 0 ? (
           <ProductsGridContainer>
-            {favoriteProducts.map(favorite => (
+            {favoriteProducts
+              .filter((favorite): favorite is IProduct => favorite !== undefined)
+              .map(favorite => (
               <Card
                 key={favorite.id}
                 id={favorite.id}
@@ -37,7 +40,7 @@ const Index = () => {
                 title={favorite.title}
                 price_new={favorite.price_new}
                 price_old={favorite.price_old}
-                colors={favorite.color}
+                colors={favorite.product_colors}
                 sizes={favorite.sizes}
                 isInfoExist={true}
               />
@@ -76,11 +79,11 @@ const Index = () => {
                   key={product.id}
                   id={product.id}
                   image={product.product_colors[0].product_color_images.map(
-                    img => img.image_path
+                    (img: { image_path: string }) => img.image_path
                   )}
                   title={product.title}
-                  price_new={product.price_new}
-                  price_old={product.price_old}
+                  price_new={product.price_new.toString()}
+                  price_old={product.price_old.toString()}
                   colors={product.product_colors}
                   sizes={product.sizes}
                   isInfoExist={true}

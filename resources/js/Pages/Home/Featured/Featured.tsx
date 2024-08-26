@@ -20,12 +20,12 @@ interface IFeatured {
 }
 
 const Featured: FC<IFeatured> = ({ products }) => {
-    const [activeFilter, setActiveFilter] = useState('Hot');
+    const [activeFilter, setActiveFilter] = useState<string>('Hot');
     const [isShowAllOpen, setIsShowOpen] = useState<boolean>(false);
     const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
-    const goodsRef = useRef(null);
-    const prevButtonRef = useRef(null);
-    const nextButtonRef = useRef(null);
+    const goodsRef = useRef<HTMLDivElement>(null);
+    const prevButtonRef = useRef<HTMLButtonElement>(null);
+    const nextButtonRef = useRef<HTMLButtonElement>(null);
 
     const handleToggleShow = () => {
         setIsShowOpen(p => !p);
@@ -115,7 +115,7 @@ const Featured: FC<IFeatured> = ({ products }) => {
                                     title={product.title}
                                     price_new={product.price_new}
                                     price_old={product.price_old}
-                                    colors={product.color}
+                                    colors={product.product_colors}
                                     sizes={product.sizes}
                                     isInfoExist={false}
                                 />
@@ -162,7 +162,7 @@ const Featured: FC<IFeatured> = ({ products }) => {
                                             title={product.title}
                                             price_new={product.price_new}
                                             price_old={product.price_old}
-                                            colors={product.color}
+                                            colors={product.product_colors}
                                             sizes={product.sizes}
                                             isInfoExist={false}
                                         />

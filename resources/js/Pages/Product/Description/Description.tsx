@@ -1,12 +1,12 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import ProductInfo from './ProductInfo/ProductInfo';
 import { useCartContext } from '@/Contexts/CartContext';
+import { useFavoritesContext } from '@/Contexts/FavoriteContext';
 import Button from '@/Components/Buttons/Button/Button';
 import Sizes from '@/Components/Sizes/Sizes';
 import styles from './Description.module.scss';
 import styles2 from '../../../../css/colors.module.scss';
 import Color from '@/Components/Color/Color';
-import { useFavoritesContext } from '@/Contexts/FavContext';
 
 interface IDescription {
     product: {

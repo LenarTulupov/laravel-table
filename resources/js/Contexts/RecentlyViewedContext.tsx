@@ -1,5 +1,5 @@
+import { IProductColor, ISize } from "@/types/product.interface";
 import { ReactNode, createContext, useContext, useEffect, useState } from "react";
-import { IColor, ISize } from '../types/basic.interface'
 
 interface IRecentlyViewedProduct {
     id: number
@@ -7,7 +7,7 @@ interface IRecentlyViewedProduct {
     title: string
     price_new: number
     price_old: number
-    product_colors: IColor[]
+    product_colors: IProductColor[]
     sizes: ISize[]
 }
 

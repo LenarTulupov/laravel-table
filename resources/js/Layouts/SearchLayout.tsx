@@ -2,8 +2,15 @@ import Card from '@/Components/Cards/Card/Card'
 import { PiEmptyBold } from 'react-icons/pi'
 import styles from './SearchLayout.module.scss'
 import ProductsGridContainer from '@/Components/ProductsGridContainer/ProductsGridContainer'
+import { IProduct } from '@/types/product.interface'
+import { FC } from 'react'
 
-const SearchLayout = ({ filteredProducts, inputValue }) => {
+interface ISeachLayout {
+    filteredProducts: IProduct[];
+    inputValue: string;
+}
+
+const SearchLayout: FC<ISeachLayout> = ({ filteredProducts, inputValue }) => {
     return (
         <div className={styles['search-layout']}>
             {inputValue ? (
@@ -11,14 +18,15 @@ const SearchLayout = ({ filteredProducts, inputValue }) => {
                     <ProductsGridContainer>
                         {filteredProducts.map(product => (
                             <Card
-                                key={product.id}
-                                id={product.id}
-                                image={product.images}
-                                title={product.title}
-                                price_new={product.price_new}
-                                price_old={product.price_old}
-                                colors={product.color}
-                                sizes={product.sizes}
+                            key={product.id}
+                            id={product.id}
+                            image={product.images}
+                            title={product.title}
+                            price_new={product.price_new}
+                            price_old={product.price_old}
+                            colors={product.product_colors}
+                            sizes={product.sizes}
+                            isInfoExist={true}
                             />
                         ))}
                     </ProductsGridContainer>

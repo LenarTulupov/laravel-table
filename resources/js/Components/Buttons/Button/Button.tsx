@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react"
+import { FC, forwardRef, ReactNode } from "react"
 import styles from './Button.module.scss'
 
 interface IButton {
@@ -10,16 +10,25 @@ interface IButton {
   disabled?: boolean
 }
 
-const Button: FC<IButton> = ({ children, className, onClick, variant, type = 'button' }) => {
+const Button = forwardRef<HTMLButtonElement, IButton> (({ 
+  children,
+  className,
+  onClick,
+  variant,
+  type = 'button',
+  disabled = false 
+}, ref) => {
   return (
     <button
       className={`${styles.button} ${styles[variant]} ${className || ''}`}
       onClick={onClick}
       type={type}
+      ref={ref}
+      disabled={disabled}
     >
       {children}
     </button>
   )
-}
+});
 
 export default Button

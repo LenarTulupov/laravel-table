@@ -14,7 +14,7 @@ interface ICartSidebar {
   isOpen: boolean;
   toggleEditSidebar: (product: IProduct) => void;
   isEditOpen: boolean;
-  product: IProduct
+  // product: IProduct
 }
 
 const CartSidebar: FC<ICartSidebar> = ({
