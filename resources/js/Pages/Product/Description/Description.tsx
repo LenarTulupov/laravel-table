@@ -61,8 +61,8 @@ const Description: FC<IDescription> = ({
     const color = product_colors.length > 0 ? product_colors[0].color.name : '';
 
     const toggleFavorite = () => {
-        if(product) {
-            if(favoriteState) {
+        if (product) {
+            if (favoriteState) {
                 removeFromFavorites(product.id);
             } else {
                 addToFavorites(product.id);
@@ -72,63 +72,65 @@ const Description: FC<IDescription> = ({
     }
 
     useEffect(() => {
-        if(product) {
+        if (product) {
             setFavoriteState(isFavorite(product.id));
         }
     }, [product, isFavorite])
 
     return (
         <section className={styles.description}>
-            <h1 className={styles.description__title}>{title}</h1>
-            <div className={`${styles.description__price} ${styles.price}`}>
-                <div className={styles.price__old}>{price_old}</div>
-                <div className={styles.price__new}>{price_new}</div>
-            </div>
-            <div className={`${styles.description__color} ${styles.color}`}>
-                <div className={styles.color__text}>Color:
-                    {colorName.charAt(0).toUpperCase() + colorName.slice(1)}
+            <div className={styles.description__content}>
+                <h1 className={styles.description__title}>{title}</h1>
+                <div className={`${styles.description__price} ${styles.price}`}>
+                    <div className={styles.price__old}>{price_old}</div>
+                    <div className={styles.price__new}>{price_new}</div>
                 </div>
-                <div className={
-                    `${styles.color__background} 
-                     ${styles2[`color-${colorName}`]}`
-                }>
+                <div className={`${styles.description__color} ${styles.color}`}>
+                    <div className={styles.color__text}>Color:
+                        {colorName.charAt(0).toUpperCase() + colorName.slice(1)}
+                    </div>
+                    <div className={
+                        `${styles.color__background} 
+                    ${styles2[`color-${colorName}`]}`
+                    }>
+                    </div>
                 </div>
-            </div>
-            <div className={`${styles.description__sizes} ${styles.sizes}`}>
-                <Sizes
-                    sizes={product.sizes}
-                    selectedSize={selectedSize}
-                    setSelectedSize={setSelectedSize}
-                />
-            </div>
-            <div className={`${styles.description__buttons} ${styles.buttons}`}>
-                <Button
-                    className={styles.buttons__btn}
-                    variant="black"
-                    onClick={() => {
-                        if (selectedSize) {
-                            addToCart({
-                                id,
-                                title,
-                                price_new,
-                                price_old,
-                                product_colors,
-                                size: selectedSize,
-                                quantity: 1,
-                            });
-                        }
-                    }}
-                    disabled={!selectedSize}
-                >
-                    Add To Cart
-                </Button>
-                <Button
-                    className={styles.buttons__btn}
-                    variant="white"
-                    onClick={toggleFavorite}
-                >
-                    { favoriteState ? 'Saved' : 'Save for later'}
-                </Button>
+                <div className={`${styles.description__sizes} ${styles.sizes}`}>
+                    <Sizes
+                        sizes={product.sizes}
+                        selectedSize={selectedSize}
+                        setSelectedSize={setSelectedSize}
+                    />
+                </div>
+                <div className={`${styles.description__buttons} ${styles.buttons}`}>
+                    <Button
+                        className={styles.buttons__btn}
+                        variant="black"
+                        onClick={() => {
+                            if (selectedSize) {
+                                addToCart({
+                                    id,
+                                    title,
+                                    price_new,
+                                    price_old,
+                                    product_colors,
+                                    size: selectedSize,
+                                    quantity: 1,
+                                });
+                            }
+                        }}
+                        disabled={!selectedSize}
+                    >
+                        Add To Cart
+                    </Button>
+                    <Button
+                        className={styles.buttons__btn}
+                        variant="white"
+                        onClick={toggleFavorite}
+                    >
+                        {favoriteState ? 'Saved' : 'Save for later'}
+                    </Button>
+                </div>
             </div>
             <ProductInfo
                 handleOpenDescription={handleOpenDescription}
