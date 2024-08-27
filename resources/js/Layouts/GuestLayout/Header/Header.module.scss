@@ -17,9 +17,12 @@
     &__burger {
         display: none;
     }
+    &__logo {
+        width: 100px;
+    }
 }
 .logo {
-    width: 100px;
+    @extend .row__logo;
 }
 
 @media (max-width: 992px) {

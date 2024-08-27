@@ -30,21 +30,6 @@ const Nav = () => {
                         Summer
                     </NavLink>
                 </li>
-                {/* <li className={styles['nav__list-item']}>
-                    <NavLink href="/sustainability" className={styles['nav__list-link']} active={false}>
-                        Coats & Jackets
-                    </NavLink>
-                </li>
-                <li className={styles['nav__list-item']}>
-                    <NavLink href="/sustainability" className={styles['nav__list-link']} active={false}>
-                        Swimwear
-                    </NavLink>
-                </li>
-                <li className={styles['nav__list-item']}>
-                    <NavLink href="/sustainability" className={styles['nav__list-link']} active={false}>
-                        Trousers
-                    </NavLink>
-                </li> */}
             </ul>
         </nav>
     )
