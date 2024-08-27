@@ -1,15 +1,15 @@
 import { FC, useState } from "react";
-import { Link } from "@inertiajs/react";
 import { useProductsContext } from "@/Contexts/ProductsContext";
 import SalesTopHeader from "./SalesTopHeader/SalesTopHeader";
+import NavLink from "@/Components/NavLink/NavLink";
 import Nav from "./Nav/Nav";
-import Links from "./Links/Links";
 import SearchPanel from "./Links/SearchPanel/SearchPanel";
 import Container from "@/Components/Container/Container";
 import SearchLayout from "@/Layouts/SearchLayout";
 import Burger from "@/Components/Burger/Burger";
 import Logo from "@/Components/Logo/Logo";
 import styles from "./Header.module.scss";
+import HeaderActions from "./Links/HeaderActions";
 
 interface IHeader {
   toggleSidebar: () => void;
@@ -52,14 +52,14 @@ const Header: FC<IHeader> = ({ toggleSidebar }) => {
                 className={styles.row__burger}
               />
               <div className={`${styles.row__logo} ${styles.logo}`}>
-                <Link href="/" className={styles.logo__link}>
+                <NavLink href="/" className={styles.logo__link}>
                   <Logo className={styles['logo__link-logo']} />
-                </Link>
+                </NavLink>
               </div>
               <div className={styles.row__links}>
                 <Nav />
               </div>
-              <Links
+              <HeaderActions
                 toggleSidebar={toggleSidebar}
                 searchToggle={searchToggle}
               />

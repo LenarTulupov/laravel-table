@@ -1,0 +1,20 @@
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    
+    &__list {
+        display: flex;
+        gap: 10px;
+    }
+    &__item {
+        &:hover .header-actions__link {
+            color: rgb(124, 124, 124);
+        }
+    }
+    &__search-button, &__cart-button {
+        &:hover {
+            color: rgb(124, 124, 124);
+        }
+    }
+}
