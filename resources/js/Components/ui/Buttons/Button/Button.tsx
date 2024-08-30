@@ -5,7 +5,7 @@ interface IButton {
   children: ReactNode
   className?: string
   onClick?: () => void
-  variant: 'black' | 'blue' | 'gray' | 'white'
+  variant?: 'black' | 'blue' | 'gray' | 'white'
   type?: 'button' | 'submit'
   disabled?: boolean
 }
@@ -14,7 +14,7 @@ const Button = forwardRef<HTMLButtonElement, IButton> (({
   children,
   className,
   onClick,
-  variant,
+  variant = 'black',
   type = 'button',
   disabled = false 
 }, ref) => {

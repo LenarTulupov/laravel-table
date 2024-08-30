@@ -8,9 +8,9 @@ import PhotosReview from "./PhotosReview/PhotosReview";
 import Reviews from "./Reviews/Reviews";
 import UserCommentModal from "./Comment/UserCommentModal/UserCommentModal";
 import GuestLayout from "@/Layouts/GuestLayout/GuestLayout";
-import Container from "@/Components/Container/Container";
-import SpinnerLoader from "@/Components/SpinnerLoader/SpinnerLoader";
-import Modal from "@/Components/Modal/Modal";
+import Container from "@/Components/ui/Container/Container";
+import SpinnerLoader from "@/Components/ui/SpinnerLoader/SpinnerLoader";
+import Modal from "@/Components/ui/Modal/Modal";
 import styles from "./Index.module.scss";
 
 interface IProductColorImage {
@@ -131,34 +131,6 @@ const Index: FC = () => {
                 <Reviews reviewers={product.ratings} />
               </div>
             </div>
-
-            {/* <div className={`${styles['product-page__grid']} ${styles.grid}`}>
-              <div className={styles.grid__content}>
-                <Images
-                  imagesArray={imagesArray}
-                  firstImage={firstImage}
-                  handleImageChangeOnClick={handleImageChangeOnClick}
-                  imageLoaded={imageLoaded}
-                  handleImageLoad={handleImageLoad}
-                />
-                <Description
-                  product={product}
-                  colorName={colorName}
-                  handleOpenDescription={handleOpenDescription}
-                  isDescriptionOpen={isDescriptionOpen}
-                />
-              </div>
-              <div className={styles.grid__container}>
-                <div className={styles['grid__container-wrapper']}>
-                  <Rating
-                    reviews={product.ratings}
-                    rating={product.average_rating}
-                  />
-                  <PhotosReview formToggle={formToggle} />
-                </div>
-                <Reviews reviewers={product.ratings} />
-              </div>
-            </div> */}
           </Container>
         </main>
       </GuestLayout>

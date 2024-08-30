@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import NavLink from '../NavLink/NavLink';
-import CloseButton from '../Buttons/CloseButton/CloseButton';
+import NavLink from '../ui/NavLink/NavLink';
+import CloseButton from '../ui/Buttons/CloseButton/CloseButton';
 import { MdMenu } from "react-icons/md";
 import styles from './Burger.module.scss';
-import Logo from '../Logo/Logo';
+import Logo from '../ui/Logo/Logo';
 
 interface IBurger {
   onClick: () => void;
@@ -13,7 +13,7 @@ interface IBurger {
 
 const Burger: FC<IBurger> = ({ onClick, isBurgerOpen, className }) => {
   return (
-    <div className={`${styles.burger} ${className}`}>
+    <div className={`${styles.burger} ${className || ''}`}>
       <button className={styles.burger__button} onClick={onClick}>
         <MdMenu className={styles['burger__button-icon']} />
       </button>

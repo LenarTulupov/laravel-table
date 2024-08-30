@@ -1,13 +1,13 @@
 import { FC, useState } from "react";
 import { useProductsContext } from "@/Contexts/ProductsContext";
 import SalesTopHeader from "./SalesTopHeader/SalesTopHeader";
-import NavLink from "@/Components/NavLink/NavLink";
+import NavLink from "@/Components/ui/NavLink/NavLink";
 import Nav from "./Nav/Nav";
 import SearchPanel from "./Links/SearchPanel/SearchPanel";
-import Container from "@/Components/Container/Container";
+import Container from "@/Components/ui/Container/Container";
 import SearchLayout from "@/Layouts/SearchLayout";
 import Burger from "@/Components/Burger/Burger";
-import Logo from "@/Components/Logo/Logo";
+import Logo from "@/Components/ui/Logo/Logo";
 import styles from "./Header.module.scss";
 import HeaderActions from "./Links/HeaderActions";
 
@@ -72,9 +72,9 @@ const Header: FC<IHeader> = ({ toggleSidebar }) => {
               setInputValue={setInputValue}
               inputValue={inputValue}
             />
-            <SearchLayout 
-              filteredProducts={filteredProducts} 
-              inputValue={inputValue} 
+            <SearchLayout
+              filteredProducts={filteredProducts}
+              inputValue={inputValue}
             />
           </>
         )}

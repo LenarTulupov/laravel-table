@@ -5,7 +5,7 @@ import GuestLayout from "@/Layouts/GuestLayout/GuestLayout";
 import FilterLayout from "@/Layouts/FilterLayout/FilterLayout";
 import { useState } from "react";
 import Pagination from "@/Components/Pagination/Pagination";
-import ProductsGridContainer from "@/Components/ProductsGridContainer/ProductsGridContainer";
+import ProductsGridContainer from "@/Components/ui/ProductsGridContainer/ProductsGridContainer";
 import styles from "./Index.module.scss";
 
 const Summer = () => {

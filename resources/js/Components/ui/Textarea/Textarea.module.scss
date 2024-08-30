@@ -1,0 +1,15 @@
+.textarea {
+  border-radius: var(--border-radius);
+  width: 100%;
+  border: none;
+  box-shadow: 0 0 0 .4px var(--black);
+  transition: box-shadow .3s;
+  &:hover {
+      box-shadow: 0 0 0 1.5px var(--input-color);
+      border: none;
+      outline: none;
+  }
+  &:focus {
+      box-shadow: 0 0 0 2px var(--input-color);
+  }
+}

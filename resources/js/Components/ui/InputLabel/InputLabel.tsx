@@ -4,12 +4,13 @@ interface IInputLabel {
   htmlFor: string;
   className?: string;
   children?: ReactNode;
+  label?: string;
 }
 
-const InputLabel: FC<IInputLabel> = ({ htmlFor, className, children }) => {
+const InputLabel: FC<IInputLabel> = ({ htmlFor, className, children, label }) => {
   return (
     <label htmlFor={htmlFor} className={className}>
-      {children}
+      {children || label}
     </label>
   );
 };

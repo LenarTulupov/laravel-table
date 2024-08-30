@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef, useState } from "react"
-import CloseButton from "@/Components/Buttons/CloseButton/CloseButton"
-import TextInput from "@/Components/TextInput/TextInput";
-import Container from "@/Components/Container/Container";
+import CloseButton from "@/Components/ui/Buttons/CloseButton/CloseButton"
+import TextInput from "@/Components/ui/TextInput/TextInput";
+import Container from "@/Components/ui/Container/Container";
 import { IoSearch } from "react-icons/io5";
 import styles from './SearchPanel.module.scss'
 

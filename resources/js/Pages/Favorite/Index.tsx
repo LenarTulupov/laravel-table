@@ -1,8 +1,8 @@
 import { useRecentlyViewedContext } from "@/Contexts/RecentlyViewedContext";
 import { useProductsContext } from "@/Contexts/ProductsContext";
 import { useFavoritesContext } from "@/Contexts/FavoriteContext";
-import Container from "@/Components/Container/Container";
-import ProductsGridContainer from "@/Components/ProductsGridContainer/ProductsGridContainer";
+import Container from "@/Components/ui/Container/Container";
+import ProductsGridContainer from "@/Components/ui/ProductsGridContainer/ProductsGridContainer";
 import GuestLayout from "@/Layouts/GuestLayout/GuestLayout";
 import Card from "@/Components/Cards/Card/Card";
 import { FcLike } from "react-icons/fc";
@@ -33,18 +33,18 @@ const Index = () => {
             {favoriteProducts
               .filter((favorite): favorite is IProduct => favorite !== undefined)
               .map(favorite => (
-              <Card
-                key={favorite.id}
-                id={favorite.id}
-                image={favorite.images}
-                title={favorite.title}
-                price_new={favorite.price_new}
-                price_old={favorite.price_old}
-                colors={favorite.product_colors}
-                sizes={favorite.sizes}
-                isInfoExist={true}
-              />
-            ))}
+                <Card
+                  key={favorite.id}
+                  id={favorite.id}
+                  image={favorite.images}
+                  title={favorite.title}
+                  price_new={favorite.price_new}
+                  price_old={favorite.price_old}
+                  colors={favorite.product_colors}
+                  sizes={favorite.sizes}
+                  isInfoExist={true}
+                />
+              ))}
           </ProductsGridContainer>
         ) : (
           <Container>

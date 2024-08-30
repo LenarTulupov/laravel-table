@@ -2,9 +2,9 @@ import { FC } from "react";
 import { usePage } from "@inertiajs/react";
 import { useCartContext } from "@/Contexts/CartContext";
 import { useFavoritesContext } from "@/Contexts/FavoriteContext";
-import NavLink from "@/Components/NavLink/NavLink";
-import SearchButton from "@/Components/Buttons/SearchButton/SearchButton";
-import CartButton from "@/Components/Buttons/CartButton/CartButton";
+import NavLink from "@/Components/ui/NavLink/NavLink";
+import SearchButton from "@/Components/ui/Buttons/SearchButton/SearchButton";
+import CartButton from "@/Components/ui/Buttons/CartButton/CartButton";
 import { FaRegFaceSmile } from "react-icons/fa6";
 import styles from "./HeaderActions.module.scss";
 
@@ -27,8 +27,8 @@ const HeaderActions: FC<IHeaderActions> = ({ toggleSidebar, searchToggle }) => {
 
   return (
     <div className={styles['header-actions']}>
-      <SearchButton 
-        onClick={searchToggle} 
+      <SearchButton
+        onClick={searchToggle}
         className={styles['header-actions__search-button']}
       />
       <ul className={styles['header-actions__list']}>
@@ -49,8 +49,8 @@ const HeaderActions: FC<IHeaderActions> = ({ toggleSidebar, searchToggle }) => {
           </NavLink>
         </li>
       </ul>
-      <CartButton 
-        onClick={toggleSidebar} 
+      <CartButton
+        onClick={toggleSidebar}
         className={styles['header-actions__cart-button']}
       >
         Cart <span>{totalCartQuantity}</span>

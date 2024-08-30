@@ -1,4 +1,4 @@
-import { ChangeEvent, forwardRef, Ref } from "react"
+import { ChangeEvent, forwardRef, memo, Ref } from "react"
 import styles from './TextInput.module.scss'
 
 export interface ITextInput {
@@ -15,8 +15,8 @@ const TextInput = forwardRef<HTMLInputElement, ITextInput>(({
   onChange,
   placeholder,
   id,
-  required,
-  className
+  required = false,
+  className,
 }, ref: Ref<HTMLInputElement>) => {
   return (
     <input
@@ -30,7 +30,6 @@ const TextInput = forwardRef<HTMLInputElement, ITextInput>(({
       ref={ref}
     />
   )
-}
-)
+});
 
 export default TextInput

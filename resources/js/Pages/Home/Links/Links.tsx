@@ -1,4 +1,4 @@
-import CardButton from '@/Components/Buttons/CardButton/CardButton'
+import CardButton from '@/Components/ui/Buttons/CardButton/CardButton'
 import styles from './Links.module.scss'
 import { Link } from '@inertiajs/react'
 

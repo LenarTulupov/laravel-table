@@ -1,6 +1,6 @@
 import { BsCartX } from "react-icons/bs";
 import styles from './EmptyCart.module.scss'
-import CloseButton from "@/Components/Buttons/CloseButton/CloseButton";
+import CloseButton from "@/Components/ui/Buttons/CloseButton/CloseButton";
 import { FC } from "react";
 
 interface IEmptyCard {
@@ -13,8 +13,8 @@ const EmptyCard: FC<IEmptyCard> = ({ toggleSidebar }) => {
             <h1 className={styles['empty-cart__title']}>
                 Your cart is empty
             </h1>
-            <CloseButton onClick={toggleSidebar}/>
-            <BsCartX className={styles['empty-cart__logo']}/>
+            <CloseButton onClick={toggleSidebar} />
+            <BsCartX className={styles['empty-cart__logo']} />
         </div>
     )
 }

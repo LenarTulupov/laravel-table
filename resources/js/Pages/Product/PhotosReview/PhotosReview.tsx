@@ -1,4 +1,4 @@
-import WhiteBgButton from '@/Components/Buttons/WhiteBgButton/WhiteBgButton'
+import WhiteBgButton from '@/Components/ui/Buttons/WhiteBgButton/WhiteBgButton'
 import styles from './PhotosReview.module.scss'
 import { FC } from 'react'
 
@@ -6,7 +6,7 @@ interface IPhotoReview {
     formToggle: () => void
 }
 
-const PhotosReview: FC<IPhotoReview> = ({formToggle}) => {
+const PhotosReview: FC<IPhotoReview> = ({ formToggle }) => {
     return (
         <section className={styles['photos-review']}>
             <div className={styles['photos-review__grid']}>
@@ -20,7 +20,7 @@ const PhotosReview: FC<IPhotoReview> = ({formToggle}) => {
                 <img src="https://i.redd.it/iuajaus83u6b1.jpg" alt="" />
             </div>
             <button>
-                <WhiteBgButton text='Write a review' formToggle={formToggle}/>
+                <WhiteBgButton text='Write a review' formToggle={formToggle} />
             </button>
         </section>
     )

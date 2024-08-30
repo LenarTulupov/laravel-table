@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { IProduct, IProductColor } from '@/types/product.interface'
 import { useCartContext } from '@/Contexts/CartContext'
-import CloseButton from '@/Components/Buttons/CloseButton/CloseButton'
+import CloseButton from '@/Components/ui/Buttons/CloseButton/CloseButton'
 import Price from '@/Components/Price/Price'
 import styles2 from '../../../../css/colors.module.scss'
 import styles from './CardSidebar.module.scss'

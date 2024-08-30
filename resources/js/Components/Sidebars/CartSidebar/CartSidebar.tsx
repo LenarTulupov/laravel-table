@@ -3,9 +3,9 @@ import { Link } from "@inertiajs/react";
 import { IProduct } from "@/types/product.interface";
 import { useCartContext } from "@/Contexts/CartContext";
 import CardSidebar from "../CardSidebar/CardSidebar";
-import CloseButton from "@/Components/Buttons/CloseButton/CloseButton";
+import CloseButton from "@/Components/ui/Buttons/CloseButton/CloseButton";
 import EmptyCard from "@/Components/Cards/Card/EmptyCard/EmptyCard";
-import Button from "@/Components/Buttons/Button/Button";
+import Button from "@/Components/ui/Buttons/Button/Button";
 import Price from "@/Components/Price/Price";
 import styles from './CartSidebar.module.scss';
 

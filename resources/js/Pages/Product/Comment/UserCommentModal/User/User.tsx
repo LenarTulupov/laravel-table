@@ -1,57 +1,43 @@
-import InputLabel from '@/Components/InputLabel/InputLabel';
+import { FC, forwardRef, useEffect, useRef } from 'react';
+import InputField from '@/Components/InputField/InputField';
 import styles from './User.module.scss'
-import TextInput from '@/Components/TextInput/TextInput';
-import { FC, useEffect, useRef } from 'react';
 
 interface IUser {
-    name: string
-    setName: (value: string) => void
-    email: string
-    setEmail: (value: string) => void
+    name: string;
+    setName: (value: string) => void;
+    email: string;
+    setEmail: (value: string) => void;
 }
 
-const User: FC<IUser> = ({ name, setName, email, setEmail }) => {
-    const inputRef = useRef<HTMLInputElement>(null);
-
-    useEffect(() => {
-        if (inputRef.current) {
-            inputRef.current.focus();
-        }
-    }, [])
+const User = forwardRef<HTMLInputElement, IUser>(({
+    name,
+    setName,
+    email,
+    setEmail
+}, ref) => {
 
     return (
         <div className={`${styles.user}`}>
-            <div className={styles['user__name']}>
-                <InputLabel
-                    htmlFor='name'
-                    className={styles['user__name-label']}
-                />
-                <TextInput
-                    placeholder='Enter your name'
-                    id='name'
-                    required
-                    className={styles['user__name-input']}
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    ref={inputRef}
-                />
-            </div>
-            <div className={styles['user__email']}>
-                <InputLabel
-                    htmlFor='email'
-                    className={styles['user__email-label']}
-                />
-                <TextInput
-                    placeholder='Enter your e-mail'
-                    id='email'
-                    required
-                    className={styles['user__email-input']}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-            </div>
+            <InputField
+                className={styles.user__name}
+                htmlFor='name'
+                placeholder='Enter your name'
+                id='name'
+                value={name}
+                onChange={e => setName(e.target.value)} 
+                ref={ref}
+                required={true}/>
+                
+            <InputField
+                className={styles.user__email}
+                htmlFor='email'
+                placeholder='Enter your email'
+                id='email'
+                value={email}
+                onChange={e => setEmail(e.target.value)} 
+                required={true}/>
         </div>
     )
-}
+});
 
 export default User
