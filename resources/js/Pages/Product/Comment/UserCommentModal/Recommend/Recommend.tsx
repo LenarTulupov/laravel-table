@@ -1,4 +1,4 @@
-import Radio from '@/Components/Radio/Radio';
+import Radio from '@/Components/ui/Radio/Radio';
 import styles from './Recommend.module.scss'
 import { ChangeEvent, FC } from 'react';
 
@@ -29,8 +29,8 @@ const Recommend: FC<IRecommend> = ({ recommend, setRecommend, className }) => {
                         checked={recommend === 'yes'}
                         onChange={handleChange}
                     />
-                    <label 
-                        htmlFor="yes" 
+                    <label
+                        htmlFor="yes"
                         className={styles['recommend__yes-label']}
                     >
                         Yes
@@ -45,8 +45,8 @@ const Recommend: FC<IRecommend> = ({ recommend, setRecommend, className }) => {
                         checked={recommend === 'no'}
                         onChange={handleChange}
                     />
-                    <label 
-                        htmlFor="no" 
+                    <label
+                        htmlFor="no"
                         className={styles['recommend__no-label']}
                     >
                         No

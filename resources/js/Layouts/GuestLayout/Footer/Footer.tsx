@@ -1,4 +1,4 @@
-import Container from '@/Components/Container/Container'
+import Container from '@/Components/ui/Container/Container'
 import styles from './Footer.module.scss'
 import { Link } from '@inertiajs/react'
 

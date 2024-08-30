@@ -1,7 +1,8 @@
 @import url(./roots.scss);
 
 .container {
-    max-width: 1400px;
+    max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 15px;
+    padding: var(--padding-basic);
 }
+

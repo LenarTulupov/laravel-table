@@ -1,18 +1,18 @@
-import InputLabel from '@/Components/InputLabel/InputLabel'
-import TextInput from '@/Components/TextInput/TextInput'
-import Logo from '@/Components/Logo/Logo'
+import Logo from '@/Components/ui/Logo/Logo'
 import { Link, useForm } from '@inertiajs/react'
-import { FormEvent } from 'react'
+import { FormEvent, useEffect, useRef } from 'react'
+import InputField from '@/Components/InputField/InputField'
+import Button from '@/Components/ui/Buttons/Button/Button'
 import styles from './Index.module.scss'
 
 const Index = () => {
-
   const { data, setData, post, errors } = useForm({
     name: '',
     email: '',
     password: '',
     password_confirmation: ''
   });
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,8 +23,7 @@ const Index = () => {
     })
   }
 
-
-
+  useEffect(() => inputRef.current?.focus(), []);
 
   return (
     <form onSubmit={handleSubmit} className={styles.register}>
@@ -35,36 +34,34 @@ const Index = () => {
               <Logo className={styles.logo} />
             </Link>
             <div className={styles.form__name}>
-              <InputLabel htmlFor='name'>Name</InputLabel>
-              <TextInput
+              <InputField
+                htmlFor='name'
                 id='name'
-                required
                 value={data.name}
-                onChange={(e) => setData('name', e.target.value)}
+                onChange={e => setData('name', e.target.value)}
                 placeholder='Enter your name'
-              />
+                required={true}
+                ref={inputRef} />
               {errors.name && <div className={styles.form__error}>{errors.name}</div>}
             </div>
             <div className={styles.form__email}>
-              <InputLabel htmlFor='email'>Email</InputLabel>
-              <TextInput
+              <InputField
+                htmlFor='email'
                 id='email'
-                required
                 value={data.email}
-                onChange={(e) => setData('email', e.target.value)}
+                onChange={e => setData('email', e.target.value)}
                 placeholder='Enter your email'
-              />
+                required={true} />
               {errors.email && <div className={styles.form__error}>{errors.email}</div>}
             </div>
             <div className={styles.form__password}>
-              <InputLabel htmlFor='password'>Password</InputLabel>
-              <TextInput
+              <InputField
+                htmlFor='password'
                 id='password'
-                required
                 value={data.password}
-                onChange={(e) => setData('password', e.target.value)}
+                onChange={e => setData('password', e.target.value)}
                 placeholder='Enter your password'
-              />
+                required={true} />
               {errors.password &&
                 <div className={styles.form__error}>
                   {errors.password}
@@ -72,21 +69,26 @@ const Index = () => {
               }
             </div>
             <div className={styles['form__password-confirmation']}>
-              <InputLabel htmlFor='password_confirmation'>Confirm Password</InputLabel>
-              <TextInput
+              <InputField
+                htmlFor='password_confirmation'
                 id='password_confirmation'
-                required
                 value={data.password_confirmation}
-                onChange={(e) => setData('password_confirmation', e.target.value)}
+                onChange={e => setData('password_confirmation', e.target.value)}
                 placeholder='Confirm your password'
-              />
-              {errors.password_confirmation && 
+                required={true} />
+              {errors.password_confirmation &&
                 <div className={styles.form__error}>
                   {errors.password_confirmation}
                 </div>
               }
             </div>
-            <button type='submit' className={styles.form__btn}>Sign Up</button>
+            <Button
+              variant='black'
+              type='submit'
+              className={styles.form__btn}
+            >
+              Sign Up
+            </Button>
           </div>
         </div>
       </div>

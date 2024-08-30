@@ -15,10 +15,12 @@
     &__input {
         width: 100%;
         font-size: 13px;
-        outline: none;
-        border: none;
+        box-shadow: none;
 
         &:focus {
+            box-shadow: none;
+        }
+        &:hover {
             box-shadow: none;
         }
     }

@@ -1,8 +1,8 @@
 import { FC, RefObject } from 'react';
-import Button from '../Buttons/Button/Button';
-import Checkbox from '../Checkbox/Checkbox';
-import InputLabel from '../InputLabel/InputLabel';
-import Radio from '../Radio/Radio';
+import Button from '../ui/Buttons/Button/Button';
+import Checkbox from '../ui/Checkbox/Checkbox';
+import InputLabel from '../ui/InputLabel/InputLabel';
+import Radio from '../ui/Radio/Radio';
 import styles from './FilterSidebar.module.scss'
 import { useFilterContext } from '@/Contexts/FilterContext';
 
@@ -69,7 +69,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                   : ""
                 } 
               ${isAnyFilterSelected ? styles['section__list_selected'] : ''}`}
-              
+
             >
               {uniqueSizes.map((size, index) => {
                 const checkboxId = `size-${index}`;
@@ -219,7 +219,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
             >
               {sort.map((sortElement, index) => (
                 <option
-                  value={sortElement} 
+                  value={sortElement}
                   key={index}
                   className={styles["section__option"]}
                 >

@@ -1,4 +1,4 @@
-import NavLink from "@/Components/NavLink/NavLink"
+import NavLink from "@/Components/ui/NavLink/NavLink"
 import styles from "./Nav.module.scss"
 
 const Nav = () => {

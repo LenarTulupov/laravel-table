@@ -1,6 +1,6 @@
-import { FC, ReactNode } from "react"
-import styles from './SearchButton.module.scss'
+import { FC } from "react"
 import { IoSearch } from "react-icons/io5"
+import styles from './SearchButton.module.scss'
 
 interface ISearchButton {
   onClick: () => void;

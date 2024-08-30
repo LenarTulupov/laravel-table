@@ -1,5 +1,5 @@
 import { FC, useEffect, useRef, useState } from 'react';
-import Button from '@/Components/Buttons/Button/Button';
+import Button from '@/Components/ui/Buttons/Button/Button';
 import Card from '@/Components/Cards/Card/Card';
 import { IProduct } from '@/types/product.interface';
 

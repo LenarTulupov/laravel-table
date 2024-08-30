@@ -44,13 +44,14 @@
             }
         }
         &__btn {
-            text-transform: uppercase;
-            padding: 10px 20px;
-            background-color: #000;
-            color: white;
-            font-size: 14px;
-            border-radius: 6px;
-            margin-top: 15px;
+            // text-transform: uppercase;
+            // padding: 10px 20px;
+            // background-color: #000;
+            // color: white;
+            // font-size: 14px;
+            // border-radius: 6px;
+            // margin-top: 15px;
+            border-radius: var(--border-radius);
         }
     }
 }

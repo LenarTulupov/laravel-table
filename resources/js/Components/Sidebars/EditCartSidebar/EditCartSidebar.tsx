@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { IColor, IProduct, IProductColor, ISize } from '@/types/product.interface';
 import axios from 'axios';
-import CloseButton from '@/Components/Buttons/CloseButton/CloseButton';
-import Button from '@/Components/Buttons/Button/Button';
+import CloseButton from '@/Components/ui/Buttons/CloseButton/CloseButton';
+import Button from '@/Components/ui/Buttons/Button/Button';
 import styles from './EditCartSidebar.module.scss';
 // import SpinnerLoader from '@/Components/SpinnerLoader/SpinnerLoader';
 

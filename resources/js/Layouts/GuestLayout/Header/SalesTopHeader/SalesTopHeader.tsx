@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import { Link } from '@inertiajs/react';
-import Timer from '@/Components/Timer/Timer';
+import Timer from '@/Components/ui/Timer/Timer';
 import 'swiper/css';
 import styles from './SalesTopHeader.module.scss';
 

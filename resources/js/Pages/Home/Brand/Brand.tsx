@@ -1,4 +1,4 @@
-import Title from '@/Components/Title/Title'
+import Title from '@/Components/ui/Title/Title'
 import styles from './Brand.module.scss'
 
 const Brand = () => {

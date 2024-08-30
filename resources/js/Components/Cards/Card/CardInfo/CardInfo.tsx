@@ -4,7 +4,7 @@ import { useCartContext } from "@/Contexts/CartContext";
 import Price from "../../../Price/Price";
 import Sizes from "../../../Sizes/Sizes";
 import Color from "@/Components/Color/Color";
-import Button from "@/Components/Buttons/Button/Button";
+import Button from "@/Components/ui/Buttons/Button/Button";
 import { Link } from "@inertiajs/react";
 import { ISize } from "@/types/basic.interface";
 import { IProductColor } from "@/types/product.interface";

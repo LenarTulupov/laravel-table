@@ -9,10 +9,10 @@ import '../Featured/Featured-swiper-buttons.css'
 
 import styles from './Testimonial.module.scss'
 import Stars from './Stars/Stars';
-import Title from '@/Components/Title/Title';
+import Title from '@/Components/ui/Title/Title';
 import { AiOutlineCaretUp } from 'react-icons/ai';
 import { useRef } from 'react';
-import Container from '@/Components/Container/Container';
+import Container from '@/Components/ui/Container/Container';
 
 const Testimonial = () => {
     const img = 'https://cdn.shopify.com/s/files/1/1276/0919/files/Photo_shared_by_o_on_May_29_2024_tagging_abneris_leon23._May_be_an_image_of_1_person_sundress_and_dress._1.jpg?v=1717583154';

@@ -6,8 +6,8 @@ import Card from "@/Components/Cards/Card/Card";
 import GuestLayout from "@/Layouts/GuestLayout/GuestLayout";
 import FilterLayout from "@/Layouts/FilterLayout/FilterLayout";
 import Pagination from "@/Components/Pagination/Pagination";
-import SpinnerLoader from "@/Components/SpinnerLoader/SpinnerLoader";
-import ProductsGridContainer from "@/Components/ProductsGridContainer/ProductsGridContainer";
+import SpinnerLoader from "@/Components/ui/SpinnerLoader/SpinnerLoader";
+import ProductsGridContainer from "@/Components/ui/ProductsGridContainer/ProductsGridContainer";
 import styles from './Index.module.scss';
 
 const New = () => {
