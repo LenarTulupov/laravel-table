@@ -1,10 +1,9 @@
 import { FC, RefObject } from 'react';
-import Button from '../ui/Buttons/Button/Button';
-import Checkbox from '../ui/Checkbox/Checkbox';
-import InputLabel from '../ui/InputLabel/InputLabel';
-import Radio from '../ui/Radio/Radio';
-import styles from './FilterSidebar.module.scss'
 import { useFilterContext } from '@/Contexts/FilterContext';
+import Button from '../ui/Buttons/Button/Button';
+import CheckboxItemsList from '../CheckboxItemsList/CheckboxItemsList';
+import RadioItemsList from '../RadioItemsList/RadioItemsList';
+import styles from './FilterSidebar.module.scss'
 
 interface IFilterSidebar {
   isSectionOpened: "sizes" | "colors" | "prices" | "sort" | null;
@@ -15,7 +14,7 @@ interface IFilterSidebar {
   uniqueColors: string[];
   selectedColors: string[];
   onColorChange: (color: string) => void;
-  price: string[];
+  prices: string[];
   selectedPrice: string;
   onPriceChange: (price: string) => void;
   isAnyFilterSelected: boolean;
@@ -34,7 +33,7 @@ const FilterSidebar: FC<IFilterSidebar> = ({
   uniqueColors,
   selectedColors,
   onColorChange,
-  price,
+  prices,
   selectedPrice,
   onPriceChange,
   isAnyFilterSelected,
@@ -69,27 +68,13 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                   : ""
                 } 
               ${isAnyFilterSelected ? styles['section__list_selected'] : ''}`}
-
             >
-              {uniqueSizes.map((size, index) => {
-                const checkboxId = `size-${index}`;
-                return (
-                  <div className={styles["section__list-group"]} key={checkboxId}>
-                    <Checkbox
-                      id={checkboxId}
-                      checked={selectedSizes.includes(size)}
-                      onChange={() => onSizeChange(size)}
-                    />
-                    <InputLabel
-                      htmlFor={checkboxId}
-                      key={index}
-                      className={styles.section__item}
-                    >
-                      {size}
-                    </InputLabel>
-                  </div>
-                );
-              })}
+              <CheckboxItemsList
+                items={uniqueSizes}
+                selectedItems={selectedSizes}
+                onChange={onSizeChange}
+                itemType="size"
+              />
             </ul>
           )}
         </section>
@@ -115,25 +100,12 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                  ${isAnyFilterSelected ? styles['section__list_selected'] : ''}`
               }
             >
-              {uniqueColors.map((color, index) => {
-                const checkboxId = `color-${index}`;
-                return (
-                  <div className={styles["section__list-group"]} key={checkboxId}>
-                    <Checkbox
-                      id={checkboxId}
-                      checked={selectedColors.includes(color)}
-                      onChange={() => onColorChange(color)}
-                    />
-                    <InputLabel
-                      key={index}
-                      className={styles.section__item}
-                      htmlFor={checkboxId}
-                    >
-                      {color}
-                    </InputLabel>
-                  </div>
-                );
-              })}
+              <CheckboxItemsList
+                items={uniqueColors}
+                selectedItems={selectedColors}
+                onChange={onColorChange}
+                itemType="color"
+              />
             </ul>
           )}
         </section>
@@ -158,26 +130,12 @@ const FilterSidebar: FC<IFilterSidebar> = ({
                  ${isAnyFilterSelected ? styles['section__list_selected'] : ''}
               `}
             >
-              {price.map((priceElement, index) => {
-                const radioId = `priceElement-${index}`;
-                return (
-                  <div className={styles["section__list-group"]} key={radioId}>
-                    <Radio
-                      id={radioId}
-                      name="price"
-                      checked={selectedPrice === priceElement}
-                      onChange={() => onPriceChange(priceElement)}
-                    />
-                    <InputLabel
-                      className={styles.section__item}
-                      key={index}
-                      htmlFor={radioId}
-                    >
-                      {priceElement}
-                    </InputLabel>
-                  </div>
-                );
-              })}
+              <RadioItemsList
+                items={prices}
+                selectedItem={selectedPrice}
+                onChange={onPriceChange}
+                itemType="price"
+              />
             </ul>
           )}
         </section>

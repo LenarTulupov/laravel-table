@@ -46,7 +46,7 @@ const FilterLayout: FC<IFilterLayout> = ({
     selectedPrice !== '' ||
     selectedSort !== '';
 
-  const price = [
+  const prices = [
     "0 - 5",
     "5 - 10",
     "10 - 20",
@@ -79,7 +79,7 @@ const FilterLayout: FC<IFilterLayout> = ({
           uniqueColors={uniqueColors}
           selectedColors={selectedColors}
           onColorChange={onColorChange}
-          price={price}
+          prices={prices}
           selectedPrice={selectedPrice}
           onPriceChange={onPriceChange}
           isAnyFilterSelected={isAnyFilterSelected}
