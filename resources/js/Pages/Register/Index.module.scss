@@ -5,7 +5,6 @@
         align-items: center;
         justify-content: center;
         height: 100vh;
-        
 
         &__inner {
             display: flex;
@@ -25,7 +24,6 @@
                 width: 120px;
             }
         }
-
         &__name {
             display: flex;
             flex-direction: column;
@@ -44,13 +42,6 @@
             }
         }
         &__btn {
-            // text-transform: uppercase;
-            // padding: 10px 20px;
-            // background-color: #000;
-            // color: white;
-            // font-size: 14px;
-            // border-radius: 6px;
-            // margin-top: 15px;
             border-radius: var(--border-radius);
         }
     }

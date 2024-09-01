@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useRef } from 'react'
 import InputField from '@/Components/InputField/InputField'
 import Button from '@/Components/ui/Buttons/Button/Button'
 import styles from './Index.module.scss'
+import Container from '@/Components/ui/Container/Container'
 
 const Index = () => {
   const { data, setData, post, errors } = useForm({
@@ -26,9 +27,9 @@ const Index = () => {
   useEffect(() => inputRef.current?.focus(), []);
 
   return (
-    <form onSubmit={handleSubmit} className={styles.register}>
-      <div className="container">
-        <div className={`${styles.register__form} ${styles.form}`}>
+    <main className={styles.register}>
+      <Container>
+        <form className={`${styles.register__form} ${styles.form}`} onSubmit={handleSubmit} noValidate>
           <div className={styles.form__inner}>
             <Link href='/' className={styles.form__logo}>
               <Logo className={styles.logo} />
@@ -90,9 +91,9 @@ const Index = () => {
               Sign Up
             </Button>
           </div>
-        </div>
-      </div>
-    </form>
+        </form>
+      </Container>
+    </main>
   )
 }
 
