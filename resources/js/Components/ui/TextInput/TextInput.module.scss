@@ -12,4 +12,10 @@
     &:focus {
         box-shadow: 0 0 0 2px var(--input-color);
     }
+    &_error {
+        box-shadow: 0 0 0 2px var(--error-color) !important;
+    }
+    &:focus .text-input_error {
+        box-shadow: 0 0 0 2px var(--error-color) !important;
+    }
 }

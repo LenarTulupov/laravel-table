@@ -20,6 +20,7 @@ const User = forwardRef<HTMLInputElement, IUser>(({
         <div className={`${styles.user}`}>
             <InputField
                 className={styles.user__name}
+                type='text'
                 htmlFor='name'
                 placeholder='Enter your name'
                 id='name'
@@ -30,6 +31,7 @@ const User = forwardRef<HTMLInputElement, IUser>(({
                 
             <InputField
                 className={styles.user__email}
+                type='email'
                 htmlFor='email'
                 placeholder='Enter your email'
                 id='email'
