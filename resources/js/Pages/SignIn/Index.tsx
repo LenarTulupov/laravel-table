@@ -50,6 +50,7 @@ const Index = () => {
                                 </Link>
                                 <InputField
                                     className={styles['sign-in__email']}
+                                    type="email"
                                     ref={inputRef}
                                     id="email"
                                     htmlFor="email"
@@ -62,6 +63,7 @@ const Index = () => {
                                 />
                                 <InputField
                                     className={styles['sign-in__password']}
+                                    type="password"
                                     id="password"
                                     htmlFor="password"
                                     label="Password"

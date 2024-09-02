@@ -88,6 +88,7 @@ const UserCommentModal: FC<IUserComment> = ({ onClick, productId }) => {
         <Rating rating={rating} onRatingChange={handleRatingChange} />
         <InputField
           className={styles['user-comment__title']}
+          type='text'
           htmlFor='title'
           label='Title of Review'
           id='title'

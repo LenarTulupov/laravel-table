@@ -1,14 +1,17 @@
 import { FC } from 'react';
+import { getErrorMessage, TypeErrorCode } from '@/utils/getErrorMessage';
 import styles from './ErrorMessage.module.scss'
 
 interface IErrorMessage {
-  message: string;
+  code: TypeErrorCode;
 }
 
-const ErrorMessage: FC<IErrorMessage> = ({ message }) => {
-  if(!message) {
+const ErrorMessage: FC<IErrorMessage> = ({ code }) => {
+  if(!code) {
     return null;
   }
+  const message = getErrorMessage(code);
+
   return (
     <div className={styles['error-message']}>
         { message }
