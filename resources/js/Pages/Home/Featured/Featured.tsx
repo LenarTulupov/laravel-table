@@ -2,17 +2,13 @@ import { FC, useEffect, useRef, useState } from 'react';
 import Button from '@/Components/ui/Buttons/Button/Button';
 import Card from '@/Components/Cards/Card/Card';
 import { IProduct } from '@/types/product.interface';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-
 import { AiOutlineCaretUp } from 'react-icons/ai';
-
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 import './Featured-swiper-buttons.css';
-
 import styles from './Featured.module.scss';
 
 interface IFeatured {
@@ -29,7 +25,6 @@ const Featured: FC<IFeatured> = ({ products }) => {
 
     const handleToggleShow = () => {
         setIsShowOpen((prev) => !prev);
-        // Убираем scrollIntoView, чтобы страница не прокручивалась
     };
 
     const getActivefilter = (filter: string) => {

@@ -1,6 +1,6 @@
 import InputLabel from '@/Components/ui/InputLabel/InputLabel'
 import TextInput from '@/Components/ui/TextInput/TextInput'
-import { ChangeEvent, forwardRef } from 'react';
+import { ChangeEvent, FocusEvent, forwardRef } from 'react';
 import ErrorMessage from '@/Components/ui/ErrorMessage/ErrorMessage';
 import { TypeErrorCode } from '@/utils/getErrorMessage';
 import styles from './InputField.module.scss'
@@ -13,6 +13,7 @@ interface IInputField {
   value: string;
   placeholder: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
   error: TypeErrorCode | '';
   className?: string;
   required?: boolean;
@@ -27,6 +28,7 @@ const InputField = forwardRef<HTMLInputElement, IInputField>(({
   value,
   onChange,
   error,
+  onBlur,
   className,
   required }, ref) => {
   return (
@@ -41,6 +43,7 @@ const InputField = forwardRef<HTMLInputElement, IInputField>(({
         value={value}
         onChange={onChange}
         error={error}
+        onBlur={onBlur}
       />
       {error && <ErrorMessage code={error} />}
     </div>

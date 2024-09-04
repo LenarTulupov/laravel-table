@@ -1,14 +1,16 @@
 export type TypeErrorCode = 
-  'NAME_TOO_SHORT' | 
+  'NAME_ERROR' | 
   'EMAIL_INVALID' | 
-  'PASSWORD_TOO_SHORT' | 
-  'PASSWORD_MISMATCH';
+  'PASSWORD_ERROR' | 
+  'PASSWORD_MISMATCH' | 
+  'PASSWORD_CONFIRMATION_REQUIRED'; 
 
 const messages: Record<TypeErrorCode, string> = {
-  'NAME_TOO_SHORT': 'Please enter a valid name.',
+  'NAME_ERROR': 'Please enter a valid name.',
   'EMAIL_INVALID': 'Please enter a valid email address.',
-  'PASSWORD_TOO_SHORT': 'Please enter a valid password.',
+  'PASSWORD_ERROR': 'Please enter a valid password.',
   'PASSWORD_MISMATCH': 'Passwords do not match.',
+  'PASSWORD_CONFIRMATION_REQUIRED': 'Please confirm your password.', 
 };
 
 export const getErrorMessage = (code: TypeErrorCode): string => {

@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useRef } from "react"
+import { FormEvent, useEffect, useRef, useState } from "react"
 import { Link, useForm } from "@inertiajs/react";
 import InputField from "@/Components/InputField/InputField";
 import UserLayout from "@/Layouts/UserLayout/UserLayout";
@@ -21,6 +21,7 @@ const Index = () => {
         password: '',
         remember: false
     });
+
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
@@ -81,7 +82,7 @@ const Index = () => {
                                         htmlFor="checkbox"
                                         label="Remember me"
                                     />
-                                    <Link href="#!">
+                                    <Link href="#!" className={styles['sign-in__flex-forgot']}>
                                         Forgot your password?
                                     </Link>
                                 </div>

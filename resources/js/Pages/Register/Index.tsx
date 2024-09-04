@@ -37,7 +37,7 @@ const Index = () => {
     const newErrors = { ...errors };
 
     if (field === 'name' && data.name.length < 3) {
-      newErrors.name = 'NAME_TOO_SHORT';
+      newErrors.name = 'NAME_ERROR';
     } else if (field === 'name') {
       newErrors.name = '';
     }
@@ -50,15 +50,19 @@ const Index = () => {
     }
   
     if (field === 'password' && data.password.length < 8) {
-      newErrors.password = 'PASSWORD_TOO_SHORT';
+      newErrors.password = 'PASSWORD_ERROR';
     } else if (field === 'password') {
       newErrors.password = '';
     }
   
-    if (field === 'password_confirmation' && data.password !== data.password_confirmation) {
-      newErrors.password_confirmation = 'PASSWORD_MISMATCH';
-    } else if (field === 'password_confirmation') {
-      newErrors.password_confirmation = '';
+    if (field === 'password_confirmation') {
+      if (data.password_confirmation === '') {
+        newErrors.password_confirmation = 'PASSWORD_CONFIRMATION_REQUIRED';
+      } else if (data.password !== data.password_confirmation) {
+        newErrors.password_confirmation = 'PASSWORD_MISMATCH';
+      } else {
+        newErrors.password_confirmation = '';
+      }
     }
 
     setErrors(newErrors);
@@ -76,6 +80,14 @@ const Index = () => {
 
     validate(field);
   };
+
+  const handleBlur = (field: TypeFormFields) => {
+    setTouched({
+      ...touched,
+      [field]: true
+    });
+    validate(field);
+  }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -113,6 +125,7 @@ const Index = () => {
                 required={true}
                 ref={inputRef}
                 error={touched.name ? errors.name : ''}
+                onBlur={() => handleBlur('name')}
               />
             </div>
             <div className={styles.form__email}>
@@ -125,6 +138,7 @@ const Index = () => {
                 placeholder='Enter your email'
                 required={true}
                 error={touched.email ? errors.email : ''}
+                onBlur={() => handleBlur('email')}
               />
             </div>
             <div className={styles.form__password}>
@@ -137,6 +151,7 @@ const Index = () => {
                 placeholder='Enter your password'
                 required={true}
                 error={touched.password ? errors.password : ''}
+                onBlur={() => handleBlur('password')}
               />
             </div>
             <div className={styles['form__password-confirmation']}>
@@ -149,6 +164,7 @@ const Index = () => {
                 placeholder='Confirm your password'
                 required={true}
                 error={touched.password_confirmation ? errors.password_confirmation : ''}
+                onBlur={() => handleBlur('password_confirmation')}
               />
             </div>
             <Button
