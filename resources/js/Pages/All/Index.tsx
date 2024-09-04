@@ -9,6 +9,10 @@ import FilterLayout from "@/Layouts/FilterLayout/FilterLayout";
 import SpinnerLoader from "@/Components/ui/SpinnerLoader/SpinnerLoader";
 import ProductsGridContainer from "@/Components/ui/ProductsGridContainer/ProductsGridContainer";
 import styles from "./Index.module.scss";
+import ScrollToTopButton from "@/Components/ui/Buttons/ScrollToTopButton/ScrollToTopButton";
+import useScrollToTop from "@/hooks/useScrollToTop";
+import useScrollVisibility from "@/hooks/useScrollVisibility";
+import scrollToTop from "@/utils/scrollToTop";
 
 const All = () => {
   const { ITEMS_PER_PAGE } = usePaginationContext();
@@ -26,6 +30,8 @@ const All = () => {
     selectedSort,
     handleSortChange
   } = useFilterContext();
+  const isScrollButtonVisible = useScrollVisibility(1000);
+  useScrollToTop();
 
   const { loading } = useProductsContext();
 
@@ -75,6 +81,11 @@ const All = () => {
           />
         </FilterLayout>
       </GuestLayout>
+      <ScrollToTopButton
+        onClick={scrollToTop}
+        isVisible={isScrollButtonVisible}
+        className={styles.scroll}
+      />
     </main>
   );
 };

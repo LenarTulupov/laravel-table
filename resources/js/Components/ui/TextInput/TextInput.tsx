@@ -1,10 +1,11 @@
-import { ChangeEvent, forwardRef, memo, Ref } from "react"
+import { ChangeEvent, FocusEvent, forwardRef, memo, Ref } from "react"
 import styles from './TextInput.module.scss'
 
 export interface ITextInput {
   type: 'text' | 'email' | 'password' | 'tel';
   value: string
   onChange: (e: ChangeEvent<HTMLInputElement>) => void
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
   placeholder?: string
   id?: string
   required?: boolean
@@ -19,10 +20,10 @@ const TextInput = forwardRef<HTMLInputElement, ITextInput>(({
   placeholder,
   id,
   required = false,
+  onBlur,
   className,
   error
 }, ref: Ref<HTMLInputElement>) => {
-  console.log(error)
   return (
     <input
       type={type}
@@ -33,6 +34,7 @@ const TextInput = forwardRef<HTMLInputElement, ITextInput>(({
       required={required}
       className={`${styles['text-input']} ${error ? styles['text-input_error'] : ''} ${className || ''}`}
       ref={ref}
+      onBlur={onBlur}
     />
   )
 });

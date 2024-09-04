@@ -7,6 +7,10 @@ import Pagination from "@/Components/Pagination/Pagination";
 import Card from "@/Components/Cards/Card/Card";
 import ProductsGridContainer from "@/Components/ui/ProductsGridContainer/ProductsGridContainer";
 import styles from './Index.module.scss'
+import useScrollVisibility from "@/hooks/useScrollVisibility";
+import useScrollToTop from "@/hooks/useScrollToTop";
+import ScrollToTopButton from "@/Components/ui/Buttons/ScrollToTopButton/ScrollToTopButton";
+import scrollToTop from "@/utils/scrollToTop";
 
 const Trends = () => {
   const { ITEMS_PER_PAGE } = usePaginationContext();
@@ -24,6 +28,8 @@ const Trends = () => {
     selectedSort,
     handleSortChange
   } = useFilterContext();
+  const isScrollButtonVisible = useScrollVisibility(1000);
+  useScrollToTop();
 
 
   const filtered = filteredProducts.filter((product) => {
@@ -73,6 +79,11 @@ const Trends = () => {
           />
         </FilterLayout>
       </GuestLayout>
+      <ScrollToTopButton
+        onClick={scrollToTop}
+        isVisible={isScrollButtonVisible}
+        className={styles.scroll}
+      />
     </main>
   );
 };

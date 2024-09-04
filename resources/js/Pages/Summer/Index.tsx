@@ -7,6 +7,10 @@ import { useState } from "react";
 import Pagination from "@/Components/Pagination/Pagination";
 import ProductsGridContainer from "@/Components/ui/ProductsGridContainer/ProductsGridContainer";
 import styles from "./Index.module.scss";
+import useScrollVisibility from "@/hooks/useScrollVisibility";
+import useScrollToTop from "@/hooks/useScrollToTop";
+import ScrollToTopButton from "@/Components/ui/Buttons/ScrollToTopButton/ScrollToTopButton";
+import scrollToTop from "@/utils/scrollToTop";
 
 const Summer = () => {
   const { ITEMS_PER_PAGE } = usePaginationContext();
@@ -24,6 +28,9 @@ const Summer = () => {
     selectedSort,
     handleSortChange
   } = useFilterContext();
+
+  const isScrollButtonVisible = useScrollVisibility(1000);
+  useScrollToTop();
 
   const filtered = filteredProducts.filter(
     (product) => product.categories.some(category => category.name === 'summer'),
@@ -71,6 +78,11 @@ const Summer = () => {
           />
         </FilterLayout>
       </GuestLayout>
+      <ScrollToTopButton
+        onClick={scrollToTop}
+        isVisible={isScrollButtonVisible}
+        className={styles.scroll}
+      />
     </main>
   );
 };

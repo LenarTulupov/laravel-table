@@ -12,15 +12,15 @@ interface IScrollToTopButton {
 const ScrollToTopButton = 
   forwardRef<HTMLButtonElement, IScrollToTopButton>(
     ({ onClick, isVisible, className }, ref) => {
-  if(!isVisible) {
-    return null;
-  }
+  // if(!isVisible) {
+  //   return null;
+  // }
   return (
     <Button 
       variant="black" 
       ref={ref} 
       onClick={onClick} 
-      className={`${styles.button} ${className}`}
+      className={`${styles.button} ${isVisible ? styles.button_visible : ''} ${className}`}
     >
       <AiOutlineCaretUp className={styles.button__icon}/>
     </Button>

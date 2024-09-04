@@ -39,12 +39,12 @@ const Home = () => {
             <Benefits />
           </div>
         </Container>
-        <ScrollToTopButton
-          onClick={scrollToTop}
-          isVisible={isScrollButtonVisible}
-          className={styles.scroll}
-        />
       </GuestLayout>
+      <ScrollToTopButton
+        onClick={scrollToTop}
+        isVisible={isScrollButtonVisible}
+        className={styles.scroll}
+      />
     </main>
   )
 }
