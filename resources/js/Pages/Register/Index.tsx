@@ -6,6 +6,7 @@ import InputField from '@/Components/InputField/InputField'
 import Button from '@/Components/ui/Buttons/Button/Button'
 import Container from '@/Components/ui/Container/Container'
 import styles from './Index.module.scss'
+// import { BiSolidHide } from 'react-icons/bi'
 
 type TypeFormFields = 'name' | 'email' | 'password' | 'password_confirmation';
 
@@ -33,36 +34,42 @@ const Index = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const validate = (field: TypeFormFields) => {
+  const validate = () => {
     const newErrors = { ...errors };
 
-    if (field === 'name' && data.name.length < 3) {
+    const nameRegex = /^[a-zA-Z]+$/;
+    if(!nameRegex.test(data.name)) {
       newErrors.name = 'NAME_ERROR';
-    } else if (field === 'name') {
+    } else if (data.name.length < 3) {
+      newErrors.name = 'NAME_ERROR';
+    } else {
       newErrors.name = '';
     }
-  
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (field === 'email' && !emailRegex.test(data.email)) {
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(data.email)) {
       newErrors.email = 'EMAIL_INVALID';
-    } else if (field === 'email') {
+    } else {
       newErrors.email = '';
     }
-  
-    if (field === 'password' && data.password.length < 8) {
+
+    const passwordRegex = /^[a-zA-Z0-9]+$/;
+    if (data.password.length < 8) {
       newErrors.password = 'PASSWORD_ERROR';
-    } else if (field === 'password') {
+    } else if (!passwordRegex.test(data.password)) {
+      newErrors.password = 'PASSWORD_ERROR';
+    } else {
       newErrors.password = '';
     }
-  
-    if (field === 'password_confirmation') {
-      if (data.password_confirmation === '') {
-        newErrors.password_confirmation = 'PASSWORD_CONFIRMATION_REQUIRED';
-      } else if (data.password !== data.password_confirmation) {
-        newErrors.password_confirmation = 'PASSWORD_MISMATCH';
-      } else {
-        newErrors.password_confirmation = '';
-      }
+
+    if (data.password_confirmation === '') {
+      newErrors.password_confirmation = 'PASSWORD_CONFIRMATION_REQUIRED';
+    } else if(!passwordRegex.test(data.password_confirmation)) {
+      newErrors.password_confirmation = 'PASSWORD_CONFIRMATION_REQUIRED';
+    } else if (data.password !== data.password_confirmation) {
+      newErrors.password_confirmation = 'PASSWORD_MISMATCH';
+    } else {
+      newErrors.password_confirmation = '';
     }
 
     setErrors(newErrors);
@@ -77,8 +84,6 @@ const Index = () => {
         [field]: true
       });
     }
-
-    validate(field);
   };
 
   const handleBlur = (field: TypeFormFields) => {
@@ -86,8 +91,7 @@ const Index = () => {
       ...touched,
       [field]: true
     });
-    validate(field);
-  }
+  };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -99,6 +103,10 @@ const Index = () => {
       });
     }
   };
+
+  useEffect(() => {
+    validate();
+  }, [data]); 
 
   useEffect(() => inputRef.current?.focus(), []);
 
