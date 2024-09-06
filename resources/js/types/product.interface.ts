@@ -55,13 +55,3 @@ export interface IProduct {
   size: ISize; 
   categories: ICategory[]
 }
-
-// export interface IProduct { 
-//   id: number;
-//   title: string;
-//   price_new: string;
-//   price_old: string;
-//   product_colors: IProductColor[];
-//   sizes: ISizes[];
-//   images: string[];
-// }

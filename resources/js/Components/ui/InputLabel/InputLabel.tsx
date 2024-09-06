@@ -1,11 +1,5 @@
-import { FC, ReactNode } from "react";
-
-interface IInputLabel {
-  htmlFor: string;
-  className?: string;
-  children?: ReactNode;
-  label?: string;
-}
+import { IInputLabel } from "@/types/input-label.interface";
+import { FC } from "react";
 
 const InputLabel: FC<IInputLabel> = ({ htmlFor, className, children, label }) => {
   return (

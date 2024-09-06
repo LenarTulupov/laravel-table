@@ -1,25 +1,13 @@
 import InputLabel from '@/Components/ui/InputLabel/InputLabel'
 import TextInput from '@/Components/ui/TextInput/TextInput'
-import { ChangeEvent, FocusEvent, forwardRef } from 'react';
+import { forwardRef } from 'react';
 import ErrorMessage from '@/Components/ui/ErrorMessage/ErrorMessage';
-import { TypeErrorCode } from '@/utils/getErrorMessage';
+import { IInputLabel } from '@/types/input-label.interface';
+import { ITextInput } from '@/types/text-input.interface';
 import styles from './InputField.module.scss'
+import { TypeErrorCode } from '@/utils/getErrorMessage';
 
-interface IInputField {
-  id: string;
-  type: 'text' | 'email' | 'password' | 'tel';
-  htmlFor: string;
-  label?: string;
-  value: string;
-  placeholder: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  error: TypeErrorCode | '';
-  className?: string;
-  required?: boolean;
-}
-
-const InputField = forwardRef<HTMLInputElement, IInputField>(({
+const InputField = forwardRef<HTMLInputElement, ITextInput & IInputLabel>(({
   id,
   type,
   htmlFor,
@@ -27,9 +15,10 @@ const InputField = forwardRef<HTMLInputElement, IInputField>(({
   placeholder,
   value,
   onChange,
-  error,
+  error = '',
   onBlur,
   className,
+  inputStyles,
   required }, ref) => {
   return (
     <div className={`${styles['input-field']} ${className || ''}`}>
@@ -44,8 +33,9 @@ const InputField = forwardRef<HTMLInputElement, IInputField>(({
         onChange={onChange}
         error={error}
         onBlur={onBlur}
+        inputStyles={inputStyles}
       />
-      {error && <ErrorMessage code={error} />}
+      {error && <ErrorMessage code={error as TypeErrorCode} />}
     </div>
   )
 });

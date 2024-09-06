@@ -13,9 +13,15 @@
         box-shadow: 0 0 0 2px var(--input-color);
     }
     &_error {
-        box-shadow: 0 0 0 2px var(--error-color) !important;
+        box-shadow: 0 0 0 2px var(--error-color) ;
+        &:hover {
+            box-shadow: 0 0 0 2px var(--error-color);
+        }
+        &:focus {
+            box-shadow: 0 0 0 2px var(--error-color);
+        }
     }
     &:focus .text-input_error {
-        box-shadow: 0 0 0 2px var(--error-color) !important;
+        box-shadow: 0 0 0 2px var(--error-color) ;
     }
 }
