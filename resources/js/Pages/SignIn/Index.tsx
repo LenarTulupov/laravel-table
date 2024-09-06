@@ -60,7 +60,6 @@ const Index = () => {
                                     placeholder="Enter your email"
                                     onChange={e => setData('email', e.target.value)}
                                     required={true}
-                                    error={errors.email}
                                 />
                                 <InputField
                                     className={styles['sign-in__password']}
@@ -72,7 +71,6 @@ const Index = () => {
                                     placeholder="Enter your password"
                                     onChange={e => setData('password', e.target.value)}
                                     required={true}
-                                    error={errors.password}
                                 />
                                 <div className={styles['sign-in__flex']}>
                                     <CheckboxLabel

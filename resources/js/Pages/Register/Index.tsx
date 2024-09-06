@@ -1,16 +1,23 @@
-import Logo from '@/Components/ui/Logo/Logo'
 import { Link, useForm } from '@inertiajs/react'
 import { FormEvent, useEffect, useRef, useState } from 'react'
 import { TypeErrorCode } from '@/utils/getErrorMessage'
 import InputField from '@/Components/InputField/InputField'
 import Button from '@/Components/ui/Buttons/Button/Button'
 import Container from '@/Components/ui/Container/Container'
+import IconButton from '@/Components/ui/Buttons/IconButton/IconButton'
+import Logo from '@/Components/ui/Logo/Logo'
+import { BiSolidHide } from 'react-icons/bi'
+import { BiSolidShow } from "react-icons/bi";
 import styles from './Index.module.scss'
-// import { BiSolidHide } from 'react-icons/bi'
+import InputLabel from '@/Components/ui/InputLabel/InputLabel'
+import TextInput from '@/Components/ui/TextInput/TextInput'
+import ErrorMessage from '@/Components/ui/ErrorMessage/ErrorMessage'
+import { validateEmail, validateName, validatePassword, validatePasswordConfirmation } from '@/utils/validation'
 
 type TypeFormFields = 'name' | 'email' | 'password' | 'password_confirmation';
 
 const Index = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const { data, setData, post } = useForm({
     name: '',
     email: '',
@@ -32,45 +39,19 @@ const Index = () => {
     password_confirmation: false
   });
 
+  const handleShowPassword = () => {
+    setShowPassword(p => !p);
+  }
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   const validate = () => {
     const newErrors = { ...errors };
 
-    const nameRegex = /^[a-zA-Z]+$/;
-    if(!nameRegex.test(data.name)) {
-      newErrors.name = 'NAME_ERROR';
-    } else if (data.name.length < 3) {
-      newErrors.name = 'NAME_ERROR';
-    } else {
-      newErrors.name = '';
-    }
-
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(data.email)) {
-      newErrors.email = 'EMAIL_INVALID';
-    } else {
-      newErrors.email = '';
-    }
-
-    const passwordRegex = /^[a-zA-Z0-9]+$/;
-    if (data.password.length < 8) {
-      newErrors.password = 'PASSWORD_ERROR';
-    } else if (!passwordRegex.test(data.password)) {
-      newErrors.password = 'PASSWORD_ERROR';
-    } else {
-      newErrors.password = '';
-    }
-
-    if (data.password_confirmation === '') {
-      newErrors.password_confirmation = 'PASSWORD_CONFIRMATION_REQUIRED';
-    } else if(!passwordRegex.test(data.password_confirmation)) {
-      newErrors.password_confirmation = 'PASSWORD_CONFIRMATION_REQUIRED';
-    } else if (data.password !== data.password_confirmation) {
-      newErrors.password_confirmation = 'PASSWORD_MISMATCH';
-    } else {
-      newErrors.password_confirmation = '';
-    }
+    newErrors.name = validateName(data.name);
+    newErrors.email = validateEmail(data.email);
+    newErrors.password = validatePassword(data.password);
+    newErrors.password_confirmation = validatePasswordConfirmation(data.password, data.password_confirmation);
 
     setErrors(newErrors);
   };
@@ -106,7 +87,7 @@ const Index = () => {
 
   useEffect(() => {
     validate();
-  }, [data]); 
+  }, [data]);
 
   useEffect(() => inputRef.current?.focus(), []);
 
@@ -150,21 +131,46 @@ const Index = () => {
               />
             </div>
             <div className={styles.form__password}>
-              <InputField
-                type='password'
-                htmlFor='password'
-                id='password'
-                value={data.password}
-                onChange={e => handleChange('password', e.target.value)}
-                placeholder='Enter your password'
-                required={true}
-                error={touched.password ? errors.password : ''}
-                onBlur={() => handleBlur('password')}
-              />
+              <div className={`
+                  ${styles['form__password-wrapper']} 
+                  ${touched.password &&
+                  errors.password ?
+                  styles['form__password-wrapper_error'] : ''}
+              `}>
+                <InputLabel htmlFor='password' />
+                <div className={styles['form__password-wrapper-flex']}>
+                  <TextInput
+                    type={showPassword ? 'text' : 'password'}
+                    id='password'
+                    value={data.password}
+                    onChange={e => handleChange('password', e.target.value)}
+                    placeholder='Enter your password'
+                    required={true}
+                    error={touched.password ? errors.password : ''}
+                    onBlur={() => handleBlur('password')}
+                    inputStyles={styles['input-styles']} />
+                  <IconButton
+                    disabled={data.password.length === 0}
+                    onClick={handleShowPassword}
+                    className={styles['form__password-show']}
+                  >
+                    {data.password.length > 0 && (
+                      showPassword ? (
+                        <BiSolidShow />
+                      ) : (
+                        <BiSolidHide />
+                      )
+                    )}
+                  </IconButton>
+                </div>
+              </div>
+              {touched.password && errors.password && (
+                <ErrorMessage code={errors.password} />
+              )}
             </div>
             <div className={styles['form__password-confirmation']}>
               <InputField
-                type='password'
+                type={showPassword ? 'text' : 'password'}
                 htmlFor='password_confirmation'
                 id='password_confirmation'
                 value={data.password_confirmation}

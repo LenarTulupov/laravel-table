@@ -33,8 +33,71 @@
             flex-direction: column;
         }
         &__password {
+            position: relative;
             display: flex;
             flex-direction: column;
+
+            &-show {
+                padding-right: 10px;
+                font-size: 20px;
+            }
+            &-wrapper {
+                display: flex;
+                background-color: #fff;
+                border-radius: var(--border-radius);
+                box-shadow: 0 0 0 0.4px black;
+                &:focus-within {
+                    box-shadow: 0 0 0 2px var(--input-color);
+                }
+                &:not(:focus-within):hover {
+                    box-shadow: 0 0 0 1.5px var(--input-color);
+                    border: none;
+                    outline: none;
+                }
+                
+                &_error {
+                    box-shadow: 0 0 0 2px var(--error-color) !important;
+                    &:hover {
+                        box-shadow: 0 0 0 2px var(--error-color);
+                    }
+                    &:focus {
+                        box-shadow: 0 0 0 2px var(--error-color);
+                    }
+                }
+                // &:focus .form__password-wrapper_error {
+                //     box-shadow: 0 0 0 2px var(--error-color);
+                // }
+                &-flex {
+                    display: flex;
+                    border-radius: 6px;
+                    width: 100%;
+                }
+            }
+            &-hide {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+                font-size: 20px;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 100%;
+                    background-color: transparent;
+                    z-index: -1;
+                    transition: background-color 0.3s;
+                }
+
+                &:hover::before {
+                    background-color: #e4e4e4;
+                }
+            }
 
             &-confirmation {
                 display: flex;
@@ -46,4 +109,18 @@
         }
     }
 }
-
+.input-styles {
+    padding-right: 15px;
+    padding-left: 10px;
+    border-radius: 6px 0 0 6px;
+    box-shadow: none;
+    &:hover {
+        box-shadow: none;
+    }
+    &_error {
+        box-shadow: none;
+    }
+    &:focus {
+        box-shadow: none;
+    }
+}

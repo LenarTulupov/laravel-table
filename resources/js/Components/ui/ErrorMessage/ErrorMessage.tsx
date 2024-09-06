@@ -13,7 +13,7 @@ const ErrorMessage: FC<IErrorMessage> = ({ code }) => {
   const message = getErrorMessage(code);
 
   return (
-    <div className={styles['error-message']}>
+    <div className={`${styles['error-message']}`}>
         { message }
     </div>
   )
