@@ -1,27 +1,8 @@
-import { IProduct } from "@/types/product.interface";
 import { ReactNode, createContext, useContext, useMemo, useState } from "react";
 import { useProductsContext } from "./ProductsContext";
+import { IFilter } from "@/types/filter.interface";
 
-interface IFilterContext {
-  selectedSizes: string[];
-  setSelectedSizes: (sizes: string[]) => void;
-  filteredProducts: IProduct[];
-  uniqueSizes: string[];
-  handleSizeChange: (size: string) => void;
-  selectedColors: string[];
-  setSelectedColors: (colors: string[]) => void;
-  uniqueColors: string[];
-  handleColorChange: (color: string) => void;
-  selectedPrice: string;
-  setSelectedPrice: (price: string) => void;
-  handlePriceChange: (price: string) => void;
-  selectedSort: string;
-  setSelectedSort: (sort: string) => void;
-  handleSortChange: (sort: string) => void;
-  resetFilters: () => void;
-}
-
-const FilterContext = createContext<IFilterContext>({} as IFilterContext);
+const FilterContext = createContext<IFilter>({} as IFilter);
 
 export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const { products } = useProductsContext();

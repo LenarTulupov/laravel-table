@@ -1,22 +1,7 @@
-import { FC, ReactNode, useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import FilterSidebar from "@/Components/FilterSidebar/FilterSidebar";
+import { IFilterLayout, OpenSection } from "@/types/filter-layout.interface";
 import styles from "./FilterLayout.module.scss";
-
-interface IFilterLayout {
-  uniqueSizes: string[];
-  uniqueColors: string[];
-  selectedSizes: string[];
-  onSizeChange: (size: string) => void;
-  selectedColors: string[];
-  onColorChange: (color: string) => void;
-  selectedPrice: string;
-  onPriceChange: (price: string) => void;
-  selectedSort: string;
-  onSortChange: (sort: string) => void;
-  children: ReactNode;
-}
-
-type OpenSection = "sizes" | "colors" | "prices" | "sort" | null;
 
 const FilterLayout: FC<IFilterLayout> = ({
   uniqueSizes,
