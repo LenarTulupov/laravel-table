@@ -1,28 +1,10 @@
-import { FC, RefObject } from 'react';
+import { FC } from 'react';
 import { useFilterContext } from '@/Contexts/FilterContext';
 import Button from '../ui/Buttons/Button/Button';
 import CheckboxItemsList from '../CheckboxItemsList/CheckboxItemsList';
 import RadioItemsList from '../RadioItemsList/RadioItemsList';
+import { IFilterSidebar } from '@/types/filter-sidebar.interface';
 import styles from './FilterSidebar.module.scss'
-
-interface IFilterSidebar {
-  isSectionOpened: "sizes" | "colors" | "prices" | "sort" | null;
-  toggleSection: (section: "sizes" | "colors" | "prices" | "sort" | null) => void;
-  uniqueSizes: string[];
-  selectedSizes: string[];
-  onSizeChange: (size: string) => void;
-  uniqueColors: string[];
-  selectedColors: string[];
-  onColorChange: (color: string) => void;
-  prices: string[];
-  selectedPrice: string;
-  onPriceChange: (price: string) => void;
-  isAnyFilterSelected: boolean;
-  selectRef: RefObject<HTMLSelectElement>;
-  selectedSort: string;
-  onSortChange: (sort: string) => void;
-  sort: string[];
-}
 
 const FilterSidebar: FC<IFilterSidebar> = ({
   isSectionOpened,
